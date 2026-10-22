@@ -1,0 +1,50 @@
+[
+  {
+    "id": "signature",
+    "name": "01 · Signature",
+    "title": "Fidèle & équilibrée",
+    "blue": "#0078A9",
+    "brand": "#009DE0",
+    "ink": "#12333D",
+    "orange": "#ED8F00",
+    "cream": "#F7F7F1",
+    "surface": "#E5F3FA",
+    "description": "La couleur Expernet au premier plan, des fonds crème et un bleu de lecture plus profond. La piste recommandée pour conserver le caractère de marque."
+  },
+  {
+    "id": "ocean",
+    "name": "02 · Océan",
+    "title": "Calme & ancrée",
+    "blue": "#007AA8",
+    "brand": "#009DE0",
+    "ink": "#07354A",
+    "orange": "#F0A029",
+    "cream": "#F4F8FA",
+    "surface": "#DFEEF4",
+    "description": "Une nuance de bleu plus marine, des gris bleutés et un orange légèrement adouci. Une ambiance apaisée, en lien avec les territoires de l’océan Indien."
+  },
+  {
+    "id": "lumiere",
+    "name": "03 · Lumière",
+    "title": "Chaleureuse & accessible",
+    "blue": "#006F9E",
+    "brand": "#009DE0",
+    "ink": "#173847",
+    "orange": "#FFB547",
+    "cream": "#FFFCF5",
+    "surface": "#EAF6FA",
+    "description": "Des fonds ivoire, un orange solaire et des touches cyan. Une piste plus accueillante, adaptée aux parcours de reconversion et de découverte."
+  },
+  {
+    "id": "expert",
+    "name": "04 · Expertise",
+    "title": "Structurée & professionnelle",
+    "blue": "#006E9D",
+    "brand": "#009DE0",
+    "ink": "#10283F",
+    "orange": "#DE8500",
+    "cream": "#F3F6FA",
+    "surface": "#E3EDF5",
+    "description": "Un bleu nuit plus affirmé, un orange ambré et des fonds gris froids. Une piste plus institutionnelle, orientée formations techniques et entreprises."
+  }
+]

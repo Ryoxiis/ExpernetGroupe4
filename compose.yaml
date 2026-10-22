@@ -1,0 +1,30 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - .:/app
+    environment:
+      APP_ENV: local
+      DB_HOST: database
+      DB_PORT: 3306
+      DB_DATABASE: ${DB_DATABASE:-expernet}
+      DB_USERNAME: ${DB_USERNAME:-expernet}
+      DB_PASSWORD: ${DB_PASSWORD:-}
+
+  database:
+    image: mysql:8.4
+    profiles: [database]
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-expernet}
+      MYSQL_USER: ${DB_USERNAME:-expernet}
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Copier .env.example vers .env et choisir un mot de passe local}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Choisir un mot de passe root local}
+    volumes:
+      - database_data:/var/lib/mysql
+
+volumes:
+  database_data:

@@ -1,0 +1,25 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+config/local.php
+
+# Dependencies / tools
+/vendor/
+/node_modules/
+.phpunit.cache/
+/coverage/
+
+# Runtime and editor files
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local AI instructions and skills (share separately with the team)
+/.ai/
+/rules.md
+/SKILL.md
+/docs/context/rules.md
+/docs/context/SKILL.md

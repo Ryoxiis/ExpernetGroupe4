@@ -1,0 +1,11 @@
+{
+  "name": "expernet-refonte-start",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "php tests/run.php",
+    "test:http": "python3 tests/http_smoke.py",
+    "start": "php -S 127.0.0.1:8080 -t public public/router.php"
+  }
+}

@@ -1,0 +1,21 @@
+name: Checks
+on: [push, pull_request]
+jobs:
+  php-and-js:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: find app bootstrap config public tests -name '*.php' -print0 | xargs -0 -n1 php -l
+      - run: php tests/run.php
+      - run: node tests/frontend.test.js
+      - run: |
+          php -S 127.0.0.1:8080 -t public public/router.php > /tmp/expernet-php.log 2>&1 &
+          for attempt in 1 2 3 4 5; do curl -fsS http://127.0.0.1:8080/ > /dev/null && break; sleep 1; done
+          python3 tests/http_smoke.py

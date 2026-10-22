@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: Expernet — API publique du prototype
+  version: 0.1.0
+  description: Collections en lecture seule. Instantané du 22 octobre 2026, sans compte ni écriture.
+servers:
+  - url: http://127.0.0.1:8080
+paths:
+  /api/formations/:
+    get:
+      operationId: listCourses
+      summary: Résumés publics des 149 formations
+      responses:
+        '200':
+          description: Catalogue destiné au filtre interactif
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+  /api/sessions/:
+    get:
+      operationId: listSessions
+      summary: Sessions publiques relevées au 22 octobre 2026
+      responses:
+        '200':
+          description: Calendrier figé, sans garantie de disponibilité
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Session'
+  /api/palettes/:
+    get:
+      operationId: listPalettes
+      summary: Quatre palettes, Océan étant retenue par défaut
+      responses:
+        '200':
+          description: Valeurs des palettes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Palette'
+components:
+  schemas:
+    Course:
+      type: object
+      required: [id, title, slug, path, category, categories, duration, audience, image]
+      properties:
+        id: { type: integer }
+        title: { type: string }
+        slug: { type: string }
+        path: { type: string }
+        category: { type: string }
+        categories: { type: array, items: { type: string } }
+        duration: { type: string }
+        audience: { type: string }
+        image: { type: string }
+    Session:
+      type: object
+      required: [date, end, location, title, path, category]
+      properties:
+        date: { type: string, format: date }
+        end: { type: string, description: Date ISO ou chaîne vide }
+        location: { type: string }
+        title: { type: string }
+        path: { type: string }
+        category: { type: string }
+    Palette:
+      type: object
+      required: [id, name, title, blue, brand, ink, orange, cream, surface, description]
+      properties:
+        id: { type: string, enum: [signature, ocean, lumiere, expert] }
+        name: { type: string }
+        title: { type: string }
+        blue: { type: string }
+        brand: { type: string }
+        ink: { type: string }
+        orange: { type: string }
+        cream: { type: string }
+        surface: { type: string }
+        description: { type: string }

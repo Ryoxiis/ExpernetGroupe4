@@ -1,0 +1,1057 @@
+{
+  "/": {
+    "title": "Votre prochain déclic commence ici",
+    "type": "page",
+    "view": "pages/home"
+  },
+  "/formation/": {
+    "title": "Toutes nos formations",
+    "type": "catalogue",
+    "theme": ""
+  },
+  "/thematique/google-workspace/": {
+    "title": "Google Workspace",
+    "type": "catalogue",
+    "theme": "Google Workspace"
+  },
+  "/thematique/intelligence-artificielle/": {
+    "title": "Intelligence artificielle",
+    "type": "catalogue",
+    "theme": "Intelligence artificielle"
+  },
+  "/thematique/microsoft-technique/": {
+    "title": "Microsoft Technique",
+    "type": "catalogue",
+    "theme": "Microsoft Technique"
+  },
+  "/thematique/linux-open-source/": {
+    "title": "Linux - Open source",
+    "type": "catalogue",
+    "theme": "Linux - Open source"
+  },
+  "/thematique/reseaux/": {
+    "title": "Réseaux",
+    "type": "catalogue",
+    "theme": "Réseaux"
+  },
+  "/thematique/cao-conception-assistee-par-ordinateur/": {
+    "title": "CAO",
+    "type": "catalogue",
+    "theme": "CAO"
+  },
+  "/thematique/cybersecurite/": {
+    "title": "Cybersécurité",
+    "type": "catalogue",
+    "theme": "Cybersécurité"
+  },
+  "/thematique/gestion-de-projets/": {
+    "title": "Gestion de projets",
+    "type": "catalogue",
+    "theme": "Gestion de projets"
+  },
+  "/thematique/langages-et-developpement/": {
+    "title": "Langages et développement",
+    "type": "catalogue",
+    "theme": "Langages et développement"
+  },
+  "/thematique/bureautique/": {
+    "title": "Bureautique",
+    "type": "catalogue",
+    "theme": "Bureautique"
+  },
+  "/thematique/microsoft-office/": {
+    "title": "Microsoft Office",
+    "type": "catalogue",
+    "theme": "Microsoft Office"
+  },
+  "/thematique/access/": {
+    "title": "Access",
+    "type": "catalogue",
+    "theme": "Access"
+  },
+  "/thematique/pao-publication-assistee-par-ordinateur/": {
+    "title": "PAO",
+    "type": "catalogue",
+    "theme": "PAO"
+  },
+  "/thematique/communication-digitale/": {
+    "title": "Communication digitale",
+    "type": "catalogue",
+    "theme": "Communication digitale"
+  },
+  "/thematique/libre-office/": {
+    "title": "Libre Office",
+    "type": "catalogue",
+    "theme": "Libre Office"
+  },
+  "/thematique/internet-web/": {
+    "title": "Internet - Web",
+    "type": "catalogue",
+    "theme": "Internet - Web"
+  },
+  "/thematique/analyse-de-donnees/": {
+    "title": "Analyse de données",
+    "type": "catalogue",
+    "theme": "Analyse de données"
+  },
+  "/thematique/remise-a-niveau-numerique/": {
+    "title": "Remise à niveau numérique",
+    "type": "catalogue",
+    "theme": "Remise à niveau numérique"
+  },
+  "/formation/formation-google-sheets-perfectionnement/": {
+    "title": "Google Sheets Perfectionnement",
+    "type": "course",
+    "slug": "formation-google-sheets-perfectionnement"
+  },
+  "/formation/google-slides/": {
+    "title": "Google Slides",
+    "type": "course",
+    "slug": "google-slides"
+  },
+  "/formation/formation-google-sheets-initiation/": {
+    "title": "Google Sheets Initiation",
+    "type": "course",
+    "slug": "formation-google-sheets-initiation"
+  },
+  "/formation/formation-google-docs/": {
+    "title": "Google Docs",
+    "type": "course",
+    "slug": "formation-google-docs"
+  },
+  "/formation/formation-gmail-initiation/": {
+    "title": "Gmail Initiation",
+    "type": "course",
+    "slug": "formation-gmail-initiation"
+  },
+  "/formation/decouvrir-lia-et-utiliser-chat-gpt/": {
+    "title": "Découvrir l’IA et utiliser Chat GPT",
+    "type": "course",
+    "slug": "decouvrir-lia-et-utiliser-chat-gpt"
+  },
+  "/formation/powershell-v7-et-active-directory/": {
+    "title": "PowerShell v7 et active directory",
+    "type": "course",
+    "slug": "powershell-v7-et-active-directory"
+  },
+  "/formation/administration-windows-11/": {
+    "title": "Administration Windows 11",
+    "type": "course",
+    "slug": "administration-windows-11"
+  },
+  "/formation/administration-sql-server-2025/": {
+    "title": "Administration SQL server 2025",
+    "type": "course",
+    "slug": "administration-sql-server-2025"
+  },
+  "/formation/linux-utilisateur/": {
+    "title": "Linux Utilisateur",
+    "type": "course",
+    "slug": "linux-utilisateur"
+  },
+  "/formation/vmware-vsphere-niveau-2/": {
+    "title": "VMWARE VSPHERE Niveau 2",
+    "type": "course",
+    "slug": "vmware-vsphere-niveau-2"
+  },
+  "/formation/vmware-vsphere-niveau-1/": {
+    "title": "VMWARE VSPHERE Niveau 1",
+    "type": "course",
+    "slug": "vmware-vsphere-niveau-1"
+  },
+  "/formation/lecture-de-plan-beton/": {
+    "title": "Lecture de plan – Béton",
+    "type": "course",
+    "slug": "lecture-de-plan-beton"
+  },
+  "/formation/iso-27001/": {
+    "title": "ISO 27001",
+    "type": "course",
+    "slug": "iso-27001"
+  },
+  "/formation/ia-decouverte-et-automatisation/": {
+    "title": "IA découverte et cas pratiques",
+    "type": "course",
+    "slug": "ia-decouverte-et-automatisation"
+  },
+  "/formation/copilot-pour-microsoft-365-2/": {
+    "title": "COPILOT pour MICROSOFT 365",
+    "type": "course",
+    "slug": "copilot-pour-microsoft-365-2"
+  },
+  "/formation/fortinet-fortigate-niveau-1/": {
+    "title": "FORTINET FORTIGATE Niveau 1",
+    "type": "course",
+    "slug": "fortinet-fortigate-niveau-1"
+  },
+  "/formation/fortinet-fortigate-niveau-2/": {
+    "title": "FORTINET FORTIGATE Niveau 2",
+    "type": "course",
+    "slug": "fortinet-fortigate-niveau-2"
+  },
+  "/formation/palo-alto-networks-niveau-1/": {
+    "title": "Palo Alto Networks Niveau 1",
+    "type": "course",
+    "slug": "palo-alto-networks-niveau-1"
+  },
+  "/formation/palo-alto-networks-niveau-2/": {
+    "title": "Palo Alto Networks Niveau 2",
+    "type": "course",
+    "slug": "palo-alto-networks-niveau-2"
+  },
+  "/formation/soc-analyst/": {
+    "title": "SOC ANALYST",
+    "type": "course",
+    "slug": "soc-analyst"
+  },
+  "/formation/iso-27005-ebios/": {
+    "title": "ISO 27005 & EBIOS",
+    "type": "course",
+    "slug": "iso-27005-ebios"
+  },
+  "/formation/ia-copilot-claude/": {
+    "title": "IA COPILOT & CLAUDE",
+    "type": "course",
+    "slug": "ia-copilot-claude"
+  },
+  "/formation/crm-ia-prioriser-les-bons-prospects-au-bon-moment/": {
+    "title": "CRM + IA : Prioriser les bons prospects au bon moment",
+    "type": "course",
+    "slug": "crm-ia-prioriser-les-bons-prospects-au-bon-moment"
+  },
+  "/formation/batir-votre-strategie-avec-ia/": {
+    "title": "Bâtir votre stratégie avec l’IA",
+    "type": "course",
+    "slug": "batir-votre-strategie-avec-ia"
+  },
+  "/formation/mettre-en-place-vos-premiers-agents-et-scripts-dautomatisation/": {
+    "title": "Mettre en place vos premiers agents et scripts d’automatisation",
+    "type": "course",
+    "slug": "mettre-en-place-vos-premiers-agents-et-scripts-dautomatisation"
+  },
+  "/formation/rh-annonces-fiches-de-poste-et-entretiens-avec-lia/": {
+    "title": "RH : annonces, fiches de poste et entretiens avec l’IA",
+    "type": "course",
+    "slug": "rh-annonces-fiches-de-poste-et-entretiens-avec-lia"
+  },
+  "/formation/prototyper-une-api-ou-un-service/": {
+    "title": "Prototyper une API ou un service",
+    "type": "course",
+    "slug": "prototyper-une-api-ou-un-service"
+  },
+  "/formation/ia-productivite-bureautique/": {
+    "title": "IA Productivité & Bureautique",
+    "type": "course",
+    "slug": "ia-productivite-bureautique"
+  },
+  "/formation/notes-comptes-rendus-et-deliberations-rediges-avec-lia/": {
+    "title": "Notes, comptes rendus et délibérations rédigés avec l’IA",
+    "type": "course",
+    "slug": "notes-comptes-rendus-et-deliberations-rediges-avec-lia"
+  },
+  "/formation/conduite-de-projet-marketing/": {
+    "title": "Conduite de projet Marketing",
+    "type": "course",
+    "slug": "conduite-de-projet-marketing"
+  },
+  "/formation/android/": {
+    "title": "Android – développer des applications mobiles",
+    "type": "course",
+    "slug": "android"
+  },
+  "/formation/ajax-developpement-pour-le-web-2-0/": {
+    "title": "AJAX – Développer pour le web 2.0",
+    "type": "course",
+    "slug": "ajax-developpement-pour-le-web-2-0"
+  },
+  "/formation/visual-code-studio/": {
+    "title": "Visual Code Studio",
+    "type": "course",
+    "slug": "visual-code-studio"
+  },
+  "/formation/windev/": {
+    "title": "WinDev",
+    "type": "course",
+    "slug": "windev"
+  },
+  "/formation/java/": {
+    "title": "Java",
+    "type": "course",
+    "slug": "java"
+  },
+  "/formation/iphone-ipad/": {
+    "title": "Iphone, Ipad",
+    "type": "course",
+    "slug": "iphone-ipad"
+  },
+  "/formation/angular-2/": {
+    "title": "Angular 2",
+    "type": "course",
+    "slug": "angular-2"
+  },
+  "/formation/microsoft-365-outils-collaboratifs/": {
+    "title": "Microsoft 365 outils collaboratifs",
+    "type": "course",
+    "slug": "microsoft-365-outils-collaboratifs"
+  },
+  "/formation/blender-initiation-a-la-3d/": {
+    "title": "Blender – Initiation à la 3D",
+    "type": "course",
+    "slug": "blender-initiation-a-la-3d"
+  },
+  "/formation/les-fondamentaux-du-bim/": {
+    "title": "Les fondamentaux du BIM",
+    "type": "course",
+    "slug": "les-fondamentaux-du-bim"
+  },
+  "/formation/access-perfectionnement/": {
+    "title": "Access – Perfectionnement",
+    "type": "course",
+    "slug": "access-perfectionnement"
+  },
+  "/formation/access-initiation/": {
+    "title": "Access – Initiation",
+    "type": "course",
+    "slug": "access-initiation"
+  },
+  "/formation/access-langage-vba/": {
+    "title": "Access – langage VBA",
+    "type": "course",
+    "slug": "access-langage-vba"
+  },
+  "/formation/elaborer-un-plan-de-reprise-apres-sinistre-informatique/": {
+    "title": "Élaborer un Plan de Reprise après Sinistre Informatique",
+    "type": "course",
+    "slug": "elaborer-un-plan-de-reprise-apres-sinistre-informatique"
+  },
+  "/formation/integration-smsi-avec-iso-27001/": {
+    "title": "Intégration SMSI avec ISO 27001",
+    "type": "course",
+    "slug": "integration-smsi-avec-iso-27001"
+  },
+  "/formation/dpo/": {
+    "title": "DPO – Délégué à la Protection des Données",
+    "type": "course",
+    "slug": "dpo"
+  },
+  "/formation/ia-automatisation/": {
+    "title": "IA AUTOMATISATION",
+    "type": "course",
+    "slug": "ia-automatisation"
+  },
+  "/formation/creation-des-gpts-avec-chat-gpt/": {
+    "title": "Création des GPTS avec Chat GPT",
+    "type": "course",
+    "slug": "creation-des-gpts-avec-chat-gpt"
+  },
+  "/formation/ia-marketing-digital/": {
+    "title": "IA & Marketing Digital",
+    "type": "course",
+    "slug": "ia-marketing-digital"
+  },
+  "/formation/canva-ia-creez-vos-visuels-facilement/": {
+    "title": "CANVA IA – Créez vos visuels facilement",
+    "type": "course",
+    "slug": "canva-ia-creez-vos-visuels-facilement"
+  },
+  "/formation/adobe-illustrator-perfectionnement/": {
+    "title": "ADOBE ILLUSTRATOR – Perfectionnement",
+    "type": "course",
+    "slug": "adobe-illustrator-perfectionnement"
+  },
+  "/formation/cisco-ccna/": {
+    "title": "CISCO CCNA",
+    "type": "course",
+    "slug": "cisco-ccna"
+  },
+  "/formation/gns3-simulation-de-reseautage/": {
+    "title": "GNS3 – Simulation de réseautage",
+    "type": "course",
+    "slug": "gns3-simulation-de-reseautage"
+  },
+  "/formation/e-reputation/": {
+    "title": "E-réputation",
+    "type": "course",
+    "slug": "e-reputation"
+  },
+  "/formation/e-mailing/": {
+    "title": "E-mailing",
+    "type": "course",
+    "slug": "e-mailing"
+  },
+  "/formation/web-marketing/": {
+    "title": "Web Marketing",
+    "type": "course",
+    "slug": "web-marketing"
+  },
+  "/formation/gestion-des-reseaux-sociaux/": {
+    "title": "Gestion des Réseaux Sociaux",
+    "type": "course",
+    "slug": "gestion-des-reseaux-sociaux"
+  },
+  "/formation/strategie-de-communication/": {
+    "title": "Stratégie de communication",
+    "type": "course",
+    "slug": "strategie-de-communication"
+  },
+  "/formation/referencement-naturel-seo/": {
+    "title": "Référencement naturel – SEO",
+    "type": "course",
+    "slug": "referencement-naturel-seo"
+  },
+  "/formation/linkedin/": {
+    "title": "Linkedin",
+    "type": "course",
+    "slug": "linkedin"
+  },
+  "/formation/veeam/": {
+    "title": "VEEAM",
+    "type": "course",
+    "slug": "veeam"
+  },
+  "/formation/reseaux-et-tcp-ip/": {
+    "title": "RESEAUX ET TCP-IP",
+    "type": "course",
+    "slug": "reseaux-et-tcp-ip"
+  },
+  "/formation/maintenance-informatique/": {
+    "title": "Maintenance Informatique",
+    "type": "course",
+    "slug": "maintenance-informatique"
+  },
+  "/formation/telephonie-sur-ip/": {
+    "title": "Téléphonie sur IP",
+    "type": "course",
+    "slug": "telephonie-sur-ip"
+  },
+  "/formation/proxmox/": {
+    "title": "PROXMOX",
+    "type": "course",
+    "slug": "proxmox"
+  },
+  "/formation/linux-administration-niveau-2/": {
+    "title": "Linux Administration – Niveau 2",
+    "type": "course",
+    "slug": "linux-administration-niveau-2"
+  },
+  "/formation/linux-administration-niveau-1/": {
+    "title": "Linux Administration – Niveau 1",
+    "type": "course",
+    "slug": "linux-administration-niveau-1"
+  },
+  "/formation/glpi/": {
+    "title": "GLPI – OCS INVENTORY NG",
+    "type": "course",
+    "slug": "glpi"
+  },
+  "/formation/publisher/": {
+    "title": "Publisher",
+    "type": "course",
+    "slug": "publisher"
+  },
+  "/formation/adobe-illustrator-initiation/": {
+    "title": "ADOBE ILLUSTRATOR – Initiation",
+    "type": "course",
+    "slug": "adobe-illustrator-initiation"
+  },
+  "/formation/libreoffice-openoffice-impress/": {
+    "title": "LibreOffice-OpenOffice IMPRESS",
+    "type": "course",
+    "slug": "libreoffice-openoffice-impress"
+  },
+  "/formation/libreoffice-openoffice-calc-perfectionnement/": {
+    "title": "LibreOffice/OpenOffice CALC – Perfectionnement",
+    "type": "course",
+    "slug": "libreoffice-openoffice-calc-perfectionnement"
+  },
+  "/formation/libreoffice-openoffice-calc-initiation/": {
+    "title": "LibreOffice/OpenOffice CALC – Initiation",
+    "type": "course",
+    "slug": "libreoffice-openoffice-calc-initiation"
+  },
+  "/formation/libreoffice-openoffice-writer-perfectionnement/": {
+    "title": "LibreOffice/OpenOffice Writer – Perfectionnement",
+    "type": "course",
+    "slug": "libreoffice-openoffice-writer-perfectionnement"
+  },
+  "/formation/bootstrap-2/": {
+    "title": "LibreOffice/OpenOffice Writer – Initiation",
+    "type": "course",
+    "slug": "bootstrap-2"
+  },
+  "/formation/creer-des-sites-responsives/": {
+    "title": "Créer des sites responsives",
+    "type": "course",
+    "slug": "creer-des-sites-responsives"
+  },
+  "/formation/html-5-css3/": {
+    "title": "HTML 5 et CSS3",
+    "type": "course",
+    "slug": "html-5-css3"
+  },
+  "/formation/sketchup/": {
+    "title": "SKETCHUP",
+    "type": "course",
+    "slug": "sketchup"
+  },
+  "/formation/visio/": {
+    "title": "Visio",
+    "type": "course",
+    "slug": "visio"
+  },
+  "/formation/solidworks/": {
+    "title": "SOLIDWORKS",
+    "type": "course",
+    "slug": "solidworks"
+  },
+  "/formation/revit-perfectionnement/": {
+    "title": "REVIT – Perfectionnement",
+    "type": "course",
+    "slug": "revit-perfectionnement"
+  },
+  "/formation/revit-initiation/": {
+    "title": "REVIT – Initiation",
+    "type": "course",
+    "slug": "revit-initiation"
+  },
+  "/formation/autocad-2d-perfectionnement/": {
+    "title": "AUTOCAD 2D – Perfectionnement",
+    "type": "course",
+    "slug": "autocad-2d-perfectionnement"
+  },
+  "/formation/autocad-2d/": {
+    "title": "AUTOCAD 2D",
+    "type": "course",
+    "slug": "autocad-2d"
+  },
+  "/formation/creer-un-site-web-avec-webflow/": {
+    "title": "Créer un site web avec Webflow",
+    "type": "course",
+    "slug": "creer-un-site-web-avec-webflow"
+  },
+  "/formation/creer-un-site-web-avec-shopify/": {
+    "title": "Créer un site web avec Shopify",
+    "type": "course",
+    "slug": "creer-un-site-web-avec-shopify"
+  },
+  "/formation/methodes-agiles-scrum-2/": {
+    "title": "Méthodes AGILES SCRUM",
+    "type": "course",
+    "slug": "methodes-agiles-scrum-2"
+  },
+  "/formation/conduire-un-projet-informatique/": {
+    "title": "CONDUIRE UN PROJET INFORMATIQUE",
+    "type": "course",
+    "slug": "conduire-un-projet-informatique"
+  },
+  "/formation/power-query/": {
+    "title": "Power Query",
+    "type": "course",
+    "slug": "power-query"
+  },
+  "/formation/power-pivot/": {
+    "title": "Power Pivot",
+    "type": "course",
+    "slug": "power-pivot"
+  },
+  "/formation/tableau-desktop/": {
+    "title": "Tableau Desktop",
+    "type": "course",
+    "slug": "tableau-desktop"
+  },
+  "/formation/windows-server-2022-2025/": {
+    "title": "Windows server 2022/2025",
+    "type": "course",
+    "slug": "windows-server-2022-2025"
+  },
+  "/formation/powershell-v7/": {
+    "title": "PowerShell V7",
+    "type": "course",
+    "slug": "powershell-v7"
+  },
+  "/formation/microsoft-powertoys/": {
+    "title": "Microsoft PowerToys",
+    "type": "course",
+    "slug": "microsoft-powertoys"
+  },
+  "/formation/microsoft-power-automate/": {
+    "title": "Microsoft Power Automate",
+    "type": "course",
+    "slug": "microsoft-power-automate"
+  },
+  "/formation/microsoft-power-apps/": {
+    "title": "Microsoft Power Apps",
+    "type": "course",
+    "slug": "microsoft-power-apps"
+  },
+  "/formation/windows-11-installation-configuration-et-deploiement/": {
+    "title": "Windows 11 : Installation, Configuration et Déploiement",
+    "type": "course",
+    "slug": "windows-11-installation-configuration-et-deploiement"
+  },
+  "/formation/centre-administration-microsoft-365/": {
+    "title": "Centre d’administration Microsoft 365",
+    "type": "course",
+    "slug": "centre-administration-microsoft-365"
+  },
+  "/formation/pca-pra-avec-iso-22301/": {
+    "title": "PCA / PRA AVEC ISO 22301",
+    "type": "course",
+    "slug": "pca-pra-avec-iso-22301"
+  },
+  "/formation/investigation-numerique/": {
+    "title": "Investigation Numérique",
+    "type": "course",
+    "slug": "investigation-numerique"
+  },
+  "/formation/red-team/": {
+    "title": "Red Team",
+    "type": "course",
+    "slug": "red-team"
+  },
+  "/formation/hacking-ethique-v2/": {
+    "title": "Hacking Ethique V2",
+    "type": "course",
+    "slug": "hacking-ethique-v2"
+  },
+  "/formation/hacking-ethique-v1/": {
+    "title": "Hacking Ethique V1",
+    "type": "course",
+    "slug": "hacking-ethique-v1"
+  },
+  "/formation/securite-sensibilisation-de-lutilisateur/": {
+    "title": "Sécurité : sensibilisation de l’utilisateur",
+    "type": "course",
+    "slug": "securite-sensibilisation-de-lutilisateur"
+  },
+  "/formation/hacking-et-securite-avancee/": {
+    "title": "HACKING ET SÉCURITÉ AVANCÉE",
+    "type": "course",
+    "slug": "hacking-et-securite-avancee"
+  },
+  "/formation/rgpd/": {
+    "title": "RGPD",
+    "type": "course",
+    "slug": "rgpd"
+  },
+  "/formation/php-mysql-perfectionnement/": {
+    "title": "PHP/MySQL – Perfectionnement",
+    "type": "course",
+    "slug": "php-mysql-perfectionnement"
+  },
+  "/formation/php-mysql-initiation/": {
+    "title": "PHP/MySQL – Initiation",
+    "type": "course",
+    "slug": "php-mysql-initiation"
+  },
+  "/formation/langage-sql/": {
+    "title": "Langage SQL",
+    "type": "course",
+    "slug": "langage-sql"
+  },
+  "/formation/gimp-initiation/": {
+    "title": "Gimp – Initiation",
+    "type": "course",
+    "slug": "gimp-initiation"
+  },
+  "/formation/adobe-after-effects/": {
+    "title": "Adobe After Effects",
+    "type": "course",
+    "slug": "adobe-after-effects"
+  },
+  "/formation/adobe-premiere/": {
+    "title": "Adobe Premiere",
+    "type": "course",
+    "slug": "adobe-premiere"
+  },
+  "/formation/adobe-acrobat/": {
+    "title": "Adobe Acrobat",
+    "type": "course",
+    "slug": "adobe-acrobat"
+  },
+  "/formation/adobe-indesign-initiation/": {
+    "title": "Adobe Indesign Initiation",
+    "type": "course",
+    "slug": "adobe-indesign-initiation"
+  },
+  "/formation/indesign/": {
+    "title": "Indesign",
+    "type": "course",
+    "slug": "indesign"
+  },
+  "/formation/ilustrator/": {
+    "title": "Ilustrator",
+    "type": "course",
+    "slug": "ilustrator"
+  },
+  "/formation/photoshop-perfectionnement/": {
+    "title": "Photoshop – Perfectionnement",
+    "type": "course",
+    "slug": "photoshop-perfectionnement"
+  },
+  "/formation/realiser-des-campagnes-publicitaires-avec-google-ads/": {
+    "title": "Campagnes publicitaires avec Google Ads",
+    "type": "course",
+    "slug": "realiser-des-campagnes-publicitaires-avec-google-ads"
+  },
+  "/formation/gerer-sa-page-facebook/": {
+    "title": "Gérer sa page Facebook",
+    "type": "course",
+    "slug": "gerer-sa-page-facebook"
+  },
+  "/formation/les-essentiels-du-community-manager/": {
+    "title": "Les essentiels du Community Manager",
+    "type": "course",
+    "slug": "les-essentiels-du-community-manager"
+  },
+  "/formation/bootstrap/": {
+    "title": "BootStrap",
+    "type": "course",
+    "slug": "bootstrap"
+  },
+  "/formation/html-5-et-css3/": {
+    "title": "HTML 5 et CSS3",
+    "type": "course",
+    "slug": "html-5-et-css3"
+  },
+  "/formation/creer-un-site-web-avec-wordpress/": {
+    "title": "Créer un site WEB avec WordPress",
+    "type": "course",
+    "slug": "creer-un-site-web-avec-wordpress"
+  },
+  "/formation/modeliser-un-systeme-dinformation-decisionnel/": {
+    "title": "Modéliser un système d’information décisionnel",
+    "type": "course",
+    "slug": "modeliser-un-systeme-dinformation-decisionnel"
+  },
+  "/formation/methodes-agiles-scrum/": {
+    "title": "Méthodes AGILES SCRUM",
+    "type": "course",
+    "slug": "methodes-agiles-scrum"
+  },
+  "/formation/itil-4-les-fondamentaux/": {
+    "title": "ITIL 4 – LES FONDAMENTAUX",
+    "type": "course",
+    "slug": "itil-4-les-fondamentaux"
+  },
+  "/formation/power-bi-avance/": {
+    "title": "POWER BI Avancé",
+    "type": "course",
+    "slug": "power-bi-avance"
+  },
+  "/formation/power-bi-initiation/": {
+    "title": "POWER BI Initiation",
+    "type": "course",
+    "slug": "power-bi-initiation"
+  },
+  "/formation/conduite-de-projet/": {
+    "title": "CONDUITE DE PROJET",
+    "type": "course",
+    "slug": "conduite-de-projet"
+  },
+  "/formation/ms-project/": {
+    "title": "MS Project",
+    "type": "course",
+    "slug": "ms-project"
+  },
+  "/formation/package-initiation-bureautique/": {
+    "title": "Package Initiation Bureautique",
+    "type": "course",
+    "slug": "package-initiation-bureautique"
+  },
+  "/formation/powerpoint-perfectionnement/": {
+    "title": "Powerpoint – Perfectionnement",
+    "type": "course",
+    "slug": "powerpoint-perfectionnement"
+  },
+  "/formation/powerpoint-initiation/": {
+    "title": "Powerpoint – Initiation",
+    "type": "course",
+    "slug": "powerpoint-initiation"
+  },
+  "/formation/developper-des-applications-en-excel-vba/": {
+    "title": "Développer des applications en Excel VBA",
+    "type": "course",
+    "slug": "developper-des-applications-en-excel-vba"
+  },
+  "/formation/outlook/": {
+    "title": "Outlook",
+    "type": "course",
+    "slug": "outlook"
+  },
+  "/formation/word-perfectionnement/": {
+    "title": "Word – Perfectionnement",
+    "type": "course",
+    "slug": "word-perfectionnement"
+  },
+  "/formation/word-initiation/": {
+    "title": "Word – Initiation",
+    "type": "course",
+    "slug": "word-initiation"
+  },
+  "/formation/excel-fonctions-essentielles-perf-tcd/": {
+    "title": "Excel – Fonctions Essentielles Perf & TCD",
+    "type": "course",
+    "slug": "excel-fonctions-essentielles-perf-tcd"
+  },
+  "/formation/excel-base-de-donnees-tableaux-croises-dynamiques/": {
+    "title": "Excel – Base de données & Tableaux Croisés Dynamiques",
+    "type": "course",
+    "slug": "excel-base-de-donnees-tableaux-croises-dynamiques"
+  },
+  "/formation/excel-perfectionnement/": {
+    "title": "Excel Perfectionnement",
+    "type": "course",
+    "slug": "excel-perfectionnement"
+  },
+  "/formation/excel-initiation/": {
+    "title": "Excel – Initiation",
+    "type": "course",
+    "slug": "excel-initiation"
+  },
+  "/formation/initiation-a-linternet/": {
+    "title": "Initiation à l’internet",
+    "type": "course",
+    "slug": "initiation-a-linternet"
+  },
+  "/formation/windows-11-utilisateurs/": {
+    "title": "WINDOWS 11 – Utilisateurs",
+    "type": "course",
+    "slug": "windows-11-utilisateurs"
+  },
+  "/formation/watchguard-fireware-essentials/": {
+    "title": "Watchguard Fireware Essentials",
+    "type": "course",
+    "slug": "watchguard-fireware-essentials"
+  },
+  "/formation/adobe-express-fonctions-essentielles-et-usages-principaux/": {
+    "title": "Adobe Express – Fonctions essentielles et usages principaux",
+    "type": "course",
+    "slug": "adobe-express-fonctions-essentielles-et-usages-principaux"
+  },
+  "/formation/adobe-photoshop-initiation/": {
+    "title": "Adobe Photoshop – Initiation",
+    "type": "course",
+    "slug": "adobe-photoshop-initiation"
+  },
+  "/formation/canva/": {
+    "title": "Canva",
+    "type": "course",
+    "slug": "canva"
+  },
+  "/formation/initiation-informatique/": {
+    "title": "Initiation à l’informatique",
+    "type": "course",
+    "slug": "initiation-informatique"
+  },
+  "/nos-actualites/": {
+    "title": "Les idées qui font avancer",
+    "type": "news",
+    "category": ""
+  },
+  "/categorie/actualite/": {
+    "title": "Actualités",
+    "type": "news",
+    "category": "Actualité"
+  },
+  "/categorie/non-classe-fr/": {
+    "title": "Toutes les publications",
+    "type": "news",
+    "category": ""
+  },
+  "/categorie/evenements/": {
+    "title": "Événements",
+    "type": "news",
+    "category": "Evénements"
+  },
+  "/marketing-digital-developpez-les-competences-qui-font-la-difference/": {
+    "title": "Marketing digital : développez les compétences qui font la différence",
+    "type": "article",
+    "id": 5389
+  },
+  "/sensibilisation-des-salaries-securite-informatique/": {
+    "title": "Sensibilisation des salariés à la sécurité informatique : pourquoi former vos équipes en 2026 ?",
+    "type": "article",
+    "id": 5195
+  },
+  "/formation-comment-contrer-une-cyberattaques/": {
+    "title": "Comment contrer les cyberattaques ?",
+    "type": "article",
+    "id": 5104
+  },
+  "/intelligence-artificielle-utile-pour-une-entreprise/": {
+    "title": "Intelligence artificielle : est-ce vraiment utile pour une entreprise ?",
+    "type": "article",
+    "id": 4917
+  },
+  "/formation-continue-un-levier-pour-evoluer-dans-son-metier-en-2026/": {
+    "title": "Formation continue : un levier pour évoluer dans son métier en 2026",
+    "type": "article",
+    "id": 4811
+  },
+  "/la-cybersecurite-un-nouvel-enjeu-majeur/": {
+    "title": "La cybersécurité, un nouvel enjeu majeur !",
+    "type": "article",
+    "id": 2134
+  },
+  "/expernet-vous-aide-dans-votre-transition-numerique/": {
+    "title": "EXPERNET vous aide dans votre transition numérique",
+    "type": "article",
+    "id": 2109
+  },
+  "/la-cybersecurite-dans-les-entreprises-a-la-reunion/": {
+    "title": "La cybersécurité dans les entreprises à la Réunion",
+    "type": "article",
+    "id": 2083
+  },
+  "/depuis-2002-cest-de-100-000-personnes-formees/": {
+    "title": "Depuis 2002 c’est + de 100 000 personnes formées !",
+    "type": "article",
+    "id": 2074
+  },
+  "/nouveaute-chez-expernet-le-speed-training/": {
+    "title": "Nouveauté chez Expernet | Le Speed Training",
+    "type": "article",
+    "id": 2014
+  },
+  "/formation-excel-a-la-reunion/": {
+    "title": "Formation Excel à la Réunion",
+    "type": "article",
+    "id": 1654
+  },
+  "/pourquoi-se-former-a-excel-a-la-reunion/": {
+    "title": "Pourquoi se former à Excel à la Réunion ?",
+    "type": "article",
+    "id": 3319
+  },
+  "/retour-experience-fotakabine-et-le-recrutement-dun-alternant-de-lecole-expernet/": {
+    "title": "Retour d’expérience : Fotakabine et le recrutement d’un alternant de l’Ecole Expernet",
+    "type": "article",
+    "id": 1643
+  },
+  "/nos-formations-it-en-ligne/": {
+    "title": "Nos Formations IT en ligne",
+    "type": "article",
+    "id": 3318
+  },
+  "/decret-chomage-partiel-la-formation-a-distance-100-prise-en-charge/": {
+    "title": "Décret « Chômage partiel » : la formation à distance 100% prise en charge",
+    "type": "article",
+    "id": 3317
+  },
+  "/nos-formations-bureautique-en-ligne/": {
+    "title": "Nos formations bureautique en ligne",
+    "type": "article",
+    "id": 1544
+  },
+  "/idees-recues-sur-le-metier-de-developpeur-informatique/": {
+    "title": "Idées reçues sur le métier de développeur informatique",
+    "type": "article",
+    "id": 3316
+  },
+  "/celebration-des-premiers-diplomes-de-lecole-expernet/": {
+    "title": "Célébration des premiers diplômés de l’école Expernet",
+    "type": "article",
+    "id": 1475
+  },
+  "/lecole-expernet-organise-son-job-dating/": {
+    "title": "L’école EXPERNET Organise son JOB DATING",
+    "type": "article",
+    "id": 1427
+  },
+  "/decouvrez-en-plus-sur-notre-ecole-informatique-video/": {
+    "title": "Découvrez en plus sur notre Ecole Informatique ! (Video)",
+    "type": "article",
+    "id": 1325
+  },
+  "/reforme-de-la-formation-professionnelle-et-de-lapprentissage-ce-qui-nous-attend/": {
+    "title": "Réforme de la Formation Professionnelle et de l’Apprentissage – Ce qui nous attend !",
+    "type": "article",
+    "id": 1197
+  },
+  "/expernet-ecole-informatique-parution-presse-du-jir/": {
+    "title": "Expernet école informatique (Parution presse du JIR)",
+    "type": "article",
+    "id": 826
+  },
+  "/cyberattaque-wannacry/": {
+    "title": "Cyberattaque : Wannacry",
+    "type": "article",
+    "id": 789
+  },
+  "/pour-la-1ere-une-formation-bac4-en-informatique-sur-lile/": {
+    "title": "Pour la 1ère fois une formation bac+4 en informatique sur l’île",
+    "type": "article",
+    "id": 788
+  },
+  "/la-cyber-securite-et-vos-collaborateurs/": {
+    "title": "La cyber sécurité et vos collaborateurs",
+    "type": "article",
+    "id": 787
+  },
+  "/lancement-de-solutions-e-learning-par-expernet/": {
+    "title": "Lancement de Solutions E-Learning par Expernet",
+    "type": "article",
+    "id": 786
+  },
+  "/expernet-devient-centre-habilite-pcie/": {
+    "title": "Expernet devient centre habilité PCIE !",
+    "type": "article",
+    "id": 784
+  },
+  "/expernet-obtient-la-qualification-isp-opqf/": {
+    "title": "Expernet obtient la qualification ISP-OPQF",
+    "type": "article",
+    "id": 783
+  },
+  "/notre-histoire/": {
+    "title": "Une histoire de transmission",
+    "type": "page",
+    "view": "pages/notre-histoire"
+  },
+  "/notre-equipe/": {
+    "title": "Les visages de votre réussite",
+    "type": "page",
+    "view": "pages/notre-equipe"
+  },
+  "/confidentialite/": {
+    "title": "Confidentialité",
+    "type": "page",
+    "view": "pages/confidentialite"
+  },
+  "/mentions-legales/": {
+    "title": "Mentions légales",
+    "type": "page",
+    "view": "pages/mentions-legales"
+  },
+  "/planning/": {
+    "title": "Le planning des formations",
+    "type": "page",
+    "view": "pages/planning"
+  },
+  "/demande-de-devis/": {
+    "title": "Demande de devis",
+    "type": "page",
+    "view": "pages/demande-de-devis"
+  },
+  "/contact/": {
+    "title": "Contact & accès",
+    "type": "page",
+    "view": "pages/contact"
+  },
+  "/event-directory/": {
+    "title": "Les événements Expernet",
+    "type": "page",
+    "view": "pages/event-directory"
+  },
+  "/palettes/": {
+    "title": "Les palettes Expernet",
+    "type": "page",
+    "view": "pages/palettes"
+  },
+  "/plan-du-site/": {
+    "title": "Plan du site",
+    "type": "page",
+    "view": "pages/plan-du-site"
+  }
+}

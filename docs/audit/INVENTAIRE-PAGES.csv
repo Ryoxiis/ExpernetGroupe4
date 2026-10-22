@@ -1,0 +1,205 @@
+type,titre,url_source,page_prototype
+courses,Google Sheets Perfectionnement,https://expernet.re/formation/formation-google-sheets-perfectionnement/,dist/formation/formation-google-sheets-perfectionnement/index.html
+courses,Google Slides,https://expernet.re/formation/google-slides/,dist/formation/google-slides/index.html
+courses,Google Sheets Initiation,https://expernet.re/formation/formation-google-sheets-initiation/,dist/formation/formation-google-sheets-initiation/index.html
+courses,Google Docs,https://expernet.re/formation/formation-google-docs/,dist/formation/formation-google-docs/index.html
+courses,Gmail Initiation,https://expernet.re/formation/formation-gmail-initiation/,dist/formation/formation-gmail-initiation/index.html
+courses,Découvrir l’IA et utiliser Chat GPT,https://expernet.re/formation/decouvrir-lia-et-utiliser-chat-gpt/,dist/formation/decouvrir-lia-et-utiliser-chat-gpt/index.html
+courses,PowerShell v7 et active directory,https://expernet.re/formation/powershell-v7-et-active-directory/,dist/formation/powershell-v7-et-active-directory/index.html
+courses,Administration Windows 11,https://expernet.re/formation/administration-windows-11/,dist/formation/administration-windows-11/index.html
+courses,Administration SQL server 2025,https://expernet.re/formation/administration-sql-server-2025/,dist/formation/administration-sql-server-2025/index.html
+courses,Linux Utilisateur,https://expernet.re/formation/linux-utilisateur/,dist/formation/linux-utilisateur/index.html
+courses,VMWARE VSPHERE Niveau 2,https://expernet.re/formation/vmware-vsphere-niveau-2/,dist/formation/vmware-vsphere-niveau-2/index.html
+courses,VMWARE VSPHERE Niveau 1,https://expernet.re/formation/vmware-vsphere-niveau-1/,dist/formation/vmware-vsphere-niveau-1/index.html
+courses,Lecture de plan – Béton,https://expernet.re/formation/lecture-de-plan-beton/,dist/formation/lecture-de-plan-beton/index.html
+courses,ISO 27001,https://expernet.re/formation/iso-27001/,dist/formation/iso-27001/index.html
+courses,IA découverte et cas pratiques,https://expernet.re/formation/ia-decouverte-et-automatisation/,dist/formation/ia-decouverte-et-automatisation/index.html
+courses,COPILOT pour MICROSOFT 365,https://expernet.re/formation/copilot-pour-microsoft-365-2/,dist/formation/copilot-pour-microsoft-365-2/index.html
+courses,FORTINET FORTIGATE Niveau 1,https://expernet.re/formation/fortinet-fortigate-niveau-1/,dist/formation/fortinet-fortigate-niveau-1/index.html
+courses,FORTINET FORTIGATE Niveau 2,https://expernet.re/formation/fortinet-fortigate-niveau-2/,dist/formation/fortinet-fortigate-niveau-2/index.html
+courses,Palo Alto Networks Niveau 1,https://expernet.re/formation/palo-alto-networks-niveau-1/,dist/formation/palo-alto-networks-niveau-1/index.html
+courses,Palo Alto Networks Niveau 2,https://expernet.re/formation/palo-alto-networks-niveau-2/,dist/formation/palo-alto-networks-niveau-2/index.html
+courses,SOC ANALYST,https://expernet.re/formation/soc-analyst/,dist/formation/soc-analyst/index.html
+courses,ISO 27005 & EBIOS,https://expernet.re/formation/iso-27005-ebios/,dist/formation/iso-27005-ebios/index.html
+courses,IA COPILOT & CLAUDE,https://expernet.re/formation/ia-copilot-claude/,dist/formation/ia-copilot-claude/index.html
+courses,CRM + IA : Prioriser les bons prospects au bon moment,https://expernet.re/formation/crm-ia-prioriser-les-bons-prospects-au-bon-moment/,dist/formation/crm-ia-prioriser-les-bons-prospects-au-bon-moment/index.html
+courses,Bâtir votre stratégie avec l’IA,https://expernet.re/formation/batir-votre-strategie-avec-ia/,dist/formation/batir-votre-strategie-avec-ia/index.html
+courses,Mettre en place vos premiers agents et scripts d’automatisation,https://expernet.re/formation/mettre-en-place-vos-premiers-agents-et-scripts-dautomatisation/,dist/formation/mettre-en-place-vos-premiers-agents-et-scripts-dautomatisation/index.html
+courses,"RH : annonces, fiches de poste et entretiens avec l’IA",https://expernet.re/formation/rh-annonces-fiches-de-poste-et-entretiens-avec-lia/,dist/formation/rh-annonces-fiches-de-poste-et-entretiens-avec-lia/index.html
+courses,Prototyper une API ou un service,https://expernet.re/formation/prototyper-une-api-ou-un-service/,dist/formation/prototyper-une-api-ou-un-service/index.html
+courses,IA Productivité & Bureautique,https://expernet.re/formation/ia-productivite-bureautique/,dist/formation/ia-productivite-bureautique/index.html
+courses,"Notes, comptes rendus et délibérations rédigés avec l’IA",https://expernet.re/formation/notes-comptes-rendus-et-deliberations-rediges-avec-lia/,dist/formation/notes-comptes-rendus-et-deliberations-rediges-avec-lia/index.html
+courses,Conduite de projet Marketing,https://expernet.re/formation/conduite-de-projet-marketing/,dist/formation/conduite-de-projet-marketing/index.html
+courses,Android – développer des applications mobiles,https://expernet.re/formation/android/,dist/formation/android/index.html
+courses,AJAX – Développer pour le web 2.0,https://expernet.re/formation/ajax-developpement-pour-le-web-2-0/,dist/formation/ajax-developpement-pour-le-web-2-0/index.html
+courses,Visual Code Studio,https://expernet.re/formation/visual-code-studio/,dist/formation/visual-code-studio/index.html
+courses,WinDev,https://expernet.re/formation/windev/,dist/formation/windev/index.html
+courses,Java,https://expernet.re/formation/java/,dist/formation/java/index.html
+courses,"Iphone, Ipad",https://expernet.re/formation/iphone-ipad/,dist/formation/iphone-ipad/index.html
+courses,Angular 2,https://expernet.re/formation/angular-2/,dist/formation/angular-2/index.html
+courses,Microsoft 365 outils collaboratifs,https://expernet.re/formation/microsoft-365-outils-collaboratifs/,dist/formation/microsoft-365-outils-collaboratifs/index.html
+courses,Blender – Initiation à la 3D,https://expernet.re/formation/blender-initiation-a-la-3d/,dist/formation/blender-initiation-a-la-3d/index.html
+courses,Les fondamentaux du BIM,https://expernet.re/formation/les-fondamentaux-du-bim/,dist/formation/les-fondamentaux-du-bim/index.html
+courses,Access – Perfectionnement,https://expernet.re/formation/access-perfectionnement/,dist/formation/access-perfectionnement/index.html
+courses,Access – Initiation,https://expernet.re/formation/access-initiation/,dist/formation/access-initiation/index.html
+courses,Access – langage VBA,https://expernet.re/formation/access-langage-vba/,dist/formation/access-langage-vba/index.html
+courses,Élaborer un Plan de Reprise après Sinistre Informatique,https://expernet.re/formation/elaborer-un-plan-de-reprise-apres-sinistre-informatique/,dist/formation/elaborer-un-plan-de-reprise-apres-sinistre-informatique/index.html
+courses,Intégration SMSI avec ISO 27001,https://expernet.re/formation/integration-smsi-avec-iso-27001/,dist/formation/integration-smsi-avec-iso-27001/index.html
+courses,DPO – Délégué à la Protection des Données,https://expernet.re/formation/dpo/,dist/formation/dpo/index.html
+courses,IA AUTOMATISATION,https://expernet.re/formation/ia-automatisation/,dist/formation/ia-automatisation/index.html
+courses,Création des GPTS avec Chat GPT,https://expernet.re/formation/creation-des-gpts-avec-chat-gpt/,dist/formation/creation-des-gpts-avec-chat-gpt/index.html
+courses,IA & Marketing Digital,https://expernet.re/formation/ia-marketing-digital/,dist/formation/ia-marketing-digital/index.html
+courses,CANVA IA – Créez vos visuels facilement,https://expernet.re/formation/canva-ia-creez-vos-visuels-facilement/,dist/formation/canva-ia-creez-vos-visuels-facilement/index.html
+courses,ADOBE ILLUSTRATOR – Perfectionnement,https://expernet.re/formation/adobe-illustrator-perfectionnement/,dist/formation/adobe-illustrator-perfectionnement/index.html
+courses,CISCO CCNA,https://expernet.re/formation/cisco-ccna/,dist/formation/cisco-ccna/index.html
+courses,GNS3 – Simulation de réseautage,https://expernet.re/formation/gns3-simulation-de-reseautage/,dist/formation/gns3-simulation-de-reseautage/index.html
+courses,E-réputation,https://expernet.re/formation/e-reputation/,dist/formation/e-reputation/index.html
+courses,E-mailing,https://expernet.re/formation/e-mailing/,dist/formation/e-mailing/index.html
+courses,Web Marketing,https://expernet.re/formation/web-marketing/,dist/formation/web-marketing/index.html
+courses,Gestion des Réseaux Sociaux,https://expernet.re/formation/gestion-des-reseaux-sociaux/,dist/formation/gestion-des-reseaux-sociaux/index.html
+courses,Stratégie de communication,https://expernet.re/formation/strategie-de-communication/,dist/formation/strategie-de-communication/index.html
+courses,Référencement naturel – SEO,https://expernet.re/formation/referencement-naturel-seo/,dist/formation/referencement-naturel-seo/index.html
+courses,Linkedin,https://expernet.re/formation/linkedin/,dist/formation/linkedin/index.html
+courses,VEEAM,https://expernet.re/formation/veeam/,dist/formation/veeam/index.html
+courses,RESEAUX ET TCP-IP,https://expernet.re/formation/reseaux-et-tcp-ip/,dist/formation/reseaux-et-tcp-ip/index.html
+courses,Maintenance Informatique,https://expernet.re/formation/maintenance-informatique/,dist/formation/maintenance-informatique/index.html
+courses,Téléphonie sur IP,https://expernet.re/formation/telephonie-sur-ip/,dist/formation/telephonie-sur-ip/index.html
+courses,PROXMOX,https://expernet.re/formation/proxmox/,dist/formation/proxmox/index.html
+courses,Linux Administration – Niveau 2,https://expernet.re/formation/linux-administration-niveau-2/,dist/formation/linux-administration-niveau-2/index.html
+courses,Linux Administration – Niveau 1,https://expernet.re/formation/linux-administration-niveau-1/,dist/formation/linux-administration-niveau-1/index.html
+courses,GLPI – OCS INVENTORY NG,https://expernet.re/formation/glpi/,dist/formation/glpi/index.html
+courses,Publisher,https://expernet.re/formation/publisher/,dist/formation/publisher/index.html
+courses,ADOBE ILLUSTRATOR – Initiation,https://expernet.re/formation/adobe-illustrator-initiation/,dist/formation/adobe-illustrator-initiation/index.html
+courses,LibreOffice-OpenOffice IMPRESS,https://expernet.re/formation/libreoffice-openoffice-impress/,dist/formation/libreoffice-openoffice-impress/index.html
+courses,LibreOffice/OpenOffice CALC – Perfectionnement,https://expernet.re/formation/libreoffice-openoffice-calc-perfectionnement/,dist/formation/libreoffice-openoffice-calc-perfectionnement/index.html
+courses,LibreOffice/OpenOffice CALC – Initiation,https://expernet.re/formation/libreoffice-openoffice-calc-initiation/,dist/formation/libreoffice-openoffice-calc-initiation/index.html
+courses,LibreOffice/OpenOffice Writer – Perfectionnement,https://expernet.re/formation/libreoffice-openoffice-writer-perfectionnement/,dist/formation/libreoffice-openoffice-writer-perfectionnement/index.html
+courses,LibreOffice/OpenOffice Writer – Initiation,https://expernet.re/formation/bootstrap-2/,dist/formation/bootstrap-2/index.html
+courses,Créer des sites responsives,https://expernet.re/formation/creer-des-sites-responsives/,dist/formation/creer-des-sites-responsives/index.html
+courses,HTML 5 et CSS3,https://expernet.re/formation/html-5-css3/,dist/formation/html-5-css3/index.html
+courses,SKETCHUP,https://expernet.re/formation/sketchup/,dist/formation/sketchup/index.html
+courses,Visio,https://expernet.re/formation/visio/,dist/formation/visio/index.html
+courses,SOLIDWORKS,https://expernet.re/formation/solidworks/,dist/formation/solidworks/index.html
+courses,REVIT – Perfectionnement,https://expernet.re/formation/revit-perfectionnement/,dist/formation/revit-perfectionnement/index.html
+courses,REVIT – Initiation,https://expernet.re/formation/revit-initiation/,dist/formation/revit-initiation/index.html
+courses,AUTOCAD 2D – Perfectionnement,https://expernet.re/formation/autocad-2d-perfectionnement/,dist/formation/autocad-2d-perfectionnement/index.html
+courses,AUTOCAD 2D,https://expernet.re/formation/autocad-2d/,dist/formation/autocad-2d/index.html
+courses,Créer un site web avec Webflow,https://expernet.re/formation/creer-un-site-web-avec-webflow/,dist/formation/creer-un-site-web-avec-webflow/index.html
+courses,Créer un site web avec Shopify,https://expernet.re/formation/creer-un-site-web-avec-shopify/,dist/formation/creer-un-site-web-avec-shopify/index.html
+courses,Méthodes AGILES SCRUM,https://expernet.re/formation/methodes-agiles-scrum-2/,dist/formation/methodes-agiles-scrum-2/index.html
+courses,CONDUIRE UN PROJET INFORMATIQUE,https://expernet.re/formation/conduire-un-projet-informatique/,dist/formation/conduire-un-projet-informatique/index.html
+courses,Power Query,https://expernet.re/formation/power-query/,dist/formation/power-query/index.html
+courses,Power Pivot,https://expernet.re/formation/power-pivot/,dist/formation/power-pivot/index.html
+courses,Tableau Desktop,https://expernet.re/formation/tableau-desktop/,dist/formation/tableau-desktop/index.html
+courses,Windows server 2022/2025,https://expernet.re/formation/windows-server-2022-2025/,dist/formation/windows-server-2022-2025/index.html
+courses,PowerShell V7,https://expernet.re/formation/powershell-v7/,dist/formation/powershell-v7/index.html
+courses,Microsoft PowerToys,https://expernet.re/formation/microsoft-powertoys/,dist/formation/microsoft-powertoys/index.html
+courses,Microsoft Power Automate,https://expernet.re/formation/microsoft-power-automate/,dist/formation/microsoft-power-automate/index.html
+courses,Microsoft Power Apps,https://expernet.re/formation/microsoft-power-apps/,dist/formation/microsoft-power-apps/index.html
+courses,"Windows 11 : Installation, Configuration et Déploiement",https://expernet.re/formation/windows-11-installation-configuration-et-deploiement/,dist/formation/windows-11-installation-configuration-et-deploiement/index.html
+courses,Centre d’administration Microsoft 365,https://expernet.re/formation/centre-administration-microsoft-365/,dist/formation/centre-administration-microsoft-365/index.html
+courses,PCA / PRA AVEC ISO 22301,https://expernet.re/formation/pca-pra-avec-iso-22301/,dist/formation/pca-pra-avec-iso-22301/index.html
+courses,Investigation Numérique,https://expernet.re/formation/investigation-numerique/,dist/formation/investigation-numerique/index.html
+courses,Red Team,https://expernet.re/formation/red-team/,dist/formation/red-team/index.html
+courses,Hacking Ethique V2,https://expernet.re/formation/hacking-ethique-v2/,dist/formation/hacking-ethique-v2/index.html
+courses,Hacking Ethique V1,https://expernet.re/formation/hacking-ethique-v1/,dist/formation/hacking-ethique-v1/index.html
+courses,Sécurité : sensibilisation de l’utilisateur,https://expernet.re/formation/securite-sensibilisation-de-lutilisateur/,dist/formation/securite-sensibilisation-de-lutilisateur/index.html
+courses,HACKING ET SÉCURITÉ AVANCÉE,https://expernet.re/formation/hacking-et-securite-avancee/,dist/formation/hacking-et-securite-avancee/index.html
+courses,RGPD,https://expernet.re/formation/rgpd/,dist/formation/rgpd/index.html
+courses,PHP/MySQL – Perfectionnement,https://expernet.re/formation/php-mysql-perfectionnement/,dist/formation/php-mysql-perfectionnement/index.html
+courses,PHP/MySQL – Initiation,https://expernet.re/formation/php-mysql-initiation/,dist/formation/php-mysql-initiation/index.html
+courses,Langage SQL,https://expernet.re/formation/langage-sql/,dist/formation/langage-sql/index.html
+courses,Gimp – Initiation,https://expernet.re/formation/gimp-initiation/,dist/formation/gimp-initiation/index.html
+courses,Adobe After Effects,https://expernet.re/formation/adobe-after-effects/,dist/formation/adobe-after-effects/index.html
+courses,Adobe Premiere,https://expernet.re/formation/adobe-premiere/,dist/formation/adobe-premiere/index.html
+courses,Adobe Acrobat,https://expernet.re/formation/adobe-acrobat/,dist/formation/adobe-acrobat/index.html
+courses,Adobe Indesign Initiation,https://expernet.re/formation/adobe-indesign-initiation/,dist/formation/adobe-indesign-initiation/index.html
+courses,Indesign,https://expernet.re/formation/indesign/,dist/formation/indesign/index.html
+courses,Ilustrator,https://expernet.re/formation/ilustrator/,dist/formation/ilustrator/index.html
+courses,Photoshop – Perfectionnement,https://expernet.re/formation/photoshop-perfectionnement/,dist/formation/photoshop-perfectionnement/index.html
+courses,Campagnes publicitaires avec Google Ads,https://expernet.re/formation/realiser-des-campagnes-publicitaires-avec-google-ads/,dist/formation/realiser-des-campagnes-publicitaires-avec-google-ads/index.html
+courses,Gérer sa page Facebook,https://expernet.re/formation/gerer-sa-page-facebook/,dist/formation/gerer-sa-page-facebook/index.html
+courses,Les essentiels du Community Manager,https://expernet.re/formation/les-essentiels-du-community-manager/,dist/formation/les-essentiels-du-community-manager/index.html
+courses,BootStrap,https://expernet.re/formation/bootstrap/,dist/formation/bootstrap/index.html
+courses,HTML 5 et CSS3,https://expernet.re/formation/html-5-et-css3/,dist/formation/html-5-et-css3/index.html
+courses,Créer un site WEB avec WordPress,https://expernet.re/formation/creer-un-site-web-avec-wordpress/,dist/formation/creer-un-site-web-avec-wordpress/index.html
+courses,Modéliser un système d’information décisionnel,https://expernet.re/formation/modeliser-un-systeme-dinformation-decisionnel/,dist/formation/modeliser-un-systeme-dinformation-decisionnel/index.html
+courses,Méthodes AGILES SCRUM,https://expernet.re/formation/methodes-agiles-scrum/,dist/formation/methodes-agiles-scrum/index.html
+courses,ITIL 4 – LES FONDAMENTAUX,https://expernet.re/formation/itil-4-les-fondamentaux/,dist/formation/itil-4-les-fondamentaux/index.html
+courses,POWER BI Avancé,https://expernet.re/formation/power-bi-avance/,dist/formation/power-bi-avance/index.html
+courses,POWER BI Initiation,https://expernet.re/formation/power-bi-initiation/,dist/formation/power-bi-initiation/index.html
+courses,CONDUITE DE PROJET,https://expernet.re/formation/conduite-de-projet/,dist/formation/conduite-de-projet/index.html
+courses,MS Project,https://expernet.re/formation/ms-project/,dist/formation/ms-project/index.html
+courses,Package Initiation Bureautique,https://expernet.re/formation/package-initiation-bureautique/,dist/formation/package-initiation-bureautique/index.html
+courses,Powerpoint – Perfectionnement,https://expernet.re/formation/powerpoint-perfectionnement/,dist/formation/powerpoint-perfectionnement/index.html
+courses,Powerpoint – Initiation,https://expernet.re/formation/powerpoint-initiation/,dist/formation/powerpoint-initiation/index.html
+courses,Développer des applications en Excel VBA,https://expernet.re/formation/developper-des-applications-en-excel-vba/,dist/formation/developper-des-applications-en-excel-vba/index.html
+courses,Outlook,https://expernet.re/formation/outlook/,dist/formation/outlook/index.html
+courses,Word – Perfectionnement,https://expernet.re/formation/word-perfectionnement/,dist/formation/word-perfectionnement/index.html
+courses,Word – Initiation,https://expernet.re/formation/word-initiation/,dist/formation/word-initiation/index.html
+courses,Excel – Fonctions Essentielles Perf & TCD,https://expernet.re/formation/excel-fonctions-essentielles-perf-tcd/,dist/formation/excel-fonctions-essentielles-perf-tcd/index.html
+courses,Excel – Base de données & Tableaux Croisés Dynamiques,https://expernet.re/formation/excel-base-de-donnees-tableaux-croises-dynamiques/,dist/formation/excel-base-de-donnees-tableaux-croises-dynamiques/index.html
+courses,Excel Perfectionnement,https://expernet.re/formation/excel-perfectionnement/,dist/formation/excel-perfectionnement/index.html
+courses,Excel – Initiation,https://expernet.re/formation/excel-initiation/,dist/formation/excel-initiation/index.html
+courses,Initiation à l’internet,https://expernet.re/formation/initiation-a-linternet/,dist/formation/initiation-a-linternet/index.html
+courses,WINDOWS 11 – Utilisateurs,https://expernet.re/formation/windows-11-utilisateurs/,dist/formation/windows-11-utilisateurs/index.html
+courses,Watchguard Fireware Essentials,https://expernet.re/formation/watchguard-fireware-essentials/,dist/formation/watchguard-fireware-essentials/index.html
+courses,Adobe Express – Fonctions essentielles et usages principaux,https://expernet.re/formation/adobe-express-fonctions-essentielles-et-usages-principaux/,dist/formation/adobe-express-fonctions-essentielles-et-usages-principaux/index.html
+courses,Adobe Photoshop – Initiation,https://expernet.re/formation/adobe-photoshop-initiation/,dist/formation/adobe-photoshop-initiation/index.html
+courses,Canva,https://expernet.re/formation/canva/,dist/formation/canva/index.html
+courses,Initiation à l’informatique,https://expernet.re/formation/initiation-informatique/,dist/formation/initiation-informatique/index.html
+articles,Marketing digital : développez les compétences qui font la différence,https://expernet.re/marketing-digital-developpez-les-competences-qui-font-la-difference/,dist/marketing-digital-developpez-les-competences-qui-font-la-difference/index.html
+articles,Sensibilisation des salariés à la sécurité informatique : pourquoi former vos équipes en 2026 ?,https://expernet.re/sensibilisation-des-salaries-securite-informatique/,dist/sensibilisation-des-salaries-securite-informatique/index.html
+articles,Comment contrer les cyberattaques ?,https://expernet.re/formation-comment-contrer-une-cyberattaques/,dist/formation-comment-contrer-une-cyberattaques/index.html
+articles,Intelligence artificielle : est-ce vraiment utile pour une entreprise ?,https://expernet.re/intelligence-artificielle-utile-pour-une-entreprise/,dist/intelligence-artificielle-utile-pour-une-entreprise/index.html
+articles,Formation continue : un levier pour évoluer dans son métier en 2026,https://expernet.re/formation-continue-un-levier-pour-evoluer-dans-son-metier-en-2026/,dist/formation-continue-un-levier-pour-evoluer-dans-son-metier-en-2026/index.html
+articles,"La cybersécurité, un nouvel enjeu majeur !",https://expernet.re/la-cybersecurite-un-nouvel-enjeu-majeur/,dist/la-cybersecurite-un-nouvel-enjeu-majeur/index.html
+articles,EXPERNET vous aide dans votre transition numérique,https://expernet.re/expernet-vous-aide-dans-votre-transition-numerique/,dist/expernet-vous-aide-dans-votre-transition-numerique/index.html
+articles,La cybersécurité dans les entreprises à la Réunion,https://expernet.re/la-cybersecurite-dans-les-entreprises-a-la-reunion/,dist/la-cybersecurite-dans-les-entreprises-a-la-reunion/index.html
+articles,Depuis 2002 c’est + de 100 000 personnes formées !,https://expernet.re/depuis-2002-cest-de-100-000-personnes-formees/,dist/depuis-2002-cest-de-100-000-personnes-formees/index.html
+articles,Nouveauté chez Expernet | Le Speed Training,https://expernet.re/nouveaute-chez-expernet-le-speed-training/,dist/nouveaute-chez-expernet-le-speed-training/index.html
+articles,Formation Excel à la Réunion,https://expernet.re/formation-excel-a-la-reunion/,dist/formation-excel-a-la-reunion/index.html
+articles,Pourquoi se former à Excel à la Réunion ?,https://expernet.re/pourquoi-se-former-a-excel-a-la-reunion/,dist/pourquoi-se-former-a-excel-a-la-reunion/index.html
+articles,Retour d’expérience : Fotakabine et le recrutement d’un alternant de l’Ecole Expernet,https://expernet.re/retour-experience-fotakabine-et-le-recrutement-dun-alternant-de-lecole-expernet/,dist/retour-experience-fotakabine-et-le-recrutement-dun-alternant-de-lecole-expernet/index.html
+articles,Nos Formations IT en ligne,https://expernet.re/nos-formations-it-en-ligne/,dist/nos-formations-it-en-ligne/index.html
+articles,Décret « Chômage partiel » : la formation à distance 100% prise en charge,https://expernet.re/decret-chomage-partiel-la-formation-a-distance-100-prise-en-charge/,dist/decret-chomage-partiel-la-formation-a-distance-100-prise-en-charge/index.html
+articles,Nos formations bureautique en ligne,https://expernet.re/nos-formations-bureautique-en-ligne/,dist/nos-formations-bureautique-en-ligne/index.html
+articles,Idées reçues sur le métier de développeur informatique,https://expernet.re/idees-recues-sur-le-metier-de-developpeur-informatique/,dist/idees-recues-sur-le-metier-de-developpeur-informatique/index.html
+articles,Célébration des premiers diplômés de l’école Expernet,https://expernet.re/celebration-des-premiers-diplomes-de-lecole-expernet/,dist/celebration-des-premiers-diplomes-de-lecole-expernet/index.html
+articles,L’école EXPERNET Organise son JOB DATING,https://expernet.re/lecole-expernet-organise-son-job-dating/,dist/lecole-expernet-organise-son-job-dating/index.html
+articles,Découvrez en plus sur notre Ecole Informatique ! (Video),https://expernet.re/decouvrez-en-plus-sur-notre-ecole-informatique-video/,dist/decouvrez-en-plus-sur-notre-ecole-informatique-video/index.html
+articles,Réforme de la Formation Professionnelle et de l’Apprentissage – Ce qui nous attend !,https://expernet.re/reforme-de-la-formation-professionnelle-et-de-lapprentissage-ce-qui-nous-attend/,dist/reforme-de-la-formation-professionnelle-et-de-lapprentissage-ce-qui-nous-attend/index.html
+articles,Expernet école informatique (Parution presse du JIR),https://expernet.re/expernet-ecole-informatique-parution-presse-du-jir/,dist/expernet-ecole-informatique-parution-presse-du-jir/index.html
+articles,Cyberattaque : Wannacry,https://expernet.re/cyberattaque-wannacry/,dist/cyberattaque-wannacry/index.html
+articles,Pour la 1ère fois une formation bac+4 en informatique sur l’île,https://expernet.re/pour-la-1ere-une-formation-bac4-en-informatique-sur-lile/,dist/pour-la-1ere-une-formation-bac4-en-informatique-sur-lile/index.html
+articles,La cyber sécurité et vos collaborateurs,https://expernet.re/la-cyber-securite-et-vos-collaborateurs/,dist/la-cyber-securite-et-vos-collaborateurs/index.html
+articles,Lancement de Solutions E-Learning par Expernet,https://expernet.re/lancement-de-solutions-e-learning-par-expernet/,dist/lancement-de-solutions-e-learning-par-expernet/index.html
+articles,Expernet devient centre habilité PCIE !,https://expernet.re/expernet-devient-centre-habilite-pcie/,dist/expernet-devient-centre-habilite-pcie/index.html
+articles,Expernet obtient la qualification ISP-OPQF,https://expernet.re/expernet-obtient-la-qualification-isp-opqf/,dist/expernet-obtient-la-qualification-isp-opqf/index.html
+pages,Events,https://expernet.re/event-directory/,dist/event-directory/index.html
+pages,Demande de devis,https://expernet.re/demande-de-devis/,dist/demande-de-devis/index.html
+pages,Confidentialité,https://expernet.re/confidentialite/,dist/confidentialite/index.html
+pages,Mentions légales,https://expernet.re/mentions-legales/,dist/mentions-legales/index.html
+pages,Nos actualités,https://expernet.re/nos-actualites/,dist/nos-actualites/index.html
+pages,Planning,https://expernet.re/planning/,dist/planning/index.html
+pages,Notre équipe,https://expernet.re/notre-equipe/,dist/notre-equipe/index.html
+pages,Notre histoire,https://expernet.re/notre-histoire/,dist/notre-histoire/index.html
+pages,Accueil,https://expernet.re/,dist/index.html
+themes,Google Workspace,https://expernet.re/thematique/google-workspace/,dist/thematique/google-workspace/index.html
+themes,Intelligence artificielle,https://expernet.re/thematique/intelligence-artificielle/,dist/thematique/intelligence-artificielle/index.html
+themes,Microsoft Technique,https://expernet.re/thematique/microsoft-technique/,dist/thematique/microsoft-technique/index.html
+themes,Linux - Open source,https://expernet.re/thematique/linux-open-source/,dist/thematique/linux-open-source/index.html
+themes,Réseaux,https://expernet.re/thematique/reseaux/,dist/thematique/reseaux/index.html
+themes,CAO,https://expernet.re/thematique/cao-conception-assistee-par-ordinateur/,dist/thematique/cao-conception-assistee-par-ordinateur/index.html
+themes,Cybersécurité,https://expernet.re/thematique/cybersecurite/,dist/thematique/cybersecurite/index.html
+themes,Gestion de projets,https://expernet.re/thematique/gestion-de-projets/,dist/thematique/gestion-de-projets/index.html
+themes,Langages et développement,https://expernet.re/thematique/langages-et-developpement/,dist/thematique/langages-et-developpement/index.html
+themes,Bureautique,https://expernet.re/thematique/bureautique/,dist/thematique/bureautique/index.html
+themes,Microsoft Office,https://expernet.re/thematique/microsoft-office/,dist/thematique/microsoft-office/index.html
+themes,Access,https://expernet.re/thematique/access/,dist/thematique/access/index.html
+themes,PAO,https://expernet.re/thematique/pao-publication-assistee-par-ordinateur/,dist/thematique/pao-publication-assistee-par-ordinateur/index.html
+themes,Communication digitale,https://expernet.re/thematique/communication-digitale/,dist/thematique/communication-digitale/index.html
+themes,Libre Office,https://expernet.re/thematique/libre-office/,dist/thematique/libre-office/index.html
+themes,Internet - Web,https://expernet.re/thematique/internet-web/,dist/thematique/internet-web/index.html
+themes,Analyse de données,https://expernet.re/thematique/analyse-de-donnees/,dist/thematique/analyse-de-donnees/index.html
+themes,Remise à niveau numérique,https://expernet.re/thematique/remise-a-niveau-numerique/,dist/thematique/remise-a-niveau-numerique/index.html
