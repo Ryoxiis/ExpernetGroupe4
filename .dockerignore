@@ -1,0 +1,9 @@
+.git
+.ai
+.env
+.env.*
+!.env.example
+storage
+vendor
+node_modules
+output

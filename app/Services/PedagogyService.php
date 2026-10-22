@@ -450,9 +450,7 @@ final class PedagogyService
 
     private function message(array $user, array $input): array
     {
-        $cohort = $this->id($input, 'cohort_id');
-        $this->cohort($user, $cohort);
-        return ['id' => $this->repo->insert('INSERT INTO portal_messages(cohort_id,author_id,body,created_at) VALUES(?,?,?,UTC_TIMESTAMP())', [$cohort, $user['id'], $this->text($input, 'body', 5000)])];
+        throw new PortalException('Utilisez le nouvel espace Discussions pour envoyer un message.', 410);
     }
 
     private function exam(array $user, array $input): array

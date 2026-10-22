@@ -2,16 +2,7 @@
 /** Start the local server with explicit configuration, without shell evaluation of .env. */
 declare(strict_types=1);
 $root=dirname(__DIR__);
-$file=$root.'/.env';
-if (is_file($file)) {
-    foreach(file($file,FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES) as $line) {
-        if (preg_match('/^\s*([A-Z][A-Z0-9_]*)=(.*)$/D',$line,$match) && getenv($match[1])===false) {
-            $value=trim($match[2]);
-            if (strlen($value)>=2 && (($value[0]==='"' && str_ends_with($value,'"')) || ($value[0]==="'" && str_ends_with($value,"'")))) $value=substr($value,1,-1);
-            putenv($match[1].'='.$value);
-        }
-    }
-}
+require $root.'/bootstrap/environment.php';
 if (in_array($argv[1] ?? '', ['migrate', 'seed-demo', 'bootstrap-admin'], true)) {
     require $root . '/bin/portal.php';
     exit;
@@ -27,5 +18,5 @@ try {
 $port=filter_var($argv[1]??'8080',FILTER_VALIDATE_INT,['options'=>['min_range'=>1024,'max_range'=>65535]]);
 if (!$port) { fwrite(STDERR,"Usage : php bin/serve-portal.php [port]\n");exit(1); }
 echo "Expernet : http://127.0.0.1:$port/\nConnexion : http://127.0.0.1:$port/connexion/\nGardez ce terminal ouvert. Ctrl+C arrête le serveur.\n";
-$process=proc_open([PHP_BINARY,'-S','127.0.0.1:'.$port,'-t',$root.'/public',$root.'/public/router.php'],[0=>STDIN,1=>STDOUT,2=>STDERR],$pipes,$root);
+$process=proc_open([PHP_BINARY,'-d','upload_max_filesize=10M','-d','post_max_size=12M','-S','127.0.0.1:'.$port,'-t',$root.'/public',$root.'/public/router.php'],[0=>STDIN,1=>STDOUT,2=>STDERR],$pipes,$root);
 exit(is_resource($process)?proc_close($process):1);
