@@ -48,3 +48,14 @@ Les 211 routes initiales doivent rester accessibles lors d’un refactoring. Un 
 Le serveur PHP intégré et la configuration Docker servent au développement. Pour la production, prévoir Apache avec `mod_rewrite`, ou Nginx/PHP-FPM configuré avec document root `public/` et redirection vers `index.php`. `.htaccess` est fourni pour Apache ; aucune configuration de production n’a été validée ici.
 
 Le démarrage documenté sert l’application à la racine `/`. `APP_BASE_PATH` existe pour les URL lors d’un déploiement en sous-dossier, dont la réécriture des assets devra aussi être configurée et testée sur le serveur cible.
+
+## Contenus des deux sites publics
+
+`data/source-pages.json` conserve le relevé public complémentaire des deux
+domaines. `data/source-map.json` traduit les URL sources et leurs alias vers les
+routes locales. `HtmlContent` échappe les textes, rend les tableaux et ancres et
+réécrit les liens internes connus. Le contrôleur complète les compositions V2
+lorsqu’un bloc source n’y est pas présent. Les nouvelles pages réutilisent
+`pages/source.php`, `partials/campus-nav.php` et `partials/source-cards.php`.
+Le repository charge une seule fois ces données par requête. Les formations
+Campus ne sont pas mélangées avec les formations continues de l’API catalogue.

@@ -105,3 +105,27 @@ Lire `CONTRIBUTING.md`, `docs/ARCHITECTURE.md` et `docs/design/DESIGN-A-CONSERVE
 ## Droits
 
 Les textes, logos et images Expernet servent au prototype de refonte ; ils ne sont pas placés sous une nouvelle licence libre. Bootstrap garde sa licence MIT dans son CSS. La licence du futur dépôt et les droits de publication sont à décider par l’équipe et Expernet.
+
+## Campus et couverture des contenus
+
+L’accueil et le menu donnent accès à la refonte locale d’Expernet Campus :
+`/campus/`. Elle reprend ses 11 diplômes, 36 articles, pages pratiques et archives,
+avec les composants V2 et la palette Océan. Voir
+[le rapport de couverture](docs/audit/COUVERTURE-EXPERNET-CAMPUS.md) et
+[la correspondance des URL](docs/audit/couverture-pages.csv).
+
+Le contrôle supplémentaire `php tests/content_coverage.php` vérifie que les
+textes du relevé sont présents dans les pages rendues. Les formulaires Campus
+sont présentés sans envoi ; les documents PDF restent sur les sources officielles.
+
+## Espace pédagogique privé
+
+Le bouton **Espace pédagogique** ouvre `/connexion/` puis le tableau de bord du
+rôle connecté. Cette partie utilise MySQL, contrairement au catalogue public.
+Pour les migrations, l'initialisation des comptes, les fonctions réalisées et leurs
+limites, suivre [le guide du portail pédagogique](docs/PEDAGOGIE.md).
+
+Lancement avec lecture de votre `.env` et contrôle préalable de MySQL :
+`php bin/serve-portal.php 8093`. Le terminal doit rester ouvert pendant la navigation.
+L'envoi des mots de passe par e-mail et la signature électronique officielle ne
+sont pas configurés ; le portail est un prototype avec données fictives.

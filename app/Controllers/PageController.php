@@ -25,7 +25,9 @@ final class PageController
             'path' => $path,
             'repository' => $this->repository,
             'view' => $this->view,
-            'html' => new HtmlContent($this->routes),
+            'html' => new HtmlContent($this->routes, $this->repository->sourceMap()),
+            'sourcePages' => $this->repository->sourcePages(),
+            'routes' => $this->routes,
         ];
         if ($page['type'] === 'course') {
             $data['course'] = $this->repository->course($page['slug']);
@@ -33,7 +35,20 @@ final class PageController
         if ($page['type'] === 'article') {
             $data['article'] = $this->repository->article($page['id']);
         }
+        $source = $page['source'] ?? array_search($path, $this->repository->sourceMap(), true);
+        $data['sourcePage'] = $source ? ($data['sourcePages'][$source] ?? null) : null;
         $body = $this->view->render($template, $data);
+        if ($page['type'] !== 'source' && $data['sourcePage']) {
+            // Retain source details omitted by the editorial V2 composition.
+            $normalize = static fn (string $value): string => preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($value), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+            $existing = $normalize($body);
+            $missing = array_values(array_filter($data['sourcePage']['blocks'], static fn (array $block): bool =>
+                ($block['tag'] === 'anchor' ? !str_contains($body, 'id="' . ($block['id'] ?? '') . '"') : ($block['tag'] === 'table' || !str_contains($existing, $normalize($block['text']))))
+            ));
+            if ($missing) {
+                $body .= $this->view->render('partials/source-complement', $data + ['missing' => $missing]);
+            }
+        }
         return $this->view->render('layouts/main', $data + ['body' => $body]);
     }
 }

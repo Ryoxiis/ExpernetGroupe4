@@ -69,6 +69,7 @@
 </div>
 </div>
 </div>
+<section class="section campus-entry"><div class="wrap campus-split"><div><div class="eyebrow">VOUS CONSTRUISEZ VOTRE AVENIR ?</div><h2>Un diplôme.<br><em>Un métier qui vous ressemble.</em></h2><p>Avec Expernet Campus, formez-vous en alternance aux métiers de l’informatique et du marketing digital, du BAC+2 au BAC+5, à La Réunion et à Mayotte.</p><a class="button button-orange" href="<?= e(url('/campus/')) ?>">Découvrir Expernet Campus ↗</a><a class="text-link campus-secondary" href="<?= e(url('/campus/inscription/')) ?>">Préparer ma candidature →</a></div><a class="campus-entry-image" href="<?= e(url('/campus/')) ?>"><img src="<?= asset('assets/images/campus-intro.png') ?>" alt="Découvrir les formations en alternance d’Expernet Campus" loading="lazy"><span>BAC+2 → BAC+5 · Alternance</span></a></div></section>
 <section class="section training-section" id="formations">
 <div class="wrap">
 <div class="section-heading">

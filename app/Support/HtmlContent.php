@@ -7,7 +7,7 @@ namespace App\Support;
 /** Render imported text blocks without trusting source HTML or URL protocols. */
 final class HtmlContent
 {
-    public function __construct(private readonly array $routes)
+    public function __construct(private readonly array $routes, private readonly array $sourceMap = [])
     {
     }
 
@@ -18,7 +18,29 @@ final class HtmlContent
 
         foreach ($blocks as $block) {
             $tag = $block['tag'];
-            if (in_array($tag, ['h1', 'table'], true)) {
+            if ($tag === 'anchor') {
+                if (preg_match('/^[A-Za-z][A-Za-z0-9_-]{0,100}$/', $block['id'] ?? '')) {
+                    $output .= '<span id="' . \e($block['id']) . '" class="source-anchor"></span>';
+                }
+                continue;
+            }
+            if ($tag === 'table') {
+                if ($listOpen) {
+                    $output .= '</ul>';
+                    $listOpen = false;
+                }
+                $output .= '<div class="source-table"><table><tbody>';
+                foreach ($block['rows'] ?? [] as $row) {
+                    $output .= '<tr>';
+                    foreach ($row as $cell) {
+                        $output .= '<td>' . \e($cell) . '</td>';
+                    }
+                    $output .= '</tr>';
+                }
+                $output .= '</tbody></table></div>';
+                continue;
+            }
+            if ($tag === 'h1') {
                 continue;
             }
             $text = $this->inline($block['text'], $block['links'] ?? []);
@@ -67,7 +89,7 @@ final class HtmlContent
         return $html . \e(substr($text, $offset));
     }
 
-    private function safeUrl(string $href): ?string
+    public function safeUrl(string $href): ?string
     {
         if (preg_match('/[\x00-\x20]/', $href)) {
             return null;
@@ -76,7 +98,15 @@ final class HtmlContent
         if (!in_array($scheme, ['http', 'https', 'mailto', 'tel'], true)) {
             return null;
         }
-        if (parse_url($href, PHP_URL_HOST) === 'expernet.re') {
+        $host = strtolower(parse_url($href, PHP_URL_HOST) ?: '');
+        if (in_array($host, ['expernet.re', 'expernet-campus.re'], true)) {
+            $source = 'https://' . $host . (parse_url($href, PHP_URL_PATH) ?: '/');
+            $fragment = parse_url($href, PHP_URL_FRAGMENT);
+            if (isset($this->sourceMap[$source])) {
+                return \url($this->sourceMap[$source]) . ($fragment ? '#' . rawurlencode($fragment) : '');
+            }
+        }
+        if ($host === 'expernet.re') {
             $path = '/' . trim(parse_url($href, PHP_URL_PATH) ?: '', '/') . '/';
             $path = $path === '//' ? '/' : $path;
             if (isset($this->routes[$path])) {

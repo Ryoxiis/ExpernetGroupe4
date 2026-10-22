@@ -10,6 +10,8 @@ use RuntimeException;
 final class ContentRepository
 {
     private array $content;
+    private ?array $sourcePages = null;
+    private ?array $sourceMap = null;
 
     public function __construct(private readonly string $directory)
     {
@@ -24,6 +26,16 @@ final class ContentRepository
         }
 
         return json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+    }
+
+    public function sourcePages(): array
+    {
+        return $this->sourcePages ??= $this->read('source-pages.json');
+    }
+
+    public function sourceMap(): array
+    {
+        return $this->sourceMap ??= $this->read('source-map.json');
     }
 
     public function courses(): array

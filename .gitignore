@@ -23,3 +23,6 @@ Thumbs.db
 /SKILL.md
 /docs/context/rules.md
 /docs/context/SKILL.md
+
+# Private pedagogical uploads and runtime state
+/storage/*

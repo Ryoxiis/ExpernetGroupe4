@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-22",
+  "domains": [
+    "https://expernet.re/",
+    "https://expernet-campus.re/"
+  ],
+  "canonical_source_pages": 271,
+  "content_records_with_practical_pages": 273,
+  "local_routes": 294,
+  "continuing_education_courses": 149,
+  "campus_courses": 11,
+  "continuing_education_articles": 28,
+  "campus_articles": 36,
+  "campus_pages": 20,
+  "campus_archives": 11,
+  "campus_landing_pages": 2,
+  "source_html_responses": 305,
+  "unvisited_urls": [],
+  "template_strings_excluded": 462,
+  "stale_links_corrected": [
+    "https://expernet-campus.re/marketing-digital/",
+    "https://expernet.re/formation/photoshop-initiation/"
+  ],
+  "snapshots": {
+    "data/source-pages.json": "db5dcb2ba5ecd8e5645a90f1f730d16d58f515ccf8d5249ff356a38ec50b4368",
+    "data/source-map.json": "dab13c30badd5ec23c45049a31f9fa9235ce5b930cc806a9fc54db572ede72dc"
+  }
+}

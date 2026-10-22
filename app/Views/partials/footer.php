@@ -18,10 +18,13 @@
 <a href="mailto:formation@expernet.re">formation@expernet.re</a>
 <a href="<?= e(url('/contact/')) ?>">Contact & accès ↗</a>
 <a href="<?= e(url('/notre-equipe/')) ?>">Rencontrer l’équipe ↗</a>
-<a href="https://expernet-campus.re/" target="_blank" rel="noopener">Expernet Campus · Alternance ↗</a>
+<a href="<?= e(url('/campus/')) ?>">Expernet Campus · Alternance ↗</a>
 </div>
 <div>
 <h3>Explorer</h3>
+<a href="<?= e(url('/espace-pedagogique/')) ?>">Espace pédagogique</a>
+<a href="<?= e(url('/campus/plan-du-site/')) ?>">Toutes les pages Campus</a>
+<a href="<?= e(url('/informations-pratiques/')) ?>">Informations pratiques</a>
 <a href="<?= e(url('/formation/')) ?>">Toutes les formations</a>
 <a href="<?= e(url('/planning/')) ?>">Le planning</a>
 <a href="<?= e(url('/palettes/')) ?>">Comparer les palettes</a>
