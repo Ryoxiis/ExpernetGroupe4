@@ -129,3 +129,9 @@ Lancement avec lecture de votre `.env` et contrôle préalable de MySQL :
 `php bin/serve-portal.php 8093`. Le terminal doit rester ouvert pendant la navigation.
 L'envoi des mots de passe par e-mail et la signature électronique officielle ne
 sont pas configurés ; le portail est un prototype avec données fictives.
+
+## Collaboration et discussions
+
+La messagerie privée, les canaux de formation, les groupes administrables, le chat
+flottant et les fichiers sont documentés dans [le guide de collaboration](docs/COLLABORATION.md).
+Les appels et réunions nécessitent un serveur Jitsi sécurisé configuré séparément.

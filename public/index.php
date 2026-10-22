@@ -26,6 +26,11 @@ try {
     $path = '/' . trim($path, '/') . '/';
     $path = $path === '//' ? '/' : $path;
 
+    if (str_starts_with($path, '/api/discussions/')) {
+        (new \App\Controllers\ChatController())->handle($path, $method);
+        exit;
+    }
+
     $pedagogy = new PedagogyController($app['view']);
     if ($pedagogy->handles($path)) {
         if ($method === 'HEAD') { ob_start(); }

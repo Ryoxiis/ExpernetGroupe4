@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
-  title: Expernet — API publique du prototype
+  title: Expernet — API du prototype
   version: 0.1.0
-  description: Collections en lecture seule. Instantané du 22 octobre 2026, sans compte ni écriture.
+  description: Catalogue public en lecture seule et API privée de collaboration authentifiée.
 servers:
   - url: http://127.0.0.1:8080
 paths:
@@ -45,6 +45,32 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Palette'
+  /api/discussions/inbox/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1inbox~1"
+  /api/discussions/contacts/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1contacts~1"
+  /api/discussions/history/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1history~1"
+  /api/discussions/file/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1file~1"
+  /api/discussions/administration/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1administration~1"
+  /api/discussions/open/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1open~1"
+  /api/discussions/send/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1send~1"
+  /api/discussions/read/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1read~1"
+  /api/discussions/permissions/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1permissions~1"
+  /api/discussions/group/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1group~1"
+  /api/discussions/meeting/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1meeting~1"
+  /api/discussions/join/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1join~1"
+  /api/discussions/ticket/:
+    $ref: "./openapi-chat.yaml#/paths/~1api~1discussions~1ticket~1"
 components:
   schemas:
     Course:
