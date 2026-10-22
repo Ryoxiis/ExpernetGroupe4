@@ -21,6 +21,8 @@ class Links(HTMLParser):
             if path.startswith('/assets/'):
                 if not (ROOT / 'public' / path.lstrip('/')).is_file():
                     failures.append(f'Ressource absente : {path}')
+            elif path in ('/espace-pedagogique/', '/connexion/'):
+                pass
             elif ('/' + path.strip('/') + '/' if path.strip('/') else '/') not in ROUTES:
                 failures.append(f'Route absente : {path}')
 
@@ -49,4 +51,4 @@ except urllib.error.HTTPError as error:
     assert error.code == 405
 
 assert not failures, '\n'.join(sorted(set(failures)))
-print('HTTP : 211 pages, 3 API, ressources/liens, 404 et refus des écritures vérifiés.')
+print(f'HTTP : {len(ROUTES)} pages, 3 API, ressources/liens, 404 et refus des écritures vérifiés.')

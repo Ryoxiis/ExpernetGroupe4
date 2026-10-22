@@ -1053,5 +1053,420 @@
     "title": "Plan du site",
     "type": "page",
     "view": "pages/plan-du-site"
+  },
+  "/campus/accueil-v2/": {
+    "title": "Accueil V2",
+    "type": "source",
+    "source": "https://expernet-campus.re/accueil-v2/"
+  },
+  "/campus/remerciement-contact/": {
+    "title": "Remerciement contact",
+    "type": "source",
+    "source": "https://expernet-campus.re/remerciement-contact/"
+  },
+  "/campus/remerciement-inscription/": {
+    "title": "Remerciement inscription",
+    "type": "source",
+    "source": "https://expernet-campus.re/remerciement-inscription/"
+  },
+  "/campus/campus-a-mayotte/": {
+    "title": "Campus à Mayotte",
+    "type": "source",
+    "source": "https://expernet-campus.re/campus-a-mayotte/"
+  },
+  "/campus/actualites-a-mayotte/": {
+    "title": "Actualités à Mayotte",
+    "type": "source",
+    "source": "https://expernet-campus.re/actualites-a-mayotte/"
+  },
+  "/campus/marketing/": {
+    "title": "Marketing Digital",
+    "type": "source",
+    "source": "https://expernet-campus.re/marketing/"
+  },
+  "/campus/plan-du-site/": {
+    "title": "Plan du site",
+    "type": "source",
+    "source": "https://expernet-campus.re/plan-du-site/"
+  },
+  "/campus/politique-de-confidentialite/": {
+    "title": "Politique de confidentialité",
+    "type": "source",
+    "source": "https://expernet-campus.re/politique-de-confidentialite/"
+  },
+  "/campus/blog/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/blog/"
+  },
+  "/campus/faq/": {
+    "title": "FAQ",
+    "type": "source",
+    "source": "https://expernet-campus.re/faq/"
+  },
+  "/campus/inscription/": {
+    "title": "Inscription",
+    "type": "source",
+    "source": "https://expernet-campus.re/inscription/"
+  },
+  "/campus/informatique/": {
+    "title": "Informatique",
+    "type": "source",
+    "source": "https://expernet-campus.re/informatique/"
+  },
+  "/campus/nos-partenaires/": {
+    "title": "Nos partenaires",
+    "type": "source",
+    "source": "https://expernet-campus.re/nos-partenaires/"
+  },
+  "/campus/nos-locaux/": {
+    "title": "Nos locaux",
+    "type": "source",
+    "source": "https://expernet-campus.re/nos-locaux/"
+  },
+  "/campus/notre-equipe/": {
+    "title": "Notre équipe",
+    "type": "source",
+    "source": "https://expernet-campus.re/notre-equipe/"
+  },
+  "/campus/campus/": {
+    "title": "Campus",
+    "type": "source",
+    "source": "https://expernet-campus.re/campus/"
+  },
+  "/campus/politique-de-cookies-ue/": {
+    "title": "Politique de cookies (UE)",
+    "type": "source",
+    "source": "https://expernet-campus.re/politique-de-cookies-ue/"
+  },
+  "/campus/contact/": {
+    "title": "Contact",
+    "type": "source",
+    "source": "https://expernet-campus.re/contact/"
+  },
+  "/campus/mentions-legales/": {
+    "title": "Mentions légales",
+    "type": "source",
+    "source": "https://expernet-campus.re/mentions-legales/"
+  },
+  "/campus/": {
+    "title": "Ecole informatique et marketing digital",
+    "type": "source",
+    "source": "https://expernet-campus.re/"
+  },
+  "/campus/pourquoi-continuer-ses-etudes-apres-son-bts-licence/": {
+    "title": "Après un BTS ou une licence : pourquoi continuer ses études dans le digital ?",
+    "type": "source",
+    "source": "https://expernet-campus.re/pourquoi-continuer-ses-etudes-apres-son-bts-licence/"
+  },
+  "/campus/comment-trouver-son-alternance-en-2026-expernet/": {
+    "title": "Comment trouver son alternance en 2026 ?",
+    "type": "source",
+    "source": "https://expernet-campus.re/comment-trouver-son-alternance-en-2026-expernet/"
+  },
+  "/campus/que-faire-apres-mon-bac-horsparcoursup/": {
+    "title": "Que faire après mon bac hors Parcoursup ?",
+    "type": "source",
+    "source": "https://expernet-campus.re/que-faire-apres-mon-bac-horsparcoursup/"
+  },
+  "/campus/pourquoi-recruter-un-alternant-e-de-la-gen-z/": {
+    "title": "Pourquoi recruter un alternant.e de la Gen Z ?",
+    "type": "source",
+    "source": "https://expernet-campus.re/pourquoi-recruter-un-alternant-e-de-la-gen-z/"
+  },
+  "/campus/inscriptions-ouvertes-expernet-campus-pourquoi/": {
+    "title": "Les inscriptions sont ouvertes : et si 2026 devenait ton année décisive ?",
+    "type": "source",
+    "source": "https://expernet-campus.re/inscriptions-ouvertes-expernet-campus-pourquoi/"
+  },
+  "/campus/5-competences-pour-reussir-ton-alternance/": {
+    "title": "Les 5 compétences indispensables pour réussir ton alternance en 2026",
+    "type": "source",
+    "source": "https://expernet-campus.re/5-competences-pour-reussir-ton-alternance/"
+  },
+  "/campus/pourquoi-choisir-alternance-expernet/": {
+    "title": "7 raisons de choisir l’alternance avec Expernet en 2026 !",
+    "type": "source",
+    "source": "https://expernet-campus.re/pourquoi-choisir-alternance-expernet/"
+  },
+  "/campus/rejoins-expernet-digital-campus-a-la-reunion-et-forme-toi-aux-metiers-du-digital-🚀/": {
+    "title": "Rejoins Expernet & Digital Campus à La Réunion et forme-toi aux métiers du digital 🚀",
+    "type": "source",
+    "source": "https://expernet-campus.re/rejoins-expernet-digital-campus-a-la-reunion-et-forme-toi-aux-metiers-du-digital-%F0%9F%9A%80/"
+  },
+  "/campus/inscriptions-2025-ouvertes-chez-expernet-formez-vous-aux-metiers-du-digital-🚀/": {
+    "title": "Inscriptions 2025 ouvertes chez Expernet : Formez-vous aux métiers du digital ! 🚀",
+    "type": "source",
+    "source": "https://expernet-campus.re/inscriptions-2025-ouvertes-chez-expernet-formez-vous-aux-metiers-du-digital-%F0%9F%9A%80/"
+  },
+  "/campus/soyons-solidaires-soyons-roses/": {
+    "title": "“ Soyons solidaires, Soyons roses”",
+    "type": "source",
+    "source": "https://expernet-campus.re/soyons-solidaires-soyons-roses/"
+  },
+  "/campus/les-5-astuces-dexpernet-pour-trouver-une-alternance/": {
+    "title": "Les 5 astuces d’Expernet pour trouver une alternance !",
+    "type": "source",
+    "source": "https://expernet-campus.re/les-5-astuces-dexpernet-pour-trouver-une-alternance/"
+  },
+  "/campus/retrospective-dun-mois-de-juin-mouvemente/": {
+    "title": "Rétrospective d’un mois de juin mouvementé",
+    "type": "source",
+    "source": "https://expernet-campus.re/retrospective-dun-mois-de-juin-mouvemente/"
+  },
+  "/campus/nos-etudiants-vice-champions-du-24h-by-webcup-🚀/": {
+    "title": "Nos étudiants vice-champions du 24H by Webcup ! 🚀",
+    "type": "source",
+    "source": "https://expernet-campus.re/nos-etudiants-vice-champions-du-24h-by-webcup-%F0%9F%9A%80/"
+  },
+  "/campus/retour-sur-la-remise-de-diplomes-🎓/": {
+    "title": "Retour sur la Remise de Diplômes ! 🎓",
+    "type": "source",
+    "source": "https://expernet-campus.re/retour-sur-la-remise-de-diplomes-%F0%9F%8E%93/"
+  },
+  "/campus/les-metiers-davenir-a-la-reunion-🚀/": {
+    "title": "Les métiers d’avenir à la Réunion 🚀",
+    "type": "source",
+    "source": "https://expernet-campus.re/les-metiers-davenir-a-la-reunion-%F0%9F%9A%80/"
+  },
+  "/campus/journee-dintegration-🏝️/": {
+    "title": "Une journée d’intégration haute en couleurs 🏝️",
+    "type": "source",
+    "source": "https://expernet-campus.re/journee-dintegration-%F0%9F%8F%9D%EF%B8%8F/"
+  },
+  "/campus/les-4-tendances-incontournables-du-marketing-en-2024/": {
+    "title": "Les 4 Tendances Incontournables du Marketing en 2024.",
+    "type": "source",
+    "source": "https://expernet-campus.re/les-4-tendances-incontournables-du-marketing-en-2024/"
+  },
+  "/campus/une-annee-revolutionnaire/": {
+    "title": "Une année révolutionnaire !",
+    "type": "source",
+    "source": "https://expernet-campus.re/une-annee-revolutionnaire/"
+  },
+  "/campus/geekali-x-expernet-campus/": {
+    "title": "GEEKALI",
+    "type": "source",
+    "source": "https://expernet-campus.re/geekali-x-expernet-campus/"
+  },
+  "/campus/les-formations-en-informatique-pourquoi-sont-elles-si-populaires/": {
+    "title": "LES FORMATIONS EN INFORMATIQUE : POURQUOI SONT-ELLES SI POPULAIRES ?",
+    "type": "source",
+    "source": "https://expernet-campus.re/les-formations-en-informatique-pourquoi-sont-elles-si-populaires/"
+  },
+  "/campus/nos-anciens-ont-du-talent/": {
+    "title": "NOS ANCIENS ONT DU TALENT",
+    "type": "source",
+    "source": "https://expernet-campus.re/nos-anciens-ont-du-talent/"
+  },
+  "/campus/questions-parcoursup-expernet/": {
+    "title": "Pas besoin de passer par Parcoursup chez Expernet !",
+    "type": "source",
+    "source": "https://expernet-campus.re/questions-parcoursup-expernet/"
+  },
+  "/campus/larme-secrete-des-entreprises-pour-le-marketing/": {
+    "title": "L’arme secrète des entreprises pour le marketing !",
+    "type": "source",
+    "source": "https://expernet-campus.re/larme-secrete-des-entreprises-pour-le-marketing/"
+  },
+  "/campus/ia-parcoursup-inscriptions-expernet-campus/": {
+    "title": "Une IA pour faciliter.. vos vœux parcoursup",
+    "type": "source",
+    "source": "https://expernet-campus.re/ia-parcoursup-inscriptions-expernet-campus/"
+  },
+  "/campus/retour-en-image-remise-des-diplomes/": {
+    "title": "🎬[RETOUR EN IMAGE, REMISE DES DIPLÔMES] 🎬",
+    "type": "source",
+    "source": "https://expernet-campus.re/retour-en-image-remise-des-diplomes/"
+  },
+  "/campus/une-annee-2022-riche-en-emotion-ouverture-des-inscriptions-2023/": {
+    "title": "Une année 2022 riche en émotion ! (+ ouverture des inscriptions 2023) 🤩",
+    "type": "source",
+    "source": "https://expernet-campus.re/une-annee-2022-riche-en-emotion-ouverture-des-inscriptions-2023/"
+  },
+  "/campus/linformatique-bat-son-plein/": {
+    "title": "L’informatique bat son plein !",
+    "type": "source",
+    "source": "https://expernet-campus.re/linformatique-bat-son-plein/"
+  },
+  "/campus/les-futurs-alternants-parlent-pour-nous/": {
+    "title": "Les futurs alternants parlent pour nous ! 🎥",
+    "type": "source",
+    "source": "https://expernet-campus.re/les-futurs-alternants-parlent-pour-nous/"
+  },
+  "/campus/nouveautes-a-expernet/": {
+    "title": "Nouveautés à EXPERNET : Le Marketing Digital en action !",
+    "type": "source",
+    "source": "https://expernet-campus.re/nouveautes-a-expernet/"
+  },
+  "/campus/les-rencontres-du-mercredi-by-expernet-campus/": {
+    "title": "Les rencontres du mercredi by Expernet Campus",
+    "type": "source",
+    "source": "https://expernet-campus.re/les-rencontres-du-mercredi-by-expernet-campus/"
+  },
+  "/campus/pourquoi-rejoindre-une-formation-en-marketing-digital-a-la-reunion/": {
+    "title": "Pourquoi rejoindre une formation en marketing digital à la Réunion ?",
+    "type": "source",
+    "source": "https://expernet-campus.re/pourquoi-rejoindre-une-formation-en-marketing-digital-a-la-reunion/"
+  },
+  "/campus/interview-de-romain-auberger-directeur-de-ingenierie-pedagogique/": {
+    "title": "Interview de Romain Auberger Directeur de l’Ingénierie Pédagogique [ VIDEO]",
+    "type": "source",
+    "source": "https://expernet-campus.re/interview-de-romain-auberger-directeur-de-ingenierie-pedagogique/"
+  },
+  "/campus/journee-portes-ouvertes-23-mars-2022/": {
+    "title": "Journée Portes Ouvertes – 23 mars 2022",
+    "type": "source",
+    "source": "https://expernet-campus.re/journee-portes-ouvertes-23-mars-2022/"
+  },
+  "/campus/idees-recues-sur-le-metier-de-developpeur-informatique/": {
+    "title": "Idées reçues sur le métier de développeur informatique",
+    "type": "source",
+    "source": "https://expernet-campus.re/idees-recues-sur-le-metier-de-developpeur-informatique/"
+  },
+  "/campus/retour-dexperience-fotakabine-et-le-recrutement-dun-alternant-du-campus-expernet-informatique/": {
+    "title": "Retour d’expérience : Fotakabine X Campus Expernet Informatique",
+    "type": "source",
+    "source": "https://expernet-campus.re/retour-dexperience-fotakabine-et-le-recrutement-dun-alternant-du-campus-expernet-informatique/"
+  },
+  "/campus/article-1/": {
+    "title": "Célébration des premiers diplômés du campus informatique.",
+    "type": "source",
+    "source": "https://expernet-campus.re/article-1/"
+  },
+  "/campus/formation/bac2-graphiste-multimedia-ia/": {
+    "title": "Graphiste, Multimédia & IA – BAC+2",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/bac2-graphiste-multimedia-ia/"
+  },
+  "/campus/formation/mayotte-technicien-superieur-systemes-et-reseaux-bac2/": {
+    "title": "Technicien Systèmes Réseaux et Sécurité BAC+2 à Mayotte",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/mayotte-technicien-superieur-systemes-et-reseaux-bac2/"
+  },
+  "/campus/formation/mayotte-concepteur-developpeur-applications-bac4/": {
+    "title": "Concepteur Développeur d’Applications BAC+4 à Mayotte",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/mayotte-concepteur-developpeur-applications-bac4/"
+  },
+  "/campus/formation/mayotte-administrateur-systeme-et-reseau-bac4/": {
+    "title": "Administrateur Système et Réseau BAC+4 à Mayotte",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/mayotte-administrateur-systeme-et-reseau-bac4/"
+  },
+  "/campus/formation/chef-de-projet-digital-bac3/": {
+    "title": "Chef de projet digital BAC+3",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/chef-de-projet-digital-bac3/"
+  },
+  "/campus/formation/expert-en-strategie-digitale-bac5/": {
+    "title": "Expert en stratégie digitale BAC+5",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/expert-en-strategie-digitale-bac5/"
+  },
+  "/campus/formation/tsrs-bac2/": {
+    "title": "Technicien Systèmes Réseaux et Sécurité BAC+2",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/tsrs-bac2/"
+  },
+  "/campus/formation/cda-bac4/": {
+    "title": "Concepteur Développeur d’Applications BAC+4",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/cda-bac4/"
+  },
+  "/campus/formation/asr-bac4/": {
+    "title": "Administrateur Système et Réseau BAC+4",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/asr-bac4/"
+  },
+  "/campus/formation/hacking-cybersecurite-bac5/": {
+    "title": "Hacking & Cybersécurité BAC+5",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/hacking-cybersecurite-bac5/"
+  },
+  "/campus/formation/directeur-des-projets-it-bac5/": {
+    "title": "Directeur des projets it BAC+5",
+    "type": "source",
+    "source": "https://expernet-campus.re/formation/directeur-des-projets-it-bac5/"
+  },
+  "/campus/category/articles/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/category/articles/"
+  },
+  "/campus/category/evenements/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/category/evenements/"
+  },
+  "/campus/category/informatique/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/category/informatique/"
+  },
+  "/campus/category/marketing/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/category/marketing/"
+  },
+  "/campus/category/non-classe/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/category/non-classe/"
+  },
+  "/campus/category/success-story/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/category/success-story/"
+  },
+  "/campus/blog/page/2/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/blog/page/2/"
+  },
+  "/campus/blog/page/3/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/blog/page/3/"
+  },
+  "/campus/blog/page/4/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/blog/page/4/"
+  },
+  "/campus/category/articles/page/2/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/category/articles/page/2/"
+  },
+  "/campus/category/articles/page/3/": {
+    "title": "Blog",
+    "type": "source",
+    "source": "https://expernet-campus.re/category/articles/page/3/"
+  },
+  "/categorie/actualite/page/2/": {
+    "title": "Catégorie : Actualité",
+    "type": "source",
+    "source": "https://expernet.re/categorie/actualite/page/2/"
+  },
+  "/campus/elementor-page-datterrissage-7213/": {
+    "title": "Expernet arrive bientôt...",
+    "type": "source",
+    "source": "https://expernet-campus.re/elementor-page-datterrissage-7213/"
+  },
+  "/campus/tunnel/": {
+    "title": "Le campus des métiers de l’informatique et du Marketing DIGITAL de l’ocean Indien",
+    "type": "source",
+    "source": "https://expernet-campus.re/tunnel/"
+  },
+  "/informations-pratiques/": {
+    "title": "Informations pratiques et coordonnées",
+    "type": "source",
+    "source": "https://expernet.re/#informations-pratiques"
+  },
+  "/campus/informations-pratiques/": {
+    "title": "Informations pratiques et coordonnées",
+    "type": "source",
+    "source": "https://expernet-campus.re/#informations-pratiques"
   }
 }

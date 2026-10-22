@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Controllers\PageController;
+use App\Controllers\PedagogyController;
 
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: SAMEORIGIN');
@@ -11,12 +12,6 @@ header('Referrer-Policy: strict-origin-when-cross-origin');
 try {
     $app = require __DIR__ . '/../bootstrap/app.php';
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-    if (!in_array($method, ['GET', 'HEAD'], true)) {
-        header('Allow: GET, HEAD');
-        http_response_code(405);
-        echo 'Méthode non autorisée. Aucune donnée n’a été enregistrée.';
-        exit;
-    }
 
     $path = rawurldecode(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/');
     $base = $app['config']['base_path'];
@@ -31,6 +26,20 @@ try {
     $path = '/' . trim($path, '/') . '/';
     $path = $path === '//' ? '/' : $path;
 
+    $pedagogy = new PedagogyController($app['view']);
+    if ($pedagogy->handles($path)) {
+        if ($method === 'HEAD') { ob_start(); }
+        $pedagogy->handle($path, $method);
+        if ($method === 'HEAD') { ob_end_clean(); }
+        exit;
+    }
+
+    if (!in_array($method, ['GET', 'HEAD'], true)) {
+        header('Allow: GET, HEAD');
+        http_response_code(405);
+        echo 'Méthode non autorisée. Aucune donnée n’a été enregistrée.';
+        exit;
+    }
     $api = [
         '/api/formations/' => static fn (): array => $app['repository']->courseSummaries(),
         '/api/sessions/' => static fn (): array => $app['repository']->sessions(),

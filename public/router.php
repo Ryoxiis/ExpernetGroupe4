@@ -13,7 +13,7 @@ $file = realpath(__DIR__ . $path);
 if (
     $assets !== false && $file !== false && is_file($file)
     && str_starts_with($file, $assets . DIRECTORY_SEPARATOR)
-    && in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['css', 'js', 'png', 'jpg', 'jpeg', 'webp', 'svg', 'woff', 'woff2', 'otf'], true)
+    && in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'webp', 'svg', 'woff', 'woff2', 'otf'], true)
 ) {
     return false;
 }

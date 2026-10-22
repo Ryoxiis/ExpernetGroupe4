@@ -16,7 +16,7 @@ function check(bool $condition, string $message): void
     }
 }
 
-check(count($app['routes']) === 211, 'Le nombre de routes a changé.');
+check(count($app['routes']) === 294, 'Le nombre de routes a changé.');
 check(count($app['repository']->courses()) === 149, 'Le catalogue doit conserver les 149 fiches.');
 check(count($app['repository']->articles()) === 28, 'Les 28 articles doivent être conservés.');
 check($app['repository']->course('inexistant') === null, 'Un identifiant inconnu ne doit pas retourner une fiche.');
@@ -44,4 +44,4 @@ foreach ($app['routes'] as $path => $route) {
     check(!str_contains($output, '<script src="/catalogue.js'), 'Ancien script global encore chargé.');
 }
 
-echo $checks . " contrôles PHP réussis ; 211 routes rendues.\n";
+echo $checks . " contrôles PHP réussis ; 294 routes rendues.\n";

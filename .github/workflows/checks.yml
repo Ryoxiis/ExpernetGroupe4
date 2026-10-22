@@ -14,6 +14,7 @@ jobs:
           node-version: '22'
       - run: find app bootstrap config public tests -name '*.php' -print0 | xargs -0 -n1 php -l
       - run: php tests/run.php
+      - run: php tests/content_coverage.php
       - run: node tests/frontend.test.js
       - run: |
           php -S 127.0.0.1:8080 -t public public/router.php > /tmp/expernet-php.log 2>&1 &
