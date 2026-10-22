@@ -659,4 +659,6 @@
 </section>
 </div>
 </section>
-<section class="section"><div class="wrap"><h2>Expernet Campus et pages complémentaires</h2><ul class="campus-directory"><?php foreach ($routes as $destination => $entry): if ($entry['type'] !== 'source') continue; ?><li><a href="<?= e(url($destination)) ?>"><?= e($entry['title']) ?></a></li><?php endforeach ?></ul></div></section>
+<section class="section"><div class="wrap"><h2>Expernet Campus et pages complémentaires</h2><ul class="campus-directory"><?php foreach ($routes as $destination => $entry): if ($entry['type'] !== 'source') {
+    continue;
+} ?><li><a href="<?= e(url($destination)) ?>"><?= e($entry['title']) ?></a></li><?php endforeach ?></ul></div></section>

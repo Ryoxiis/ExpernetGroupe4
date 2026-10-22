@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 return [
     'storage' => getenv('CHAT_STORAGE') ?: PROJECT_ROOT . '/storage/chat',

@@ -22,7 +22,9 @@
     "https://expernet.re/formation/photoshop-initiation/"
   ],
   "snapshots": {
-    "data/source-pages.json": "db5dcb2ba5ecd8e5645a90f1f730d16d58f515ccf8d5249ff356a38ec50b4368",
+    "data/source-pages.json": "baf2b45ff1fae72a653d7744c5d513b9b35183a55fed30299fd096cc29ed4869",
     "data/source-map.json": "dab13c30badd5ec23c45049a31f9fa9235ce5b930cc806a9fc54db572ede72dc"
-  }
+  },
+  "media_audit": "docs/audit/medias-officiels.json",
+  "additional_official_text_blocks": 2
 }

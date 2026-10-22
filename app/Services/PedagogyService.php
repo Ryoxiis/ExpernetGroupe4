@@ -25,7 +25,10 @@ final class PedagogyService
     private function id(array $input, string $key): int
     {
         $value = filter_var($input[$key] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
-        return $value !== false && $value !== null ? $value : throw new PortalException('Sélectionnez une valeur valide pour « ' . $key . ' ».');
+        if ($value === false || $value === null) {
+            throw new PortalException('Sélectionnez une valeur valide pour « ' . $key . ' ».');
+        }
+        return $value;
     }
 
     private function date(array $input, string $key): string
@@ -43,6 +46,15 @@ final class PedagogyService
         if (!in_array($user['role'], $roles, true)) {
             throw new PortalException('Vous ne disposez pas des droits nécessaires.', 403);
         }
+    }
+
+    // Vérifie d'abord le rôle, puis l'accès à la promotion choisie.
+    private function authorizedCohort(array $user, array $input, array $roles): int
+    {
+        $this->requireRole($user, $roles);
+        $cohort = $this->id($input, 'cohort_id');
+        $this->cohort($user, $cohort);
+        return $cohort;
     }
 
     public function cohort(array $user, int $id): array
@@ -235,9 +247,7 @@ final class PedagogyService
 
     private function membership(array $user, array $input): array
     {
-        $this->requireRole($user, ['admin']);
-        $cohort = $this->id($input, 'cohort_id');
-        $this->cohort($user, $cohort);
+        $cohort = $this->authorizedCohort($user, $input, ['admin']);
         $id = $this->id($input, 'user_id');
         if (!$this->repo->one('SELECT id FROM portal_users WHERE id=? AND role IN ("student","trainer") AND status <> "disabled"', [$id])) {
             throw new PortalException('Choisissez un étudiant ou formateur actif ou invité.');
@@ -455,9 +465,7 @@ final class PedagogyService
 
     private function exam(array $user, array $input): array
     {
-        $this->requireRole($user, ['admin']);
-        $cohort = $this->id($input, 'cohort_id');
-        $this->cohort($user, $cohort);
+        $cohort = $this->authorizedCohort($user, $input, ['admin']);
         $jury = array_unique(array_map('intval', (array) ($input['jury'] ?? [])));
         if (!$jury || count($jury) > 20) {
             throw new PortalException('Sélectionnez au moins un membre du jury (20 maximum).');
@@ -505,17 +513,13 @@ final class PedagogyService
 
     private function journal(array $user, array $input): array
     {
-        $this->requireRole($user, ['student']);
-        $cohort = $this->id($input, 'cohort_id');
-        $this->cohort($user, $cohort);
+        $cohort = $this->authorizedCohort($user, $input, ['student']);
         return ['id' => $this->repo->insert('INSERT INTO portal_journal(cohort_id,student_id,body,created_at) VALUES(?,?,?,UTC_TIMESTAMP())', [$cohort, $user['id'], $this->text($input, 'body', 10000)])];
     }
 
     private function feedback(array $user, array $input): array
     {
-        $this->requireRole($user, ['student']);
-        $cohort = $this->id($input, 'cohort_id');
-        $this->cohort($user, $cohort);
+        $cohort = $this->authorizedCohort($user, $input, ['student']);
         $rating = $this->id($input, 'rating');
         if ($rating > 5) {
             throw new PortalException('Choisissez une note entre 1 et 5.');

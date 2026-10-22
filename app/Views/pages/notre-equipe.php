@@ -12,6 +12,10 @@
 </section>
 <section class="section">
 <div class="wrap">
+<figure class="official-team-photo">
+    <img src="<?= asset('assets/images/official/bc04e978b68156818e.png') ?>" alt="L’équipe Expernet, réunie devant le centre de formation" loading="lazy">
+    <figcaption>L’équipe Expernet, à vos côtés pour construire votre parcours de formation.</figcaption>
+</figure>
 <div class="people-grid">
 <article class="person-card">
 <img src="<?= asset('assets/images/content/07baf0bb27051c.png') ?>" alt="Marc-Henri Ravaux" loading="lazy" class="">

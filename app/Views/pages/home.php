@@ -49,6 +49,61 @@
 </div>
 </div>
 </section>
+<section class="home-orientation" aria-labelledby="orientation-title">
+    <div class="wrap">
+        <h2 id="orientation-title">Quel est votre projet ?</h2>
+        <div class="orientation-grid">
+            <article class="orientation-card">
+                <h3>Développer mes compétences</h3>
+                <p>Des formations professionnelles pour progresser ou former mon équipe.</p>
+                <a class="text-link" href="#formations">Trouver ma formation <span aria-hidden="true">↓</span></a>
+            </article>
+            <article class="orientation-card">
+                <h3>Préparer un diplôme</h3>
+                <p>Un parcours en alternance avec Expernet Campus, du BAC+2 au BAC+5.</p>
+                <a class="text-link" href="<?= e(url('/campus/')) ?>">Découvrir les diplômes <span aria-hidden="true">→</span></a>
+            </article>
+        </div>
+    </div>
+</section>
+<section class="section training-section" id="formations">
+<div class="wrap">
+<div class="section-heading">
+<div>
+<div class="eyebrow">À CHAQUE AMBITION, SA FORMATION</div>
+<h2>Et vous, quelle sera<br>votre prochaine <span class="serif">compétence ?</span>
+</h2>
+</div>
+<p>Un premier pas dans le numérique ou une expertise à approfondir ? Trouvez la formation qui correspond à votre projet.</p>
+</div>
+<form id="search-form" class="search-form" role="search">
+<span class="search-icon" aria-hidden="true">⌕</span>
+<label class="sr-only" for="course-search">Rechercher une formation professionnelle</label>
+<input id="course-search" type="search" placeholder="Une compétence, un logiciel, une envie…" autocomplete="off">
+<button class="button button-dark" type="submit">Rechercher <span>→</span>
+</button>
+</form>
+<div class="filters" role="group" aria-label="Filtrer les formations">
+<button class="filter active" data-filter="all" aria-pressed="true">Toutes les formations</button>
+<button class="filter" data-filter="Intelligence artificielle" aria-pressed="false">Intelligence artificielle</button>
+<button class="filter" data-filter="Bureautique" aria-pressed="false">Bureautique</button>
+<button class="filter" data-filter="Cybersécurité" aria-pressed="false">Cybersécurité</button>
+<button class="filter" data-filter="Création digitale" aria-pressed="false">Création digitale</button>
+</div>
+<div class="results-heading">
+<span id="result-count" aria-live="polite">Formations à découvrir</span>
+<span>Un aperçu parmi 149 formations</span>
+</div>
+<div class="course-grid" id="course-grid" data-mode="home">
+</div>
+<p id="empty-state" hidden>Aucune formation ne correspond à votre recherche. Essayez un autre mot-clé ou réinitialisez la thématique.</p>
+<div class="center">
+<a class="text-link catalog-link" href="<?= e(url('/formation/')) ?>" >Explorer les 149 formations <span>↗</span>
+</a>
+</div>
+</div>
+</section>
+
 <div class="trust-strip">
 <div class="wrap trust-grid">
 <div>
@@ -69,44 +124,8 @@
 </div>
 </div>
 </div>
-<section class="section campus-entry"><div class="wrap campus-split"><div><div class="eyebrow">VOUS CONSTRUISEZ VOTRE AVENIR ?</div><h2>Un diplôme.<br><em>Un métier qui vous ressemble.</em></h2><p>Avec Expernet Campus, formez-vous en alternance aux métiers de l’informatique et du marketing digital, du BAC+2 au BAC+5, à La Réunion et à Mayotte.</p><a class="button button-orange" href="<?= e(url('/campus/')) ?>">Découvrir Expernet Campus ↗</a><a class="text-link campus-secondary" href="<?= e(url('/campus/inscription/')) ?>">Préparer ma candidature →</a></div><a class="campus-entry-image" href="<?= e(url('/campus/')) ?>"><img src="<?= asset('assets/images/campus-intro.png') ?>" alt="Découvrir les formations en alternance d’Expernet Campus" loading="lazy"><span>BAC+2 → BAC+5 · Alternance</span></a></div></section>
-<section class="section training-section" id="formations">
-<div class="wrap">
-<div class="section-heading">
-<div>
-<div class="eyebrow">À CHAQUE AMBITION, SA FORMATION</div>
-<h2>Et vous, quelle sera<br>votre prochaine <span class="serif">compétence ?</span>
-</h2>
-</div>
-<p>Un premier pas dans le numérique ou une expertise à approfondir ? Trouvez la formation qui correspond à votre projet.</p>
-</div>
-<form id="search-form" class="search-form" role="search">
-<span class="search-icon" aria-hidden="true">⌕</span>
-<label class="sr-only" for="course-search">Rechercher une formation</label>
-<input id="course-search" type="search" placeholder="Une compétence, un logiciel, une envie…" autocomplete="off">
-<button class="button button-dark" type="submit">Rechercher <span>→</span>
-</button>
-</form>
-<div class="filters" role="group" aria-label="Filtrer les formations">
-<button class="filter active" data-filter="all" aria-pressed="true">Toutes les formations</button>
-<button class="filter" data-filter="Intelligence artificielle" aria-pressed="false">Intelligence artificielle</button>
-<button class="filter" data-filter="Bureautique" aria-pressed="false">Bureautique</button>
-<button class="filter" data-filter="Cybersécurité" aria-pressed="false">Cybersécurité</button>
-<button class="filter" data-filter="Création digitale" aria-pressed="false">Création digitale</button>
-</div>
-<div class="results-heading">
-<span id="result-count" aria-live="polite">Formations à découvrir</span>
-<span>Un aperçu parmi 149 formations</span>
-</div>
-<div class="course-grid" id="course-grid" data-mode="home">
-</div>
-<p id="empty-state" hidden>Aucune formation dans cet aperçu ne correspond à votre recherche. Essayez un autre mot-clé ou consultez le catalogue complet.</p>
-<div class="center">
-<a class="text-link catalog-link" href="<?= e(url('/formation/')) ?>" >Explorer les 149 formations <span>↗</span>
-</a>
-</div>
-</div>
-</section>
+<section class="section campus-entry"><div class="wrap campus-split"><div><div class="eyebrow">VOUS CONSTRUISEZ VOTRE AVENIR ?</div><h2>Un diplôme.<br><em>Un métier qui vous ressemble.</em></h2><p>Avec Expernet Campus, formez-vous en alternance aux métiers de l’informatique et du marketing digital, du BAC+2 au BAC+5, à La Réunion et à Mayotte.</p><a class="button button-orange" href="<?= e(url('/campus/')) ?>">Découvrir Expernet Campus ↗</a><a class="text-link campus-secondary" href="<?= e(url('/campus/inscription/')) ?>">Préparer ma candidature →</a></div><a class="campus-entry-image" href="<?= e(url('/campus/')) ?>"><img src="<?= asset('assets/images/official/3c2f9d599a1a6fc25c.png') ?>" alt="Des étudiants d’Expernet Campus" loading="lazy"><span>BAC+2 → BAC+5 · Alternance</span></a></div></section>
+
 <section class="approach section" id="approche">
 <div class="wrap approach-grid">
 <div class="approach-photo">

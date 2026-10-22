@@ -2,6 +2,7 @@
 <html lang="fr" data-root="<?= e(url('/')) ?>" data-base="<?= e(url('/')) ?>">
 <head>
     <meta charset="utf-8">
+    <link rel="preload" href="<?= asset('assets/fonts/inter-variable.woff2') ?>" as="font" type="font/woff2" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?= e($page['title']) ?> — Prototype de refonte Expernet.">
     <title><?= e($page['title']) ?> — Expernet</title>

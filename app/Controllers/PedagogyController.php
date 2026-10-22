@@ -11,6 +11,7 @@ use App\Support\Database;
 use App\Support\PortalException;
 use App\Support\PortalSecurity;
 use App\Support\View;
+use App\Support\RequestData;
 
 final class PedagogyController
 {
@@ -53,7 +54,15 @@ final class PedagogyController
 
     private function render(string $template, array $data = []): void
     {
-        echo $this->view->render('pedagogy/layout', ['view' => $this->view, 'config' => $this->config, 'csrf' => PortalSecurity::csrf(), 'body' => $this->view->render('pedagogy/' . $template, $data + ['csrf' => PortalSecurity::csrf(), 'config' => $this->config]), 'title' => $data['title'] ?? 'Espace pédagogique', 'user' => $data['user'] ?? null]);
+        // Le contenu de la page est inséré dans la structure commune du portail.
+        $shared = ['csrf' => PortalSecurity::csrf(), 'config' => $this->config];
+        $body = $this->view->render('pedagogy/' . $template, $data + $shared);
+        echo $this->view->render('pedagogy/layout', $shared + [
+            'view' => $this->view,
+            'body' => $body,
+            'title' => $data['title'] ?? 'Espace pédagogique',
+            'user' => $data['user'] ?? null,
+        ]);
     }
 
     public function handle(string $path, string $method): void
@@ -71,17 +80,7 @@ final class PedagogyController
                 header('Allow: GET, POST, HEAD');
                 throw new PortalException('Méthode non autorisée.', 405);
             }
-            $input = $_POST;
-            if ($method === 'POST' && str_contains($_SERVER['CONTENT_TYPE'] ?? '', 'application/json')) {
-                try {
-                    $input = json_decode(file_get_contents('php://input'), true, 32, JSON_THROW_ON_ERROR);
-                } catch (\JsonException) {
-                    throw new PortalException('Le contenu JSON est invalide.', 400);
-                }
-                if (!is_array($input)) {
-                    throw new PortalException('Un objet JSON est attendu.', 400);
-                }
-            }
+            $input = $method === 'POST' ? RequestData::read() : [];
             if ($method === 'POST') {
                 PortalSecurity::verifyCsrf($_SERVER['HTTP_X_CSRF_TOKEN'] ?? ($input['csrf'] ?? null));
             }
@@ -147,7 +146,7 @@ final class PedagogyController
                 }
                 $_SESSION['portal_flash'] = $this->service->mutate($user, (string) ($input['action'] ?? ''), $input, $_FILES);
                 $page = (string) ($input['return'] ?? 'accueil');
-                $allowed = ['accueil', 'planning', 'seance', 'classes', 'travaux', 'resultats', 'ressources', 'presences', 'messages', 'parcours', 'examens', 'administration'];
+                $allowed = array_keys($this->config['pages']);
                 $this->redirect('/espace-pedagogique/' . (in_array($page, $allowed, true) ? $page . '/' : '') . ($page === 'seance' ? '?id=' . (int) ($input['session_id'] ?? 0) : ''));
                 return;
             }
@@ -173,7 +172,7 @@ final class PedagogyController
                 return;
             }
             $page = trim(substr($path, strlen('/espace-pedagogique/')), '/') ?: 'accueil';
-            $allowed = ['accueil', 'planning', 'seance', 'classes', 'travaux', 'resultats', 'ressources', 'presences', 'messages', 'parcours', 'examens', 'administration'];
+            $allowed = array_keys($this->config['pages']);
             if (!in_array($page, $allowed, true)) {
                 throw new PortalException('Page introuvable.', 404);
             }

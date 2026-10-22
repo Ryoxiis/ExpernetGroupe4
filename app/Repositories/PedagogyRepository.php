@@ -12,6 +12,14 @@ final class PedagogyRepository
     {
     }
 
+    // Toutes les requêtes passent par une préparation PDO pour séparer SQL et valeurs.
+    private function query(string $sql, array $params): \PDOStatement
+    {
+        $statement = $this->db->prepare($sql);
+        $statement->execute($params);
+        return $statement;
+    }
+
     public function all(string $sql, array $params = []): array
     {
         $statement = $this->db->prepare($sql);
@@ -21,7 +29,8 @@ final class PedagogyRepository
 
     public function one(string $sql, array $params = []): ?array
     {
-        return $this->all($sql, $params)[0] ?? null;
+        $row = $this->query($sql, $params)->fetch();
+        return $row === false ? null : $row;
     }
 
     public function execute(string $sql, array $params = []): int

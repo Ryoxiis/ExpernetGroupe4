@@ -14,7 +14,11 @@
     window.setExpernetTheme = (id) => {
         if (!allowed.includes(id)) return;
         document.documentElement.dataset.theme = id;
-        try { localStorage.setItem(storageKey, id); } catch (error) { /* Storage is optional. */ }
+        try {
+            localStorage.setItem(storageKey, id);
+        } catch (error) {
+            /* Storage is optional. */
+        }
         window.dispatchEvent(new CustomEvent('expernet-theme', { detail: id }));
     };
 })();
