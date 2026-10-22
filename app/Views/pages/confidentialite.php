@@ -1,19 +1,4 @@
-<section class="page-hero">
-<div class="wrap">
-<div class="breadcrumbs">
-<a href="<?= e(url('/')) ?>">Accueil</a>
-<span>/</span>
-<span>Confidentialité</span>
-</div>
-<div class="eyebrow">INFORMATIONS OFFICIELLES</div>
-<h1>Confidentialité</h1>
-<p>Texte issu du site Expernet. Cette maquette ne collecte aucune demande et ne reproduit pas les outils de suivi du site d’origine.</p>
-</div>
-</section>
-<section class="section">
-<div class="wrap narrow">
-<div class="notice">Le texte ci-dessous concerne le site officiel et décrit ses services. La conformité juridique du futur site devra être validée avant sa mise en production.</div>
-<article class="prose">
+<?= $view->render('partials/legal-intro', ['heading' => 'Confidentialité']) ?>
 <h3>Politique de cookie</h3>
 <p>Ce site utilise des cookies – de petits fichiers texte qui sont placés sur votre machine pour aider le site à fournir une meilleure expérience utilisateur. En général, les cookies sont utilisés pour conserver les préférences de l’utilisateur, stocker des informations pour des choses comme les paniers d’achat et fournir des données de suivi anonymisées à des applications tierces comme Google Analytics. En règle générale, les cookies rendront votre expérience de navigation meilleure. Toutefois, vous pouvez préférer désactiver les cookies sur ce site et sur d’autres. Le moyen le plus efficace consiste à désactiver les cookies dans votre navigateur. Nous vous suggérons de consulter la section Aide de votre navigateur ou de consulter le site Web À propos des cookies (en anglais) qui propose des conseils pour tous les navigateurs modernes.</p>
 <h3>Cookies</h3>

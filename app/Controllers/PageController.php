@@ -39,12 +39,22 @@ final class PageController
         $data['sourcePage'] = $source ? ($data['sourcePages'][$source] ?? null) : null;
         $body = $this->view->render($template, $data);
         if ($page['type'] !== 'source' && $data['sourcePage']) {
-            // Retain source details omitted by the editorial V2 composition.
+            // Complète la page avec les blocs de la source qui ne sont pas déjà affichés.
             $normalize = static fn (string $value): string => preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($value), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
             $existing = $normalize($body);
-            $missing = array_values(array_filter($data['sourcePage']['blocks'], static fn (array $block): bool =>
-                ($block['tag'] === 'anchor' ? !str_contains($body, 'id="' . ($block['id'] ?? '') . '"') : ($block['tag'] === 'table' || !str_contains($existing, $normalize($block['text']))))
-            ));
+            $missing = [];
+            foreach ($data['sourcePage']['blocks'] as $block) {
+                if ($block['tag'] === 'anchor') {
+                    $present = str_contains($body, 'id="' . ($block['id'] ?? '') . '"');
+                } elseif ($block['tag'] === 'table') {
+                    $present = false;
+                } else {
+                    $present = str_contains($existing, $normalize($block['text']));
+                }
+                if (!$present) {
+                    $missing[] = $block;
+                }
+            }
             if ($missing) {
                 $body .= $this->view->render('partials/source-complement', $data + ['missing' => $missing]);
             }

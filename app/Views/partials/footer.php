@@ -26,7 +26,7 @@
 <a href="<?= e(url('/campus/plan-du-site/')) ?>">Toutes les pages Campus</a>
 <a href="<?= e(url('/informations-pratiques/')) ?>">Informations pratiques</a>
 <a href="<?= e(url('/formation/')) ?>">Toutes les formations</a>
-<a href="<?= e(url('/planning/')) ?>">Le planning</a>
+<a href="<?= e(url('/planning/')) ?>">Calendrier des formations</a>
 <a href="<?= e(url('/palettes/')) ?>">Comparer les palettes</a>
 <a href="<?= e(url('/plan-du-site/')) ?>">Toutes les pages</a>
 <p>Établissements accessibles aux personnes en situation de handicap et à mobilité réduite.</p>

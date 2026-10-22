@@ -1,19 +1,4 @@
-<section class="page-hero">
-<div class="wrap">
-<div class="breadcrumbs">
-<a href="<?= e(url('/')) ?>">Accueil</a>
-<span>/</span>
-<span>Mentions légales</span>
-</div>
-<div class="eyebrow">INFORMATIONS OFFICIELLES</div>
-<h1>Mentions légales</h1>
-<p>Texte issu du site Expernet. Cette maquette ne collecte aucune demande et ne reproduit pas les outils de suivi du site d’origine.</p>
-</div>
-</section>
-<section class="section">
-<div class="wrap narrow">
-<div class="notice">Le texte ci-dessous concerne le site officiel et décrit ses services. La conformité juridique du futur site devra être validée avant sa mise en production.</div>
-<article class="prose">
+<?= $view->render('partials/legal-intro', ['heading' => 'Mentions légales']) ?>
 <h3>Présentation du site</h3>
 <p>En vertu de l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé aux utilisateurs du site http://www.expernet.re l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
 <p>Propriétaire : Expernet – 44276468400027– 38, Rue Claude Chappe ZAC 2000 97420 LE PORT Responsable publication : formation@expernet.re</p>

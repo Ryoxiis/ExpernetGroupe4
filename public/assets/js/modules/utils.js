@@ -4,18 +4,34 @@ export function url(path = '') {
 }
 
 export function escapeHtml(value) {
-    const entities = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-    return String(value).replace(/[&<>"']/g, (character) => entities[character]);
+    const entities = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+    };
+    return String(value).replace(
+        /[&<>"']/g,
+        (character) => entities[character],
+    );
 }
 
 export function normalize(value) {
-    return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    return String(value)
+        .normalize('NFD')
+        .replace(/\p{Diacritic}/gu, '')
+        .toLocaleLowerCase('fr');
 }
 
 export async function getCollection(endpoint) {
-    const response = await fetch(url(endpoint), { headers: { Accept: 'application/json' } });
+    const response = await fetch(url(endpoint), {
+        headers: { Accept: 'application/json' },
+    });
     if (!response.ok) {
-        throw new Error(`Impossible de charger les données (${response.status}).`);
+        throw new Error(
+            `Impossible de charger les données (${response.status}).`,
+        );
     }
     const collection = await response.json();
     if (!Array.isArray(collection)) {
@@ -29,7 +45,8 @@ export function showLoadError(container, retry) {
     const message = document.createElement('p');
     message.setAttribute('role', 'alert');
     message.className = 'notice';
-    message.textContent = 'Les données n’ont pas pu être chargées. Vérifiez votre connexion puis réessayez.';
+    message.textContent =
+        'Les données n’ont pas pu être chargées. Vérifiez votre connexion puis réessayez.';
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'button button-dark';

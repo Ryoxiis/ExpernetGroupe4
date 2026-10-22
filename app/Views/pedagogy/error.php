@@ -1,1 +1,8 @@
-<main id="contenu" class="portal-error"><p class="portal-eyebrow">Espace pédagogique</p><h1><?= e($title) ?></h1><p role="alert"><?= e($message) ?></p><a class="button button-dark" href="<?= e(url('/espace-pedagogique/')) ?>">Retour à mon espace</a><a class="portal-link" href="<?= e(url('/connexion/')) ?>">Revenir à la connexion</a></main>
+<main id="contenu" class="portal-error">
+    <p class="portal-eyebrow">Espace pédagogique
+    </p>
+    <h1><?= e($title) ?>
+    </h1>
+    <p role="alert"><?= e($message) ?>
+    </p><a class="button button-dark" href="<?= e(url('/espace-pedagogique/')) ?>">Retour à mon espace</a><a class="portal-link" href="<?= e(url('/connexion/')) ?>">Revenir à la connexion</a>
+</main>

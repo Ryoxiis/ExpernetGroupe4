@@ -22,7 +22,7 @@ if ($sourcePage['kind'] === 'formation') {
             <p>Informatique, cybersécurité et marketing digital : découvrez les parcours du Campus à La Réunion et à Mayotte.</p>
             <div class="hero-actions"><a class="button button-orange" href="#diplomes">Choisir mon parcours ↗</a><a class="text-link" href="<?= e(url('/campus/inscription/')) ?>">Préparer ma candidature →</a></div>
         </div>
-        <div class="campus-welcome-visual"><img class="campus-logo" src="<?= asset('assets/images/campus-logo.png') ?>" alt="Expernet Campus"><img src="<?= asset('assets/images/campus-intro.png') ?>" alt="Expernet Campus, informatique et marketing digital"></div>
+        <div class="campus-welcome-visual"><img class="campus-logo" src="<?= asset('assets/images/campus-logo.png') ?>" alt="Expernet Campus"><img src="<?= asset('assets/images/official/3c2f9d599a1a6fc25c.png') ?>" alt="Des étudiants d’Expernet Campus"></div>
     </div>
 </section>
 <div class="wrap campus-shortcuts"><?php foreach (['/campus/campus/' => 'Notre école', '/campus/notre-equipe/' => 'Notre équipe', '/campus/nos-locaux/' => 'Les locaux', '/campus/nos-partenaires/' => 'Nos partenaires', '/campus/campus-a-mayotte/' => 'Le Campus à Mayotte'] as $destination => $label): ?><a href="<?= e(url($destination)) ?>"><?= e($label) ?> ↗</a><?php endforeach ?></div>
@@ -41,7 +41,10 @@ if ($sourcePage['kind'] === 'formation') {
 <section class="section"><div class="wrap source-reading">
 <?php if ($isHome || $sourcePage['kind'] === 'archive'): ?><details class="campus-details"><summary><?= $isHome ? 'Le Campus en détail : école, admissions et partenaires' : 'Consulter les informations et liens de cette rubrique' ?></summary><?php endif ?>
 <div class="source-content"><?= $html->render($displayBlocks) ?></div>
-<?php if ($sourcePage['documents']): ?><aside class="source-documents"><h2>Documents utiles</h2><?php foreach ($sourcePage['documents'] as $document): $destination = $html->safeUrl($document['href']); if (!$destination) continue; ?><a class="button button-outline" href="<?= e($destination) ?>"><?= e($document['text']) ?> ↗</a><?php endforeach ?></aside><?php endif ?>
+<?php if ($sourcePage['documents']): ?><aside class="source-documents"><h2>Documents utiles</h2><?php foreach ($sourcePage['documents'] as $document): $destination = $html->safeUrl($document['href']);
+    if (!$destination) {
+        continue;
+    } ?><a class="button button-outline" href="<?= e($destination) ?>"><?= e($document['text']) ?> ↗</a><?php endforeach ?></aside><?php endif ?>
 <?php if ($isHome || $sourcePage['kind'] === 'archive'): ?></details><?php endif ?>
 </div></section>
 <?php if ($sourcePage['images']): ?><section class="section campus-gallery"><div class="wrap"><h2>En images</h2><div class="campus-image-grid"><?php foreach ($sourcePage['images'] as $image): ?><figure><img src="<?= asset($image['path']) ?>" alt="<?= e($image['alt']) ?>" loading="lazy"></figure><?php endforeach ?></div></div></section><?php endif ?>
