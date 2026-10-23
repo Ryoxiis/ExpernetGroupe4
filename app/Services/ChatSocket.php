@@ -14,8 +14,13 @@ final class ChatSocket implements MessageComponentInterface
     private \SplObjectStorage $clients;
     private array $authenticated = [];
     private string $revision = '';
-    public function __construct(private readonly PedagogyRepository $repo, private readonly array $origins)
+    private PedagogyRepository $repo;
+    private array $origins;
+
+    public function __construct(PedagogyRepository $repo, array $origins)
     {
+        $this->repo = $repo;
+        $this->origins = $origins;
         $this->clients = new \SplObjectStorage();
     }
     public function onOpen(ConnectionInterface $conn): void

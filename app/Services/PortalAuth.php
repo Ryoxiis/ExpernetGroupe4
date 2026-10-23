@@ -10,8 +10,13 @@ use App\Support\PortalSecurity;
 
 final class PortalAuth
 {
-    public function __construct(private readonly PedagogyRepository $repo, private readonly array $config)
+    private PedagogyRepository $repo;
+    private array $config;
+
+    public function __construct(PedagogyRepository $repo, array $config)
     {
+        $this->repo = $repo;
+        $this->config = $config;
     }
 
     public function current(): ?array
@@ -138,7 +143,9 @@ final class PortalAuth
         if ($user['mfa_secret']) {
             return ['setup' => false];
         }
-        $_SESSION['pending']['secret'] ??= PortalSecurity::totpSecret();
+        if (!isset($_SESSION['pending']['secret'])) {
+            $_SESSION['pending']['secret'] = PortalSecurity::totpSecret();
+        }
         return ['setup' => true, 'secret' => $_SESSION['pending']['secret']];
     }
 

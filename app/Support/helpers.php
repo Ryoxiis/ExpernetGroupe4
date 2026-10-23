@@ -11,7 +11,10 @@ function e(string|int|float|null $value): string
 function url(string $path = '/'): string
 {
     static $basePath;
-    $basePath ??= (require PROJECT_ROOT . '/config/app.php')['base_path'];
+    if ($basePath === null) {
+        $config = require PROJECT_ROOT . '/config/app.php';
+        $basePath = $config['base_path'];
+    }
 
     return $basePath . '/' . ltrim($path, '/');
 }

@@ -6,8 +6,11 @@ namespace App\Support;
 
 final class PortalException extends \RuntimeException
 {
-    public function __construct(string $message, public readonly int $status = 422)
+    public int $status;
+
+    public function __construct(string $message, int $status = 422)
     {
+        $this->status = $status;
         parent::__construct($message);
     }
 }

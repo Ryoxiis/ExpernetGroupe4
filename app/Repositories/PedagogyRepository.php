@@ -8,8 +8,11 @@ use PDO;
 
 final class PedagogyRepository
 {
-    public function __construct(public readonly PDO $db)
+    public PDO $db;
+
+    public function __construct(PDO $db)
     {
+        $this->db = $db;
     }
 
     // Toutes les requêtes passent par une préparation PDO pour séparer SQL et valeurs.

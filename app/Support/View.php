@@ -9,8 +9,11 @@ use Throwable;
 
 final class View
 {
-    public function __construct(private readonly string $directory)
+    private string $directory;
+
+    public function __construct(string $directory)
     {
+        $this->directory = $directory;
     }
 
     /** @param array<string, mixed> $data */

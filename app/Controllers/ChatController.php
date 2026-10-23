@@ -37,23 +37,51 @@ final class ChatController
                 PortalSecurity::verifyCsrf($_SERVER['HTTP_X_CSRF_TOKEN'] ?? null);
                 $input = RequestData::read();
             }
-            $id = static fn ($v) => ChatService::positive($v);
-            $data = match($method.':'.$action) {
-                'GET:inbox' => $service->inbox($user),
-                'GET:contacts' => ['contacts' => $service->contacts($user, $id($_GET['cohort_id'] ?? null), ChatService::text($_GET['q'] ?? '', 100, true))],
-                'GET:history' => $service->history($user, $id($_GET['conversation_id'] ?? null), isset($_GET['before']) ? $id($_GET['before']) : 0, isset($_GET['after']) ? $id($_GET['after']) : 0),
-                'GET:administration' => $service->administration($user),
-                'POST:open' => ['id' => $service->open($user, $id($input['cohort_id'] ?? null), isset($input['target_user_id']) ? $id($input['target_user_id']) : null)],
-                'POST:send' => $service->send($user, $id($input['conversation_id'] ?? null), $input, $_FILES['file'] ?? []),
-                'POST:group' => ['id' => $service->group($user, $input)],
-                'POST:meeting' => ['id' => $service->meeting($user, $id($input['conversation_id'] ?? null), $input)],
-                'POST:join' => ['url' => $service->join($user, $id($input['meeting_id'] ?? null))],
-                'POST:ticket' => ['token' => $service->ticket($user)],
-                'POST:read' => $this->done(fn () => $service->read($user, $id($input['conversation_id'] ?? null), $id($input['message_id'] ?? null))),
-                'POST:permissions' => $this->done(fn () => $service->permissions($user, $input)),
-                'GET:file' => $this->file($service, $user, $id($_GET['id'] ?? null), $config),
-                default => throw new PortalException('Endpoint introuvable.', 404),
-            };
+            switch ($method . ':' . $action) {
+                case 'GET:inbox':
+                    $data = $service->inbox($user);
+                    break;
+                case 'GET:contacts':
+                    $data = ['contacts' => $service->contacts($user, ChatService::positive($_GET['cohort_id'] ?? null), ChatService::text($_GET['q'] ?? '', 100, true))];
+                    break;
+                case 'GET:history':
+                    $data = $service->history($user, ChatService::positive($_GET['conversation_id'] ?? null), isset($_GET['before']) ? ChatService::positive($_GET['before']) : 0, isset($_GET['after']) ? ChatService::positive($_GET['after']) : 0);
+                    break;
+                case 'GET:administration':
+                    $data = $service->administration($user);
+                    break;
+                case 'POST:open':
+                    $data = ['id' => $service->open($user, ChatService::positive($input['cohort_id'] ?? null), isset($input['target_user_id']) ? ChatService::positive($input['target_user_id']) : null)];
+                    break;
+                case 'POST:send':
+                    $data = $service->send($user, ChatService::positive($input['conversation_id'] ?? null), $input, $_FILES['file'] ?? []);
+                    break;
+                case 'POST:group':
+                    $data = ['id' => $service->group($user, $input)];
+                    break;
+                case 'POST:meeting':
+                    $data = ['id' => $service->meeting($user, ChatService::positive($input['conversation_id'] ?? null), $input)];
+                    break;
+                case 'POST:join':
+                    $data = ['url' => $service->join($user, ChatService::positive($input['meeting_id'] ?? null))];
+                    break;
+                case 'POST:ticket':
+                    $data = ['token' => $service->ticket($user)];
+                    break;
+                case 'POST:read':
+                    $service->read($user, ChatService::positive($input['conversation_id'] ?? null), ChatService::positive($input['message_id'] ?? null));
+                    $data = ['success' => true];
+                    break;
+                case 'POST:permissions':
+                    $service->permissions($user, $input);
+                    $data = ['success' => true];
+                    break;
+                case 'GET:file':
+                    $this->file($service, $user, ChatService::positive($_GET['id'] ?? null), $config);
+                    break;
+                default:
+                    throw new PortalException('Endpoint introuvable.', 404);
+            }
             echo json_encode(['data' => $data], JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
         } catch (PortalException $e) {
             http_response_code($e->status);
@@ -63,11 +91,6 @@ final class ChatController
             http_response_code(503);
             echo json_encode(['error' => true,'message' => 'Les discussions sont indisponibles. Vérifiez les migrations ou réessayez.']);
         }
-    }
-    private function done(callable $work): array
-    {
-        $work();
-        return ['success' => true];
     }
     private function file(ChatService $service, array $user, int $id, array $config): never
     {

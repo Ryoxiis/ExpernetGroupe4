@@ -24,7 +24,10 @@ final class PortalSecurity
 
     public static function csrf(): string
     {
-        return $_SESSION['csrf'] ??= bin2hex(random_bytes(32));
+        if (!isset($_SESSION['csrf'])) {
+            $_SESSION['csrf'] = bin2hex(random_bytes(32));
+        }
+        return $_SESSION['csrf'];
     }
 
     public static function verifyCsrf(?string $token): void

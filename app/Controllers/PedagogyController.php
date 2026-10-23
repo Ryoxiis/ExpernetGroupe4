@@ -20,8 +20,11 @@ final class PedagogyController
     private ?PortalAuth $auth = null;
     private ?PedagogyService $service = null;
 
-    public function __construct(private readonly View $view)
+    private View $view;
+
+    public function __construct(View $view)
     {
+        $this->view = $view;
         $this->config = require PROJECT_ROOT . '/config/pedagogy.php';
     }
 

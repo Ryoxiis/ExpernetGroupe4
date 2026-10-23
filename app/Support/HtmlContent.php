@@ -7,8 +7,13 @@ namespace App\Support;
 /** Render imported text blocks without trusting source HTML or URL protocols. */
 final class HtmlContent
 {
-    public function __construct(private readonly array $routes, private readonly array $sourceMap = [])
+    private array $routes;
+    private array $sourceMap;
+
+    public function __construct(array $routes, array $sourceMap = [])
     {
+        $this->routes = $routes;
+        $this->sourceMap = $sourceMap;
     }
 
     public function render(array $blocks): string
@@ -75,7 +80,15 @@ final class HtmlContent
             }
             $segments[] = ['position' => $position, 'length' => strlen($label), 'label' => $label, 'url' => $href];
         }
-        usort($segments, static fn (array $a, array $b): int => $a['position'] <=> $b['position']);
+        usort($segments, function (array $first, array $second): int {
+            if ($first['position'] < $second['position']) {
+                return -1;
+            }
+            if ($first['position'] > $second['position']) {
+                return 1;
+            }
+            return 0;
+        });
         $offset = 0;
         $html = '';
         foreach ($segments as $segment) {

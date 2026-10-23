@@ -13,8 +13,11 @@ final class ContentRepository
     private ?array $sourcePages = null;
     private ?array $sourceMap = null;
 
-    public function __construct(private readonly string $directory)
+    private string $directory;
+
+    public function __construct(string $directory)
     {
+        $this->directory = $directory;
         $this->content = $this->read('content.json');
     }
 
@@ -30,12 +33,18 @@ final class ContentRepository
 
     public function sourcePages(): array
     {
-        return $this->sourcePages ??= $this->read('source-pages.json');
+        if ($this->sourcePages === null) {
+            $this->sourcePages = $this->read('source-pages.json');
+        }
+        return $this->sourcePages;
     }
 
     public function sourceMap(): array
     {
-        return $this->sourceMap ??= $this->read('source-map.json');
+        if ($this->sourceMap === null) {
+            $this->sourceMap = $this->read('source-map.json');
+        }
+        return $this->sourceMap;
     }
 
     public function courses(): array
@@ -46,7 +55,9 @@ final class ContentRepository
     public function coursesByTitle(): array
     {
         $courses = $this->courses();
-        usort($courses, static fn (array $a, array $b): int => strnatcasecmp($a['title'], $b['title']));
+        usort($courses, function (array $first, array $second): int {
+            return strnatcasecmp($first['title'], $second['title']);
+        });
         return $courses;
     }
 
@@ -93,7 +104,17 @@ final class ContentRepository
     /** Only send fields the catalogue actually uses to the browser. */
     public function courseSummaries(): array
     {
-        $keys = array_flip(['id', 'title', 'slug', 'path', 'category', 'categories', 'duration', 'audience', 'image']);
-        return array_map(static fn (array $course): array => array_intersect_key($course, $keys), $this->courses());
+        $fields = ['id', 'title', 'slug', 'path', 'category', 'categories', 'duration', 'audience', 'image'];
+        $summaries = [];
+        foreach ($this->courses() as $course) {
+            $summary = [];
+            foreach ($fields as $field) {
+                if (array_key_exists($field, $course)) {
+                    $summary[$field] = $course[$field];
+                }
+            }
+            $summaries[] = $summary;
+        }
+        return $summaries;
     }
 }

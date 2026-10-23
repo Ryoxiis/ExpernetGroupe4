@@ -45,15 +45,18 @@ try {
         echo 'Méthode non autorisée. Aucune donnée n’a été enregistrée.';
         exit;
     }
-    $api = [
-        '/api/formations/' => static fn (): array => $app['repository']->courseSummaries(),
-        '/api/sessions/' => static fn (): array => $app['repository']->sessions(),
-        '/api/palettes/' => static fn (): array => $app['repository']->palettes(),
-    ];
-    if (isset($api[$path])) {
+    $apiPaths = ['/api/formations/', '/api/sessions/', '/api/palettes/'];
+    if (in_array($path, $apiPaths, true)) {
         header('Content-Type: application/json; charset=utf-8');
         if ($method !== 'HEAD') {
-            echo json_encode($api[$path](), JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            if ($path === '/api/formations/') {
+                $data = $app['repository']->courseSummaries();
+            } elseif ($path === '/api/sessions/') {
+                $data = $app['repository']->sessions();
+            } else {
+                $data = $app['repository']->palettes();
+            }
+            echo json_encode($data, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         }
         exit;
     }

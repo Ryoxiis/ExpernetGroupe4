@@ -9,8 +9,13 @@ use App\Support\PortalException;
 
 final class ChatService
 {
-    public function __construct(private readonly PedagogyRepository $repo, private readonly array $config)
+    private PedagogyRepository $repo;
+    private array $config;
+
+    public function __construct(PedagogyRepository $repo, array $config)
     {
+        $this->repo = $repo;
+        $this->config = $config;
     }
 
     public static function positive(mixed $value): int
@@ -77,7 +82,11 @@ final class ChatService
         }
         if (in_array($c['kind'], ['direct','group'], true)) {
             $members = $this->repo->all('SELECT u.* FROM portal_chat_participants p JOIN portal_users u ON u.id=p.user_id WHERE p.conversation_id=?', [$id]);
-            if (!in_array((int)$user['id'], array_map(fn ($u) => (int)$u['id'], $members), true)) {
+            $participantIds = [];
+            foreach ($members as $member) {
+                $participantIds[] = (int) $member['id'];
+            }
+            if (!in_array((int) $user['id'], $participantIds, true)) {
                 throw new PortalException('Conversation privée.', 403);
             }
             foreach ($members as $member) {
@@ -137,7 +146,13 @@ final class ChatService
         if (!is_array($input['user_ids'] ?? null) || count($input['user_ids']) < 2 || count($input['user_ids']) > 100) {
             throw new PortalException('Sélectionnez entre 2 et 100 participants.', 422);
         }
-        $members = array_values(array_unique(array_map(fn ($id) => self::positive($id), $input['user_ids'])));
+        $members = [];
+        foreach ($input['user_ids'] as $value) {
+            $id = self::positive($value);
+            if (!in_array($id, $members, true)) {
+                $members[] = $id;
+            }
+        }
         if (count($members) < 2) {
             throw new PortalException('Deux participants distincts sont nécessaires.', 422);
         }
@@ -444,7 +459,12 @@ final class ChatService
         if (!$c['policy']['meetings_enabled'] || !$this->meetingsAvailable()) {
             throw new PortalException('Visioconférence indisponible.', 403);
         }
-        $encode = static fn ($v) => rtrim(strtr(base64_encode(json_encode($v, JSON_THROW_ON_ERROR)), '+/', '-_'), '=');
+        // JWT attend du JSON encodé en base64 compatible avec une URL.
+        $encode = function (array $data): string {
+            $json = json_encode($data, JSON_THROW_ON_ERROR);
+            $base64 = base64_encode($json);
+            return rtrim(strtr($base64, '+/', '-_'), '=');
+        };
         $header = $encode(['alg' => 'HS256','typ' => 'JWT']);
         $claims = $encode(['aud' => 'jitsi','iss' => $this->config['meeting_app_id'],'sub' => parse_url($this->config['meeting_url'], PHP_URL_HOST),'room' => $m['room'],'iat' => time(),'nbf' => time() - 10,'exp' => time() + 300,'context' => ['user' => ['id' => (string)$user['id'],'name' => $user['name']]]]);
         $signature = rtrim(strtr(base64_encode(hash_hmac('sha256', $header.'.'.$claims, $this->config['meeting_secret'], true)), '+/', '-_'), '=');

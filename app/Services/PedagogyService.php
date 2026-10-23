@@ -9,8 +9,13 @@ use App\Support\PortalException;
 
 final class PedagogyService
 {
-    public function __construct(private readonly PedagogyRepository $repo, private readonly array $config)
+    private PedagogyRepository $repo;
+    private array $config;
+
+    public function __construct(PedagogyRepository $repo, array $config)
     {
+        $this->repo = $repo;
+        $this->config = $config;
     }
 
     private function text(array $input, string $key, int $max = 180): string
@@ -150,28 +155,67 @@ final class PedagogyService
             if (!$actor || $actor['status'] !== 'active' || $actor['role'] !== $user['role'] || (int) $actor['activation_version'] !== (int) $user['activation_version']) {
                 throw new PortalException('Votre session a été révoquée. Reconnectez-vous.', 401);
             }
-            $result = match ($action) {
-                'cohorts' => $this->createCohort($user, $input),
-                'users' => $this->createUser($user, $input),
-                'invitations' => $this->invite($user, $input),
-                'accounts' => $this->account($user, $input),
-                'memberships' => $this->membership($user, $input),
-                'sessions' => $this->createSession($user, $input),
-                'unavailability' => $this->unavailability($user, $input),
-                'windows' => $this->openWindow($user, $input),
-                'attendance' => $this->declareAttendance($user, $input),
-                'attendance-review' => $this->reviewAttendance($user, $input),
-                'assignments' => $this->createAssignment($user, $input),
-                'submissions' => $this->submit($user, $input),
-                'grades' => $this->grade($user, $input),
-                'resources' => $this->upload($user, $input, $files),
-                'messages' => $this->message($user, $input),
-                'exams' => $this->exam($user, $input),
-                'evaluations' => $this->evaluate($user, $input),
-                'journal' => $this->journal($user, $input),
-                'feedback' => $this->feedback($user, $input),
-                default => throw new PortalException('Action introuvable.', 404),
-            };
+            switch ($action) {
+                case 'cohorts':
+                    $result = $this->createCohort($user, $input);
+                    break;
+                case 'users':
+                    $result = $this->createUser($user, $input);
+                    break;
+                case 'invitations':
+                    $result = $this->invite($user, $input);
+                    break;
+                case 'accounts':
+                    $result = $this->account($user, $input);
+                    break;
+                case 'memberships':
+                    $result = $this->membership($user, $input);
+                    break;
+                case 'sessions':
+                    $result = $this->createSession($user, $input);
+                    break;
+                case 'unavailability':
+                    $result = $this->unavailability($user, $input);
+                    break;
+                case 'windows':
+                    $result = $this->openWindow($user, $input);
+                    break;
+                case 'attendance':
+                    $result = $this->declareAttendance($user, $input);
+                    break;
+                case 'attendance-review':
+                    $result = $this->reviewAttendance($user, $input);
+                    break;
+                case 'assignments':
+                    $result = $this->createAssignment($user, $input);
+                    break;
+                case 'submissions':
+                    $result = $this->submit($user, $input);
+                    break;
+                case 'grades':
+                    $result = $this->grade($user, $input);
+                    break;
+                case 'resources':
+                    $result = $this->upload($user, $input, $files);
+                    break;
+                case 'messages':
+                    $result = $this->message($user, $input);
+                    break;
+                case 'exams':
+                    $result = $this->exam($user, $input);
+                    break;
+                case 'evaluations':
+                    $result = $this->evaluate($user, $input);
+                    break;
+                case 'journal':
+                    $result = $this->journal($user, $input);
+                    break;
+                case 'feedback':
+                    $result = $this->feedback($user, $input);
+                    break;
+                default:
+                    throw new PortalException('Action introuvable.', 404);
+            }
             return $result + ['message' => 'Enregistrement effectué.'];
         });
     }
@@ -475,8 +519,20 @@ final class PedagogyService
                 throw new PortalException('Les membres du jury doivent être des formateurs affectés à cette promotion.');
             }
         }
-        $criteria = array_values(array_filter(array_map('trim', explode("\n", $this->text($input, 'criteria', 5000)))));
-        if (count($criteria) > 20 || array_filter($criteria, static fn ($value): bool => mb_strlen($value) > 250)) {
+        $lines = explode("\n", $this->text($input, 'criteria', 5000));
+        $criteria = [];
+        foreach ($lines as $line) {
+            $criterion = trim($line);
+            // Même comportement que le filtrage précédent : ignorer les lignes vides et "0".
+            if ($criterion === '' || $criterion === '0') {
+                continue;
+            }
+            if (mb_strlen($criterion) > 250) {
+                throw new PortalException('Maximum 20 compétences de 250 caractères chacune.');
+            }
+            $criteria[] = $criterion;
+        }
+        if (count($criteria) > 20) {
             throw new PortalException('Maximum 20 compétences de 250 caractères chacune.');
         }
         $id = $this->repo->insert('INSERT INTO portal_exams(cohort_id,title,starts_at,location) VALUES(?,?,?,?)', [$cohort, $this->text($input, 'title'), $this->date($input, 'starts_at'), $this->text($input, 'location')]);

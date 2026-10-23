@@ -1,4 +1,14 @@
 <?php
+$pageDescriptions = [
+    'accueil' => 'Votre journée, vos cours et les prochaines étapes. Tout est ici.',
+    'planning' => 'Retrouvez vos séances et préparez votre prochaine intervention.',
+    'ressources' => 'Les documents utiles, rassemblés au même endroit.',
+    'travaux' => 'Des consignes au rendu, suivez chaque étape.',
+    'presences' => 'Un suivi clair pour chaque séance, en classe ou à distance.',
+    'resultats' => 'Consultez les résultats publiés et suivez la progression.',
+];
+?>
+<?php
 $student = $user['role'] === 'student';
 $trainer = $user['role'] === 'trainer';
 $admin = $user['role'] === 'admin';
@@ -97,9 +107,7 @@ $futureAssignments = array_filter($state['assignments'], static fn ($a) => $a['d
                 </p>
                 <h1><?= $page === 'accueil' ? 'Bonjour, ' . e(explode(' ', $user['name'])[0]) . '<span class="hello-dot">.</span>' : e($labels[$page]) ?>
                 </h1>
-                <p><?= e(match($page) {
-                    'accueil' => 'Votre journée, vos cours et les prochaines étapes. Tout est ici.', 'planning' => 'Retrouvez vos séances et préparez votre prochaine intervention.', 'ressources' => 'Les documents utiles, rassemblés au même endroit.', 'travaux' => 'Des consignes au rendu, suivez chaque étape.', 'presences' => 'Un suivi clair pour chaque séance, en classe ou à distance.', 'resultats' => 'Consultez les résultats publiés et suivez la progression.', default => 'Les informations et les actions utiles à votre parcours.'
-                }) ?>
+                <p><?= e($pageDescriptions[$page] ?? 'Les informations et les actions utiles à votre parcours.') ?>
                 </p>
             </div><?php if ($page === 'accueil'): ?><a class="button button-dark" href="<?= e(url('/espace-pedagogique/planning/')) ?>">Voir mon planning ↗</a><?php endif; ?>
         </div>

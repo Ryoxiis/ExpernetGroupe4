@@ -1,3 +1,10 @@
+<?php
+$authTitles = [
+    'password' => 'Bienvenue chez vous.',
+    'mfa' => 'Une dernière vérification.',
+    'help' => 'Retrouvons votre accès.',
+];
+?>
 <main id="contenu" class="auth-shell">
     <section class="auth-story">
         <p class="portal-eyebrow">Votre formation, au même endroit
@@ -15,9 +22,7 @@
         <div class="auth-card">
             <p class="portal-eyebrow">Espace réservé à la communauté Expernet
             </p>
-            <h2 id="auth-title"><?= e(match($stage) {
-                'password' => 'Bienvenue chez vous.', 'mfa' => 'Une dernière vérification.', 'help' => 'Retrouvons votre accès.', default => 'Heureux de vous retrouver.'
-            }) ?>
+            <h2 id="auth-title"><?= e($authTitles[$stage] ?? 'Heureux de vous retrouver.') ?>
             </h2>
 <?php if (isset($error)): ?>
             <div class="portal-alert error" role="alert"><?= e($error) ?>

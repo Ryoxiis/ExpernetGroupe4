@@ -10,11 +10,19 @@ use App\Support\View;
 
 final class PageController
 {
+    private ContentRepository $repository;
+    private View $view;
+    private array $routes;
+
     public function __construct(
-        private readonly ContentRepository $repository,
-        private readonly View $view,
-        private readonly array $routes,
-    ) {
+        ContentRepository $repository,
+        View $view,
+        array $routes,
+    )
+    {
+        $this->repository = $repository;
+        $this->view = $view;
+        $this->routes = $routes;
     }
 
     public function render(array $page, string $path): string
@@ -40,7 +48,11 @@ final class PageController
         $body = $this->view->render($template, $data);
         if ($page['type'] !== 'source' && $data['sourcePage']) {
             // Complète la page avec les blocs de la source qui ne sont pas déjà affichés.
-            $normalize = static fn (string $value): string => preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($value), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+            $normalize = function (string $value): string {
+                $text = strip_tags($value);
+                $text = html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                return preg_replace('/\s+/u', ' ', $text);
+            };
             $existing = $normalize($body);
             $missing = [];
             foreach ($data['sourcePage']['blocks'] as $block) {
