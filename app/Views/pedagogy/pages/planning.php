@@ -5,8 +5,8 @@ $calendarUrl = static fn (array $changes = []) => url('/espace-pedagogique/plann
 <section class="portal-card calendar-panel" aria-label="Emploi du temps">
     <div class="calendar-toolbar">
         <nav class="calendar-switch" aria-label="Affichage du calendrier">
-            <a href="<?= e($calendarUrl(['view' => 'day'])) ?>" <?= $calendar['view'] === 'day' ? 'aria-current="true"' : '' ?>>Journée</a>
-            <a href="<?= e($calendarUrl(['view' => 'week'])) ?>" <?= $calendar['view'] === 'week' ? 'aria-current="true"' : '' ?>>Semaine</a>
+            <a href="<?= e($calendarUrl(['view' => 'day'])) ?>" <?= $calendar['view'] === 'day' ? 'aria-current="page"' : '' ?>>Journée</a>
+            <a href="<?= e($calendarUrl(['view' => 'week'])) ?>" <?= $calendar['view'] === 'week' ? 'aria-current="page"' : '' ?>>Semaine</a>
         </nav>
         <a class="portal-link" href="<?= e($calendarUrl(['date' => $calendar['today']])) ?>">Aujourd’hui</a>
         <a class="portal-link" href="<?= e(url('/espace-pedagogique/calendrier/')) ?>">Exporter (.ics)</a>
@@ -22,18 +22,18 @@ $calendarUrl = static fn (array $changes = []) => url('/espace-pedagogique/plann
         <h2><?= e($calendar['label']) ?></h2>
         <a href="<?= e($calendarUrl(['date' => $calendar['next']])) ?>" aria-label="<?= $calendar['view'] === 'week' ? 'Semaine suivante' : 'Jour suivant' ?>">→</a>
     </div>
-    <p class="portal-help">Heure de La Réunion · Sélectionnez un cours pour ouvrir sa fiche. Sur mobile, les cours sont présentés par jour.</p>
+    <p class="portal-help">Heure de La Réunion. Sélectionnez un cours pour retrouver sa salle, ses documents et ses informations.</p>
     <div class="planning-calendar" style="--days:<?= count($calendar['days']) ?>;--hours:<?= $calendar['endHour'] - $calendar['startHour'] ?>">
-        <div class="calendar-hours" aria-hidden="true"><div class="calendar-day-heading">Horaires</div><div class="calendar-hour-grid">
+        <div class="calendar-hours" aria-hidden="true"><div class="calendar-day-heading">Jour / heure</div><div class="calendar-hour-grid">
             <?php for ($hour = $calendar['startHour']; $hour < $calendar['endHour']; $hour++): ?><span><?= sprintf('%02d:00', $hour) ?></span><?php endfor; ?>
         </div></div>
         <?php foreach ($calendar['days'] as $day): ?>
-        <section class="calendar-day <?= $day['today'] ? 'is-today' : '' ?>" aria-label="<?= e($day['label'].' '.$day['short']) ?>">
+        <section class="calendar-day <?= $day['today'] ? 'is-today' : '' ?> <?= !$day['events'] ? 'is-empty' : '' ?>" style="--day-lanes:<?= max([1, ...array_column($day['events'], 'lanes')]) ?>" aria-label="<?= e($day['label'].' '.$day['short']) ?>">
             <h3 class="calendar-day-heading"><a href="<?= e($calendarUrl(['date' => $day['date'], 'view' => 'day'])) ?>"><?= e($day['label']) ?><span><?= e($day['short']) ?><?= $day['today'] ? ' · Aujourd’hui' : '' ?></span></a></h3>
             <div class="calendar-day-grid">
                 <?php if (!$day['events']): ?><p class="calendar-no-course"><?= $calendar['search'] !== '' ? 'Aucun cours trouvé' : 'Aucun cours' ?></p><?php endif; ?>
                 <?php foreach ($day['events'] as $event): $s = $event['session']; ?>
-                <a class="calendar-event" style="--offset:<?= $event['from'] - $calendar['startHour'] * 60 ?>;--duration:<?= $event['to'] - $event['from'] ?>;--lane:<?= $event['lane'] ?>;--lanes:<?= $event['lanes'] ?>" href="<?= e(url('/espace-pedagogique/seance/?id='.$s['id'])) ?>">
+                <a class="calendar-event calendar-event-<?= e($s['mode']) ?>" style="--offset:<?= $event['from'] - $calendar['startHour'] * 60 ?>;--duration:<?= $event['to'] - $event['from'] ?>;--lane:<?= $event['lane'] ?>;--lanes:<?= $event['lanes'] ?>" href="<?= e(url('/espace-pedagogique/seance/?id='.$s['id'])) ?>">
                     <span class="calendar-time"><?= e($event['time']) ?></span>
                     <strong><?= e($s['title']) ?></strong>
                     <span><?= e($s['trainer_name']) ?></span>

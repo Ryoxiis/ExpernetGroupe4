@@ -10,6 +10,7 @@
         <a href="<?= e(url('/')) ?>" class="brand official-brand">
             <img src="<?= asset('assets/images/logo-officiel-bleu.png') ?>" alt="Expernet - retour à l’accueil" class="official-logo">
         </a>
+        <?= $view->render('partials/appearance') ?>
         <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation">☰</button>
         <nav id="navigation" aria-label="Navigation principale">
             <a href="<?= e(url('/formation/')) ?>">Nos formations</a>
