@@ -26,3 +26,7 @@ Thumbs.db
 
 # Private pedagogical uploads and runtime state
 /storage/*
+!.env.docker.example
+# Database and upload backups (may contain private data)
+/*-backup.sql
+/*-storage-backup.tar.gz

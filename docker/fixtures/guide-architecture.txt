@@ -1,0 +1,6 @@
+Support de démonstration Expernet — PHP et MySQL
+
+Une requête arrive dans public/index.php, puis passe par un contrôleur.
+Les services vérifient les droits et les repositories accèdent aux données via PDO.
+Les vues produisent le HTML. Les valeurs affichées sont échappées avec e().
+Ce fichier sert uniquement aux essais de téléchargement dans la base de démonstration.

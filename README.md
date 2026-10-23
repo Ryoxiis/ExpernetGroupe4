@@ -112,13 +112,22 @@ L’inventaire des médias, les corrections d’association et les limites du re
 
 ## Docker
 
-Une configuration Docker Compose est fournie, mais son fonctionnement complet reste à vérifier. Préparer `.env` avec un utilisateur MySQL dédié **autre que root**, un mot de passe non vide, `DB_ROOT_PASSWORD` et `APP_KEY`, puis lancer :
+Le projet dispose d’un environnement Apache/PHP 8.4 et MySQL 8.4 avec données
+persistantes. La configuration Docker est séparée du `.env` LAMP.
 
-```powershell
-docker compose --profile database up --build
+```bash
+php bin/setup-docker.php
+docker compose --env-file .env.docker up -d --build
 ```
 
-Le fichier Compose impose le nom d’hôte `database` et le port interne `3306`. Ne pas réutiliser tels quels les paramètres root sans mot de passe de l’exemple Windows. Appliquer ensuite les migrations et initialiser les comptes selon [le guide pédagogique](docs/PEDAGOGIE.md).
+Ouvrir http://127.0.0.1:8080/. La base de démonstration est importée uniquement
+au premier démarrage d’un volume neuf. Les migrations suivantes sont appliquées
+sans réimporter le dump. Les échanges fonctionnent par HTTP ; WebSocket est optionnel.
+
+Docker est installé et le serveur Apache du conteneur répond sur le port 8080.
+Les tests HTTP publics et pédagogiques passent. Lire
+[le guide Docker](docs/DOCKER.md) pour installer Docker, démarrer, tester, sauvegarder
+et utiliser les mises à jour du code.
 
 ## Travail en équipe et droits
 

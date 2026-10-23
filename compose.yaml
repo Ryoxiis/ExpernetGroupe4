@@ -1,56 +1,84 @@
+name: expernet
+
+x-portal-environment: &portal-environment
+  APP_ENV: local
+  APP_KEY: ${APP_KEY:?Exécuter php bin/setup-docker.php puis utiliser --env-file .env.docker}
+  APP_BASE_PATH: ""
+  PORTAL_DEMO: "true"
+  PORTAL_MFA: ${PORTAL_MFA:-false}
+  PORTAL_EMAIL_DOMAIN: expernet.re
+  PORTAL_STORAGE: /var/www/html/storage/pedagogy
+  CHAT_STORAGE: /var/www/html/storage/chat
+  CHAT_WS_URL: ${CHAT_WS_URL:-}
+  CHAT_REQUIRE_SCAN: "false"
+  CHAT_MEETING_URL: ${CHAT_MEETING_URL:-}
+  CHAT_MEETING_APP_ID: ${CHAT_MEETING_APP_ID:-}
+  CHAT_MEETING_SECRET: ${CHAT_MEETING_SECRET:-}
+  DB_HOST: database
+  DB_PORT: "3306"
+  DB_DATABASE: expernet
+  DB_USERNAME: expernet
+  DB_PASSWORD: ${DOCKER_DB_PASSWORD:?Exécuter php bin/setup-docker.php}
+
 services:
+  database:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: expernet
+      MYSQL_USER: expernet
+      MYSQL_PASSWORD: ${DOCKER_DB_PASSWORD:?Exécuter php bin/setup-docker.php}
+      MYSQL_ROOT_PASSWORD: ${DOCKER_ROOT_PASSWORD:?Exécuter php bin/setup-docker.php}
+    volumes:
+      - database_data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/001-expernet.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, 'MYSQL_PWD="$$MYSQL_PASSWORD" mysql --protocol=TCP -h 127.0.0.1 -u "$$MYSQL_USER" --database=expernet --execute="SELECT COUNT(*) FROM schema_migrations" >/dev/null']
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+    restart: unless-stopped
+
   app:
+    image: expernet-portal:local
     build:
       context: .
       dockerfile: docker/php/Dockerfile
     ports:
-      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:${DOCKER_HTTP_PORT:-8080}:80"
+    environment: *portal-environment
     volumes:
-      - .:/app
-    environment:
-      APP_ENV: ${APP_ENV:-local}
-      APP_KEY: ${APP_KEY:-}
-      PORTAL_MFA: ${PORTAL_MFA:-true}
-      CHAT_AV_BINARY: ${CHAT_AV_BINARY:-}
-      CHAT_REQUIRE_SCAN: ${CHAT_REQUIRE_SCAN:-false}
-      CHAT_WS_URL: ${CHAT_WS_URL:-}
-      CHAT_MEETING_URL: ${CHAT_MEETING_URL:-}
-      CHAT_MEETING_APP_ID: ${CHAT_MEETING_APP_ID:-}
-      CHAT_MEETING_SECRET: ${CHAT_MEETING_SECRET:-}
-      DB_HOST: database
-      DB_PORT: 3306
-      DB_DATABASE: ${DB_DATABASE:-expernet}
-      DB_USERNAME: ${DB_USERNAME:-expernet}
-      DB_PASSWORD: ${DB_PASSWORD:-}
-
-  database:
-    image: mysql:8.4
-    profiles: [database]
-    environment:
-      MYSQL_DATABASE: ${DB_DATABASE:-expernet}
-      MYSQL_USER: ${DB_USERNAME:-expernet}
-      MYSQL_PASSWORD: ${DB_PASSWORD:?Copier .env.example vers .env et choisir un mot de passe local}
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Choisir un mot de passe root local}
-    volumes:
-      - database_data:/var/lib/mysql
+      - portal_storage:/var/www/html/storage
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, php, -r, 'exit(@file_get_contents("http://127.0.0.1/connexion/") === false ? 1 : 0);']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    restart: unless-stopped
 
   chat:
     profiles: [collaboration]
+    image: expernet-portal:local
     build:
       context: .
-      dockerfile: docker/chat/Dockerfile
+      dockerfile: docker/php/Dockerfile
+    command: [php, bin/chat-server.php]
     ports:
       - "127.0.0.1:8094:8094"
     environment:
+      <<: *portal-environment
       CHAT_WS_BIND: 0.0.0.0
-      CHAT_WS_PORT: 8094
-      CHAT_ALLOWED_ORIGINS: ${CHAT_ALLOWED_ORIGINS:-http://127.0.0.1:8080}
-      DB_HOST: database
-      DB_PORT: 3306
-      DB_DATABASE: ${DB_DATABASE:-expernet}
-      DB_USERNAME: ${DB_USERNAME:-expernet}
-      DB_PASSWORD: ${DB_PASSWORD:-}
+      CHAT_WS_PORT: "8094"
+      CHAT_ALLOWED_ORIGINS: http://127.0.0.1:${DOCKER_HTTP_PORT:-8080},http://localhost:${DOCKER_HTTP_PORT:-8080}
+    depends_on:
+      app:
+        condition: service_healthy
     restart: unless-stopped
 
 volumes:
   database_data:
+  portal_storage:
