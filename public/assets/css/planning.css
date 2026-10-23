@@ -1,0 +1,87 @@
+/* One selected day, chronological lessons; no absolute positioning or clipped content. */
+.daily-agenda { min-width: 0; padding: 28px; box-shadow: none; border-radius: 16px; }
+.agenda-heading { position: static; z-index: auto; border: 0; background: none; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.agenda-caption { margin: 0 0 6px; color: var(--muted); font-size: 14px; }
+.agenda-heading h2 { margin: 0; font-size: clamp(23px, 2.3vw, 32px); line-height: 1.25; letter-spacing: -.6px; }
+.agenda-summary { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 10px 0 0; font-size: 14px; font-weight: 650; }
+.agenda-summary span { color: var(--muted); font-weight: 400; }
+.daily-agenda nav { position: static; inset: auto; flex-direction: row; margin-left: 0; padding: 0; box-shadow: none; background: none; }
+.agenda-controls, .agenda-arrows { display: flex; align-items: center; gap: 8px; }
+.agenda-controls { flex-shrink: 0; gap: 16px; }
+.agenda-today, .agenda-arrows a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); text-decoration: none; }
+.agenda-today { padding: 0 14px; font-size: 14px; font-weight: 650; }
+.agenda-arrows a { width: 44px; }
+.agenda-dates { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; margin: 20px 0; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.agenda-dates a { display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; gap: 3px; min-height: 64px; border: 1px solid transparent; border-radius: 10px; text-decoration: none; color: var(--muted); }
+.agenda-dates a > span:first-child { font-size: 13px; }
+.agenda-dates strong { font-size: 23px; font-weight: 650; color: var(--ink); font-variant-numeric: tabular-nums; }
+.agenda-dates [aria-current] { background: var(--strong); color: #fff; border-color: var(--strong); }
+.agenda-dates [aria-current] strong { color: #fff; }
+.agenda-today-marker { position: absolute; bottom: 6px; width: 4px; height: 4px; border-radius: 50%; background: var(--blue); }
+.agenda-dates [aria-current] .agenda-today-marker { background: var(--orange); }
+.agenda-tools { margin: -8px 0 20px; }
+.agenda-tools > summary { display: list-item; width: fit-content; min-height: 44px; align-content: center; color: var(--blue); font-size: 14px; font-weight: 600; }
+.agenda-tools[open] > summary { margin-bottom: 12px; }
+.daily-agenda .calendar-filters { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; margin: 0 0 28px; }
+.calendar-filters label { display: grid; gap: 7px; font-size: 13px; font-weight: 650; }
+.calendar-filters label:nth-of-type(2) { flex: 1; min-width: 180px; }
+.calendar-filters input { box-sizing: border-box; width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--paper); font: inherit; font-size: 15px; }
+.agenda-filter-button { min-height: 44px; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.agenda-reset { padding: 12px 0; color: var(--blue); font-size: 14px; }
+.agenda-lessons { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; }
+.agenda-lesson { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 20px; }
+.agenda-hours { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; padding-top: 19px; font-variant-numeric: tabular-nums; }
+.agenda-hours strong { font-size: 22px; line-height: 1.2; letter-spacing: -.4px; }
+.agenda-hours > span { font-size: 14px; color: var(--muted); }
+.agenda-hours small { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.agenda-course { position: relative; display: block; min-width: 0; border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 10px; padding: 20px 24px; background: var(--paper); color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+.agenda-course-remote { border-left-style: dashed; }
+.agenda-course-company { border-left-color: var(--orange); }
+.agenda-course-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 12px; }
+.agenda-mode { padding: 3px 9px; border-radius: 5px; background: var(--surface); color: var(--ink); font-weight: 650; }
+.agenda-cohort { color: var(--muted); }
+.agenda-course h3 { margin: 12px 0 18px; font-size: clamp(19px, 1.7vw, 24px); line-height: 1.35; letter-spacing: -.3px; }
+.agenda-course-details { display: flex; flex-wrap: wrap; gap: 14px 40px; margin: 0; padding-right: 110px; }
+.agenda-course-details > div { min-width: 0; }
+.agenda-course-details dt { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+.agenda-course-details dd { margin: 0; font-size: 15px; font-weight: 600; }
+.agenda-open { position: absolute; right: 22px; bottom: 21px; display: inline-flex; align-items: center; gap: 5px; color: var(--blue); font-size: 13px; font-weight: 650; }
+.agenda-empty { text-align: center; padding: 40px 20px 48px; }
+.agenda-empty > svg { color: var(--blue); margin-bottom: 12px; }
+.agenda-empty h3 { font-size: 20px; margin: 0 0 10px; }
+.agenda-empty p { color: var(--muted); margin: 0 0 18px; }
+.agenda-empty a { display: inline-flex; align-items: center; min-height: 44px; color: var(--blue); font-weight: 650; }
+.agenda-footer { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--muted); }
+.agenda-footer a { color: var(--blue); }
+.daily-agenda :is(a, button, input, summary):focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) {
+    .agenda-course:hover { border-color: var(--blue); background: var(--event-bg); color: var(--ink); }
+    .agenda-dates a:not([aria-current]):hover, .agenda-today:hover, .agenda-arrows a:hover, .agenda-filter-button:hover { background: var(--surface); color: var(--ink); }
+}
+@media (max-width: 1100px) {
+    .agenda-heading { align-items: flex-start; flex-direction: column; gap: 16px; }
+    .agenda-course-details { padding-right: 0; }
+    .agenda-open { position: static; margin-top: 16px; }
+}
+@media (max-width: 540px) {
+    .daily-agenda { padding: 18px 14px; border-radius: 12px; }
+    .agenda-heading h2 { font-size: 24px; }
+    .agenda-controls { width: 100%; justify-content: space-between; }
+    .agenda-dates { gap: 2px; margin: 20px 0; padding-bottom: 18px; }
+    .agenda-dates a { min-height: 68px; border-radius: 7px; }
+    .agenda-dates strong { font-size: 20px; }
+    .agenda-dates a > span:first-child { font-size: 12px; }
+    .calendar-filters label:first-of-type { width: 100%; }
+    .calendar-filters input { min-width: 0; font-size: 16px; }
+    .calendar-filters label:nth-of-type(2) { min-width: 0; }
+    .agenda-lesson { grid-template-columns: 58px minmax(0, 1fr); gap: 10px; }
+    .agenda-hours { padding-top: 17px; }
+    .agenda-hours strong { font-size: 18px; }
+    .agenda-hours > span { font-size: 12px; }
+    .agenda-course { padding: 16px 14px; }
+    .agenda-course h3 { font-size: 18px; margin: 10px 0 14px; }
+    .agenda-course-details { display: grid; gap: 12px; }
+    .agenda-course-details dd { font-size: 14px; }
+    .agenda-empty { padding: 28px 8px; }
+    .agenda-footer { font-size: 12px; }
+}

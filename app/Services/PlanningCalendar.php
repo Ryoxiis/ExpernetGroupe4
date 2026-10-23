@@ -51,8 +51,17 @@ final class PlanningCalendar
             $events = self::arrangeOverlaps($events);
             $days[] = ['date' => $day->format('Y-m-d'), 'label' => $weekdays[(int)$day->format('N') - 1], 'short' => $day->format('d/m'), 'today' => $day == $today, 'events' => $events];
         }
+        $months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+        $weekStart = $anchor->modify('-'.((int)$anchor->format('N') - 1).' days');
+        $navigation = [];
+        for ($i = 0; $i < 7; $i++) {
+            $item = $weekStart->modify('+'.$i.' days');
+            $navigation[] = ['date' => $item->format('Y-m-d'), 'label' => $weekdays[$i].' '.$item->format('d/m/Y'), 'weekday' => mb_substr($weekdays[$i], 0, 3), 'number' => $item->format('d'), 'selected' => $item == $anchor, 'today' => $item == $today];
+        }
         return compact('days', 'view', 'search', 'startHour', 'endHour') + [
             'date' => $anchor->format('Y-m-d'), 'today' => $today->format('Y-m-d'),
+            'longLabel' => $weekdays[(int)$anchor->format('N') - 1].' '.$anchor->format('j').' '.$months[(int)$anchor->format('n') - 1].' '.$anchor->format('Y'),
+            'navigation' => $navigation,
             'previous' => $anchor->modify($view === 'week' ? '-7 days' : '-1 day')->format('Y-m-d'),
             'next' => $anchor->modify($view === 'week' ? '+7 days' : '+1 day')->format('Y-m-d'),
             'label' => $view === 'week' ? 'Du '.$first->format('d/m/Y').' au '.$first->modify('+6 days')->format('d/m/Y') : $weekdays[(int)$anchor->format('N') - 1].' '.$anchor->format('d/m/Y'),
