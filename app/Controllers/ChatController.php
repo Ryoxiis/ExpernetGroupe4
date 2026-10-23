@@ -29,6 +29,8 @@ final class ChatController
             }
             $action = trim(substr($path, strlen('/api/discussions/')), '/');
             $service = new ChatService($repo, $config);
+            // Scheduled purging is supplemented on authenticated chat requests.
+            (new \App\Services\ChatRetention($repo, $config['storage']))->purge();
             $input = $_POST;
             if ($method === 'POST') {
                 if ((int)($_SERVER['CONTENT_LENGTH'] ?? 0) > 12 * 1024 * 1024) {

@@ -6,6 +6,13 @@ namespace App\Support;
 
 final class PortalSecurity
 {
+    /** One unpredictable nonce shared by the CSP header and generated styles. */
+    public static function styleNonce(): string
+    {
+        static $nonce;
+        return $nonce ??= base64_encode(random_bytes(18));
+    }
+
     public static function start(): void
     {
         if (session_status() === PHP_SESSION_ACTIVE) {

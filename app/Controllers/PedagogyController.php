@@ -76,7 +76,8 @@ final class PedagogyController
         $chatConfig = require PROJECT_ROOT . '/config/chat.php';
         $wsUrl = $chatConfig['ws_url'];
         $wsSource = preg_match('~^wss?://[a-zA-Z0-9.\\[\\]:-]+(?:/[a-zA-Z0-9/_-]*)?$~D', $wsUrl) ? ' ' . $wsUrl : '';
-        header("Content-Security-Policy: default-src 'self'; connect-src 'self'" . $wsSource . "; style-src 'self'; script-src 'self'; img-src 'self' data:; font-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'");
+        $styleNonce = PortalSecurity::styleNonce();
+        header("Content-Security-Policy: default-src 'self'; connect-src 'self'" . $wsSource . "; style-src 'self' 'nonce-" . $styleNonce . "'; script-src 'self'; img-src 'self' data:; font-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'");
         $api = str_starts_with($path, '/api/pedagogie/');
         try {
             if (!in_array($method, ['GET', 'POST', 'HEAD'], true)) {

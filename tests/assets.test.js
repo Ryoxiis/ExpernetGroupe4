@@ -25,7 +25,17 @@ for (const directory of ['app', 'data', 'public/assets/js', 'public/assets/css']
 }
 const hashes = new Map();
 for (const file of files(path.join(root, 'public/assets/images'))) {
-    const hash = createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+    const bytes = fs.readFileSync(file);
+    const extension = path.extname(file).toLowerCase();
+    const signatures = {
+        '.png': () => bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])),
+        '.jpg': () => bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255,
+        '.jpeg': () => bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255,
+        '.gif': () => ['GIF87a', 'GIF89a'].includes(bytes.subarray(0, 6).toString()),
+        '.webp': () => bytes.subarray(0, 4).toString() === 'RIFF' && bytes.subarray(8, 12).toString() === 'WEBP',
+    };
+    if (signatures[extension]) assert.ok(signatures[extension](), `Format image invalide : ${file}`);
+    const hash = createHash('sha256').update(bytes).digest('hex');
     assert.ok(!hashes.has(hash), `Images identiques : ${hashes.get(hash)} et ${file}`);
     hashes.set(hash, file);
 }

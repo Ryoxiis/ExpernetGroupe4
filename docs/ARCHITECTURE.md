@@ -116,3 +116,18 @@ Le catalogue compte actuellement 294 routes rendues par les tests. Le contrôle 
 couverture vérifie les 273 pages sources et leurs 23 565 blocs.
 Voir `docs/AUDIT-ARCHITECTURE-DOUBLONS.md` pour le nettoyage mesuré, les tests et
 les limites. Les contrats API sont dans les fichiers OpenAPI de `docs/`.
+
+## Consolidation du 23 octobre 2026
+
+Le calendrier génère ses positions numériques dans une feuille de style portant
+un nonce propre à la requête. La politique CSP autorise cette feuille sans
+réintroduire `unsafe-inline`. Le test `tests/planning_csp.php` vérifie ce contrat.
+
+La purge des échanges est centralisée dans `ChatRetention` : filtrage à la lecture,
+nettoyage opportuniste et commande CLI. Le délai de 24 heures est un choix du
+prototype à faire valider. Une transaction SQL ne restaure pas un fichier déjà
+supprimé : sauvegardes et stratégie de suppression différée restent à renforcer.
+
+Le scanner ClamAV privé et le worker SSH sont optionnels. Un worker sur un poste
+personnel dépend de sa disponibilité. Vercel sert de façade au serveur PHP ;
+il ne remplace pas le serveur MySQL ni le stockage persistant.

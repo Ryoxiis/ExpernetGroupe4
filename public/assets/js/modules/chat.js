@@ -340,7 +340,9 @@ if (host) {
                 : [...history, ...data.messages]
             ).map((m) => [Number(m.id), m]),
         );
-        history = [...map.values()].sort((a, b) => Number(a.id) - Number(b.id));
+        history = [...map.values()]
+            .filter((message) => !data.expires_before || message.created_at > data.expires_before)
+            .sort((a, b) => Number(a.id) - Number(b.id));
         if (before || history.length <= 50)
             q('[data-older]').hidden = !data.has_more;
         renderMessages();

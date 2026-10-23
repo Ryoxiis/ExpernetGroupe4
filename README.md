@@ -1,147 +1,196 @@
-# Expernet Groupe 4
+# Expernet - Groupe 4
 
-Refonte d’**Expernet** et d’**Expernet Campus**, avec un catalogue public et un espace pédagogique privé. Le projet utilise PHP 8.2+, HTML, CSS et JavaScript natif, sans compilation frontend.
+Prototype de refonte réunissant le catalogue Expernet/Campus et un espace pédagogique
+qui remplace les usages étudiés de GALIA et centralise les échanges. Projet réalisé
+en binôme avec **PHP, JavaScript natif, HTML, CSS et MySQL**, sans framework frontend.
 
-Le site conserve le logo officiel et la palette **Océan - Calme & ancrée**. La navigation a été simplifiée, les images ont été rapprochées des contenus officiels et la police **Inter** est hébergée localement.
+**Démonstration : [expernet.vercel.app](https://expernet.vercel.app/)** ·
+[Architecture](docs/ARCHITECTURE.md) · [Fonctionnalités et évolutions](docs/PROJET-ET-EVOLUTIONS.md)
 
-## Démarrer tout le site sur Windows
+## Le problème traité
 
-Prérequis : **PHP 8.2+**, avec PDO MySQL, mbstring, fileinfo et sodium, et **MySQL 8**. Composer est nécessaire pour installer les dépendances de la messagerie après un clone.
+L’existant répartit le catalogue dans WordPress, le planning et les notes dans
+GALIA, les documents et les échanges dans Teams, et les présences sur papier.
+Notre proposition offre un point d’entrée commun, avec une navigation adaptée
+aux étudiants, formateurs et administrateurs. Le portail possède ses propres
+données : **aucun connecteur GALIA ni synchronisation Microsoft Teams n’est installé**.
 
-```powershell
-git clone https://github.com/Ryoxiis/ExpernetGroupe4.git
-cd ExpernetGroupe4
-composer install
-```
+## Ce qui fonctionne et ses limites
 
-Double-cliquer ensuite sur **demarrer-local.cmd**, ou exécuter depuis PowerShell :
+| Domaine | Réalisé | Limite à connaître |
+| --- | --- | --- |
+| Site public | 149 formations, 11 diplômes Campus, 294 routes, recherche et filtres | Contenu JSON importé ; pas de CMS d’administration |
+| Accueil | Six photos officielles, carrousel, accès pédagogique | Les droits de publication des médias restent à valider avec Expernet |
+| Interface | Palette Océan, Inter locale, mode sombre mémorisé, responsive | Recette sur téléphones physiques et audit d’accessibilité complet à poursuivre |
+| Comptes | Création administrative, accès temporaire 24 h, changement initial obligatoire, MFA TOTP configurable | Aucun e-mail automatique ni compte Microsoft 365 créé |
+| Planning | Calendrier horizontal PC, liste mobile, journée/semaine, recherche, export ICS, conflits et indisponibilités | Export ponctuel ; pas d’abonnement calendrier automatique |
+| Pédagogie | Ressources privées, devoirs/rendus textuels, notes publiées explicitement, examens/compétences | Règles métier de prototype à valider avec l’organisme |
+| Présences | Fenêtre ouverte par le formateur, déclaration personnelle, validation/correction historisée | Pas de signature électronique certifiée ni preuve de présence continue |
+| Discussions | Messages persistants entre comptes autorisés, canaux, groupes, fichiers privés ; repli HTTP et WebSocket optionnel | L’administrateur ne lit pas implicitement les conversations privées |
+| Fichiers du chat | Validation MIME/Office/macros, scan requis en production ; worker ClamAV privé de démonstration | Le worker dépend d’un ordinateur actif ; pas une infrastructure antivirus permanente |
+| Conservation | Messages du chat exclus après 24 h ; commande de purge par lots et nettoyage opportuniste | Choix de prototype à valider ; suppression physique différée sans ordonnanceur |
+| Hébergement | Façade Vercel vers PHP/MySQL persistants sur Alwaysdata ; LAMP et Docker locaux | Vercel n’exécute pas le PHP ; configuration, quotas, sauvegardes et exploitation restent à suivre |
 
-```powershell
-.\demarrer-local.cmd
-```
+Les formulaires publics préparent un récapitulatif ; ils n’envoient pas de demande.
+Les appels utilisent une intégration Jitsi/JWT **à configurer**, pas une visioconférence
+réalisée dans le projet. Les données de démonstration sont fictives.
 
-Ouvrir [http://127.0.0.1:8093/](http://127.0.0.1:8093/) et garder le terminal ouvert. L’espace privé se trouve sur [/connexion/](http://127.0.0.1:8093/connexion/).
+## Démarrage recommandé avec Docker
 
-Le lanceur prépare une instance MySQL propre au projet sur le port **33306**, crée `.env` avec des secrets aléatoires s’il est absent, applique les migrations et initialise cinq comptes fictifs uniquement si aucun compte n’existe. Les accès temporaires s’affichent dans le terminal et expirent après 24 heures ; un changement de mot de passe est obligatoire.
-
-Ne pas supprimer `storage/mysql` : il contient les données locales. Les comptes existants ne sont pas recréés au démarrage. Le premier démarrage complet du lanceur Windows reste à vérifier sur le poste ; voir [le guide local](docs/LOCAL.md) pour les prérequis, le lancement manuel et le diagnostic.
-
-**Aucun `npm install` ni `npm run dev` n’est nécessaire pour lancer le site.** Node sert aux vérifications et à l’audit des doublons.
-
-## Lancer uniquement le site public
-
-Le catalogue public fonctionne sans MySQL et sans installation Composer :
-
-```powershell
-php -S 127.0.0.1:8080 -t public public/router.php
-```
-
-Ouvrir [http://127.0.0.1:8080/](http://127.0.0.1:8080/). `npm start` lance également cette commande si Node est installé. Le répertoire exposé doit toujours être **public/**. Le serveur PHP intégré est réservé au développement.
-
-## Fonctionnalités
-
-- Catalogue de **149 formations**, recherche, filtres, programmes et calendrier des formations.
-- Espace Campus avec **11 diplômes**, les pages pratiques et les actualités des deux sites.
-- **294 routes publiques**, avec des gabarits partagés plutôt que des copies HTML.
-- Préparation d’une demande de devis et accès aux documents officiels.
-- Portail pédagogique avec connexion, rôles administrateur/formateur/étudiant, planning, ressources, travaux, résultats, présences et examens.
-- Discussions privées et par groupe, chat et partage de fichiers.
-
-Les données pédagogiques de démonstration sont fictives. L’envoi des accès par e-mail, les appels Jitsi et la signature électronique officielle nécessitent une configuration ou des développements complémentaires. La démonstration locale désactive le MFA avec un avertissement visible ; le mécanisme TOTP reste disponible. Les formulaires publics ne réalisent pas d’envoi automatique.
-
-Voir [le portail pédagogique](docs/PEDAGOGIE.md) et [la collaboration](docs/COLLABORATION.md) pour le détail des fonctions et de leurs limites.
-
-## Organisation du code
-
-```text
-app/
-  Controllers/       traitement des requêtes HTTP
-  Services/          règles métier et autorisations
-  Repositories/      lecture JSON et accès MySQL avec PDO
-  Support/           outils partagés, sessions et rendu
-  Views/             pages, composants et layouts communs
-    pedagogy/pages/  écrans du portail séparés par fonction
-bin/                 démarrage local, migrations et comptes de démonstration
-bootstrap/           chargement de l’application et de l’environnement
-config/              routes et configuration
-data/                contenus publics importés
-database/migrations/ migrations du portail
-docs/                guides, architecture, design et audits
-public/              seul répertoire exposé par le serveur
-  assets/            CSS, JavaScript, images, polices et bibliothèques tierces
-tests/               contrôles PHP, JavaScript et HTTP
-storage/             fichiers privés et données locales, ignorés par Git
-```
-
-Les fonctions communes et les vues partagées évitent la répétition du code. Les commentaires expliquent les blocs utiles. Les dépendances tierces restent séparées du code applicatif.
-
-Pour modifier la navigation : `app/Views/partials/`. Pour une fiche formation : `app/Views/pages/course.php`. Les contenus se trouvent dans `data/content.json` et `data/source-pages.json`, les routes dans `config/routes.json`, les styles dans `public/assets/css/` et les interactions dans `public/assets/js/modules/`.
-
-## Vérifications
-
-Avec PHP et Node disponibles :
-
-```powershell
-npm test
-php -d extension=sodium tests/portal_security.php
-npm run audit:duplicates
-```
-
-Si Sodium est déjà activé, omettre `-d extension=sodium`. L’audit utilise jscpd 5.4.2 et peut télécharger cet outil au premier lancement. Il recherche les blocs applicatifs identiques d’au moins 5 lignes et 50 tokens ; les données, migrations, tests et bibliothèques tierces sont hors de ce périmètre.
-
-Avec le serveur public lancé sur le port 8080 et Python installé :
-
-```powershell
-python -X utf8 tests/http_smoke.py
-```
-
-Pour un autre port, définir `TEST_BASE_URL`, par exemple en PowerShell :
-
-```powershell
-$env:TEST_BASE_URL = 'http://127.0.0.1:8093'
-python -X utf8 tests/http_smoke.py
-```
-
-Les contrôles couvrent notamment les 294 routes, les contenus importés, 36 combinaisons de vues pédagogiques et les références aux ressources. GitHub Actions exécute les contrôles définis dans [checks.yml](.github/workflows/checks.yml). Les limites et résultats détaillés sont dans [VERIFICATIONS.md](docs/VERIFICATIONS.md).
-
-## Images, contenus et design
-
-Les contenus publics proviennent d’[Expernet](https://expernet.re/) et d’[Expernet Campus](https://expernet-campus.re/). Les images intégrées sont stockées localement et les fichiers strictement identiques sont mutualisés. Les PDF et vidéos conservent leurs destinations officielles.
-
-L’inventaire des médias, les corrections d’association et les limites du relevé sont documentés dans [l’audit images et typographie](docs/audit/IMAGES-ET-TYPOGRAPHIE.md). La couverture des contenus figure dans [le rapport Expernet/Campus](docs/audit/COUVERTURE-EXPERNET-CAMPUS.md). Les tarifs et dates du relevé du 22 octobre 2026 restent à confirmer auprès d’Expernet.
-
-## Docker
-
-Le projet dispose d’un environnement Apache/PHP 8.4 et MySQL 8.4 avec données
-persistantes. La configuration Docker est séparée du `.env` LAMP.
+Prérequis : Docker Engine avec Compose (ou Docker Desktop), PHP CLI pour générer
+les secrets. Sur Ubuntu, ajouter `sudo` aux commandes Docker si nécessaire.
 
 ```bash
+git clone https://github.com/Ryoxiis/ExpernetGroupe4.git
+cd ExpernetGroupe4
 php bin/setup-docker.php
+docker compose --env-file .env.docker config --quiet
 docker compose --env-file .env.docker up -d --build
 ```
 
-Ouvrir http://127.0.0.1:8080/. La base de démonstration est importée uniquement
-au premier démarrage d’un volume neuf. Les migrations suivantes sont appliquées
-sans réimporter le dump. Les échanges fonctionnent par HTTP ; WebSocket est optionnel.
+Ouvrir **http://127.0.0.1:8080/** et **/connexion/**. Le générateur conserve un
+`.env.docker` existant et ne touche pas au `.env` LAMP. MySQL n’est pas exposé à
+l’extérieur ; les données et fichiers privés persistent dans des volumes.
+Le dump est importé seulement sur un volume vide ; les migrations complètent
+ensuite le schéma. **Ne pas réimporter `database.sql` sur une base existante** :
+il contient une remise à zéro de tables.
 
-Docker est installé et le serveur Apache du conteneur répond sur le port 8080.
-Les tests HTTP publics et pédagogiques passent. Lire
-[le guide Docker](docs/DOCKER.md) pour installer Docker, démarrer, tester, sauvegarder
-et utiliser les mises à jour du code.
+Les comptes de démonstration sont décrits dans [DOCKER.md](docs/DOCKER.md).
+Ne jamais utiliser leurs mots de passe publics en production. Les discussions
+fonctionnent par HTTP sans activer le service WebSocket optionnel.
 
-## Travail en équipe et droits
+Pour intégrer les dernières corrections PHP à une image existante :
 
-Lire [CONTRIBUTING.md](CONTRIBUTING.md), [l’architecture](docs/ARCHITECTURE.md) et [la référence de design](docs/design/DESIGN-A-CONSERVER.md). Les consignes IA sont dans `AGENTS.md` et `GEMINI.md`. Le contexte complémentaire `.ai/` est local et se partage séparément avec le binôme.
+```bash
+docker compose --env-file .env.docker build --pull app
+docker compose --env-file .env.docker up -d --force-recreate app
+```
 
-Ne jamais versionner `.env`, des mots de passe, les données MySQL ou des documents privés. Le lanceur du portail charge `.env` ; les variables déjà présentes dans le processus restent prioritaires.
+[Guide Docker](docs/DOCKER.md) : installation, volumes, sauvegardes, comptes et tests.
 
-Les textes, logos et images Expernet servent au prototype et ne sont pas placés sous une nouvelle licence libre. Les composants tiers conservent leurs licences, dont Bootstrap et [Inter](public/assets/fonts/INTER-LICENSE.txt). Les droits de publication doivent être validés avec Expernet.
+## Linux / LAMP ou PHP natif
 
-## Linux avec LAMP
+PHP **maintenu et corrigé** est requis, avec PDO MySQL, mbstring, fileinfo, sodium
+et zip pour les documents Office du chat. Compatibilité de langage PHP >= 8.2 ;
+ce minimum ne signifie pas qu’une ancienne version est sécurisée. Pour l’alerte
+CERTFR-2026-ALE-014, voir [la note PHP](docs/SECURITE-PHP-CERTFR-2026-ALE-014.md).
 
-Pour servir le site avec **Apache + PHP et le MySQL persistant** :
-`php bin/serve-apache.php 8088`, puis ouvrir http://127.0.0.1:8088/.
-Pour installer le site dans le service Apache système :
-`sudo bash bin/install-lamp.sh` depuis ce dossier, puis http://expernet.local/.
-Le mot de passe administrateur Ubuntu doit être saisi dans votre terminal.
-Voir [la procédure LAMP](docs/LAMP.md) pour les prérequis, permissions, tests et limites.
+```bash
+composer install
+# Sur une base dédiée configurée dans .env :
+php bin/serve-portal.php migrate
+php bin/serve-portal.php 8093
+```
+
+Sur une base vide, initialiser soit des comptes fictifs (`seed-demo`), soit le
+premier administrateur (`bootstrap-admin adresse@expernet.re`) avec ce même lanceur.
+Ne pas diffuser les accès temporaires affichés. Pour importer le dump de test sur
+un MySQL natif neuf : [PEDAGOGIE.md](docs/PEDAGOGIE.md).
+
+Apache local : `php bin/serve-apache.php 8088`. Installation LAMP système :
+`sudo bash bin/install-lamp.sh`, puis http://expernet.local/.
+[Guide LAMP](docs/LAMP.md). Le terminal d’un serveur de développement doit rester ouvert.
+
+### Windows
+
+Installer PHP et ses extensions, MySQL et Composer ; exécuter `composer install`,
+puis `demarrer-local.cmd`. Ce lanceur prépare une instance MySQL dédiée sur 33306
+et ouvre le site sur http://127.0.0.1:8093/. Son fonctionnement complet doit être
+vérifié sur le poste Windows. [Prérequis et diagnostic](docs/LOCAL.md).
+
+### Site public seul
+
+```bash
+php -S 127.0.0.1:8080 -t public public/router.php
+```
+
+Le catalogue fonctionne sans MySQL ni Composer. **Aucun `npm install`, build frontend
+ou `npm run dev` n’est requis pour servir le site.** Node intervient dans les tests,
+l’audit et la préparation de la façade Vercel.
+
+## Architecture
+
+```text
+Navigateur -> public/index.php -> Contrôleur -> Service -> Repository
+                                      |                     |
+                                      v                  JSON public
+                                Vue + layout             ou MySQL privé
+```
+
+| Dossier | Rôle |
+| --- | --- |
+| `app/Controllers/` | Routage applicatif, coordination HTTP et réponses |
+| `app/Services/` | Authentification, droits, pédagogie, planning et discussions |
+| `app/Repositories/` | JSON du catalogue et requêtes PDO préparées |
+| `app/Support/` | Sessions, CSRF, chiffrement TOTP, dates, texte et rendu |
+| `app/Views/` | Gabarits, composants partagés et pages pédagogiques |
+| `bootstrap/`, `config/` | Chargement de l’environnement, autoload et paramètres |
+| `data/` | Relevé des contenus publics ; pas les données privées |
+| `database/migrations/` | Quatre migrations, 30 tables déclarées |
+| `public/` | **Seul document root**, assets et front controller |
+| `storage/` | Documents privés et état local, hors Git |
+| `bin/`, `docker/`, `deploy/` | Administration, environnements et déploiement |
+| `tests/`, `docs/` | Vérifications, contrats OpenAPI et explications |
+
+Le CSS est chargé du socle vers les composants, puis l’apparence et les corrections
+responsive. Le planning utilise des styles numériques autorisés par nonce CSP.
+Les droits sont vérifiés côté serveur par rôle, affectation et propriété, jamais
+par le seul affichage d’un bouton.
+
+## Vérifier le projet
+
+```bash
+npm test
+npm run audit:duplicates
+npm run audit:duplicates:detailed
+npm run test:antivirus
+python3 tests/docker_config.py
+```
+
+La suite principale couvre le rendu des 294 routes, la conservation de 273 pages
+sources et 23 565 blocs, les 36 vues pédagogiques, les validations, la sécurité,
+le planning/CSP, les thèmes, le carrousel, les brouillons, la purge et les médias.
+Les tests antivirus utilisent des sockets temporaires et un daemon simulé.
+
+Serveur lancé sur 8080 : `python3 tests/http_smoke.py`. Pour un autre port, définir
+`TEST_BASE_URL`. Les tests MySQL/HTTP qui créent des comptes doivent cibler une
+**base QA isolée**, jamais la production ni la base de travail du binôme.
+
+jscpd recherche les clones applicatifs d’au moins **5 lignes et 50 tokens** ;
+l’audit détaillé descend à 3 lignes/25 tokens. Les imports, petites déclarations
+CSS et contenus éditoriaux ne doivent pas être supprimés automatiquement.
+Résultats et limites du lot : [audit de consolidation](docs/audit/CONSOLIDATION-2026-10-23.md).
+GitHub Actions exécute les contrôles de [checks.yml](.github/workflows/checks.yml).
+Un test local réussi ne prouve pas une CI distante réussie ou une sécurité complète.
+
+## Comprendre le code et préparer l’oral
+
+- [Présentation du projet, acquis et évolutions](docs/PROJET-ET-EVOLUTIONS.md).
+- [Architecture](docs/ARCHITECTURE.md), [portail](docs/PEDAGOGIE.md), [discussions](docs/COLLABORATION.md).
+- [Antivirus de démonstration](docs/ANTIVIRUS-PRIVE.md), [configuration PHP](docs/SECURITE-PHP-CERTFR-2026-ALE-014.md).
+- [Contrat pédagogique](docs/openapi.yaml) et [contrat discussions](docs/openapi-chat.yaml).
+
+Le dossier PDF de préparation à l’oral et ses sources sont privés au binôme :
+ils ne sont pas publiés dans ce dépôt.
+
+## Évolutions prioritaires
+
+1. Valider les droits et procédures avec les équipes Expernet, notamment les présences.
+2. Terminer l’exploitation : mises à jour, sauvegardes/restaurations, supervision et antivirus permanent.
+3. Finaliser le cycle de vie des comptes et des séances, les e-mails et les notifications.
+4. Ajouter un vrai CMS, un abonnement calendrier et des intégrations justifiées par les usages.
+5. Qualifier l’accessibilité, les appareils mobiles et la charge ; envisager Redis/worker si nécessaire.
+
+Détail et critères de réussite : [PROJET-ET-EVOLUTIONS.md](docs/PROJET-ET-EVOLUTIONS.md).
+
+## Travail en équipe, confidentialité et droits
+
+Branches courtes, tests puis relecture et fusion ; voir [CONTRIBUTING.md](CONTRIBUTING.md).
+Ne jamais versionner `.env`, clés, sauvegardes, mots de passe, pièces jointes ou
+bases MySQL. Les exports `.env` du processus priment sur le fichier local.
+Le contexte `.ai/` reste local et n’est pas publié.
+
+Les contenus, logos et photos proviennent d’Expernet et d’Expernet Campus et
+conservent leurs droits. Les PDF officiels restent externes. Les bibliothèques
+conservent leurs licences, dont Bootstrap et Inter. Aucune licence des contenus
+Expernet n’est inventée dans ce dépôt.
