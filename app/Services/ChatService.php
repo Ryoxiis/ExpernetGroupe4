@@ -195,8 +195,8 @@ final class ChatService
         foreach ($cohorts as $c) {
             $this->open($user, (int)$c['id'], null);
         }
-        $rows = $this->repo->all('SELECT c.*, (SELECT CASE WHEN content="" THEN "Pièce jointe" ELSE content END FROM portal_chat_messages m WHERE m.conversation_id=c.id ORDER BY m.id DESC LIMIT 1) AS last_message,
-            (SELECT COUNT(*) FROM portal_chat_messages m WHERE m.conversation_id=c.id AND m.sender_id<>? AND m.id>COALESCE((SELECT last_read_id FROM portal_chat_participants p WHERE p.conversation_id=c.id AND p.user_id=?),0)) AS unread_count
+        $rows = $this->repo->all('SELECT c.*, (SELECT CASE WHEN content="" THEN "Pièce jointe" ELSE content END FROM portal_chat_messages m WHERE m.conversation_id=c.id AND m.created_at>DATE_SUB(UTC_TIMESTAMP(),INTERVAL 24 HOUR) ORDER BY m.id DESC LIMIT 1) AS last_message,
+            (SELECT COUNT(*) FROM portal_chat_messages m WHERE m.conversation_id=c.id AND m.created_at>DATE_SUB(UTC_TIMESTAMP(),INTERVAL 24 HOUR) AND m.sender_id<>? AND m.id>COALESCE((SELECT last_read_id FROM portal_chat_participants p WHERE p.conversation_id=c.id AND p.user_id=?),0)) AS unread_count
             FROM portal_chat_conversations c WHERE c.kind="cohort" OR EXISTS(SELECT 1 FROM portal_chat_participants p WHERE p.conversation_id=c.id AND p.user_id=?) ORDER BY c.updated_at DESC,c.id DESC', [$user['id'],$user['id'],$user['id']]);
         $result = [];
         foreach ($rows as $c) {
@@ -227,9 +227,9 @@ final class ChatService
             $params[] = $after;
         }
         $order = $after > 0 ? 'ASC' : 'DESC';
-        $messages = $this->repo->all('SELECT m.*,u.name AS sender_name,f.id AS file_id,f.original_name AS file_name,f.size AS file_size FROM portal_chat_messages m JOIN portal_users u ON u.id=m.sender_id LEFT JOIN portal_chat_files f ON f.message_id=m.id WHERE m.conversation_id=?'.$cursor.' ORDER BY m.id '.$order.' LIMIT 50', $params);
+        $messages = $this->repo->all('SELECT m.*,u.name AS sender_name,f.id AS file_id,f.original_name AS file_name,f.size AS file_size FROM portal_chat_messages m JOIN portal_users u ON u.id=m.sender_id LEFT JOIN portal_chat_files f ON f.message_id=m.id WHERE m.conversation_id=? AND m.created_at>DATE_SUB(UTC_TIMESTAMP(),INTERVAL 24 HOUR)'.$cursor.' ORDER BY m.id '.$order.' LIMIT 50', $params);
         $meetings = $this->repo->all('SELECT id,title,starts_at FROM portal_chat_meetings WHERE conversation_id=? ORDER BY starts_at DESC LIMIT 20', [$id]);
-        return ['messages' => $after > 0 ? $messages : array_reverse($messages),'has_more' => count($messages) === 50,'meetings' => $c['policy']['meetings_enabled'] ? $meetings : [],'policy' => $c['policy']];
+        return ['expires_before' => gmdate('Y-m-d H:i:s', time() - 86400),'messages' => $after > 0 ? $messages : array_reverse($messages),'has_more' => count($messages) === 50,'meetings' => $c['policy']['meetings_enabled'] ? $meetings : [],'policy' => $c['policy']];
     }
 
     public function send(array $user, int $id, array $input, array $upload): array
@@ -347,7 +347,7 @@ final class ChatService
     public function read(array $user, int $id, int $message): void
     {
         $this->conversation($user, $id);
-        if (!$this->repo->one('SELECT id FROM portal_chat_messages WHERE conversation_id=? AND id=?', [$id,$message])) {
+        if (!$this->repo->one('SELECT id FROM portal_chat_messages WHERE conversation_id=? AND id=? AND created_at>DATE_SUB(UTC_TIMESTAMP(),INTERVAL 24 HOUR)', [$id,$message])) {
             throw new PortalException('Message inaccessible.', 403);
         }
         $this->repo->execute('INSERT INTO portal_chat_participants(conversation_id,user_id,last_read_id) VALUES(?,?,?) ON DUPLICATE KEY UPDATE last_read_id=GREATEST(last_read_id,?)', [$id,$user['id'],$message,$message]);
@@ -355,7 +355,7 @@ final class ChatService
 
     public function download(array $user, int $id): array
     {
-        $f = $this->repo->one('SELECT f.*,m.conversation_id FROM portal_chat_files f JOIN portal_chat_messages m ON m.id=f.message_id WHERE f.id=?', [$id]);
+        $f = $this->repo->one('SELECT f.*,m.conversation_id FROM portal_chat_files f JOIN portal_chat_messages m ON m.id=f.message_id WHERE f.id=? AND m.created_at>DATE_SUB(UTC_TIMESTAMP(),INTERVAL 24 HOUR)', [$id]);
         if (!$f) {
             throw new PortalException('Fichier introuvable.', 404);
         }

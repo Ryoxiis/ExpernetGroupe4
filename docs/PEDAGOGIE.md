@@ -52,8 +52,8 @@ lire les fichiers JSON ; les exemples de tables `catalog_*` ne le remplacent pas
    laisser son terminal ouvert. Ctrl+C l'arrête.
 
 Le lanceur lit `.env` sans exécuter de commande et sans remplacer les variables
-qui sont déjà définies dans l'environnement. `bin/portal.php`, utilisé directement,
-ne lit pas `.env` : exporter alors les variables avant son exécution.
+qui sont déjà définies dans l'environnement. `bin/portal.php` charge également ce même environnement. Les variables déjà
+exportées restent prioritaires.
 
 Si une page ne charge plus : vérifier le terminal PHP, le port puis MySQL. Si la
 base est indisponible, le portail retourne un écran d'indisponibilité sans exposer
@@ -129,7 +129,8 @@ une utilisation réelle. Le relevé imprimable conserve ces limites visibles.
 - Administration complète du cycle de vie : réactivation d'un compte désactivé,
   modification/suppression des séances et retrait d'affectation restent à développer.
 - Notifications automatiques et visioconférence intégrée : aucun service externe connecté.
-- Déploiement de production, sauvegarde/restauration et audit RGAA complet.
+- Exploitation de production qualifiée, sauvegarde/restauration répétée et audit RGAA complet.
+  Une démonstration est publiée via Vercel/Alwaysdata ; cela ne valide pas ces exigences.
 
 ## Vérifications reproductibles
 

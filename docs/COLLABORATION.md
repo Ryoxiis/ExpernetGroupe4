@@ -85,6 +85,10 @@ actualisées. `CHAT_REQUIRE_SCAN=true` exige un scan en développement égalemen
 L’image Docker n’installe pas ClamAV ni ses signatures : ajouter le scanner dans
 l’image de déploiement et maintenir ses signatures avant d’activer les fichiers.
 Les formats non acceptés et les fichiers contenant des macros sont refusés.
+Pour une démonstration privée sans scanner sur l’hébergement, voir
+[le raccordement ClamAV par file privée via SSH](ANTIVIRUS-PRIVE.md). Le terminal et
+l’ordinateur doivent rester actifs ; le chat bloque les fichiers si le scanner
+est indisponible.
 
 ### Appels, vidéo et partage d’écran
 
@@ -116,11 +120,11 @@ Référence : https://jitsi.github.io/handbook/docs/devops-guide/authentication/
 ## Docker
 
 ```bash
-docker compose --profile database --profile collaboration up --build
+docker compose --env-file .env.docker --profile collaboration up -d --build
 ```
 
 Configurer l’origine du site (par défaut `http://127.0.0.1:8080`) et l’URL WS dans
-`.env`. Appliquer les migrations dans le service app avec la même configuration.
+`.env.docker`. Appliquer les migrations dans le service app avec la même configuration.
 Les appels restent un service distinct à configurer ; Docker ne démarre pas Jitsi.
 Le profil collaboration ajoute uniquement le daemon Ratchet. Les fichiers locaux
 `.env`, `.ai`, `.git`, `storage` et `vendor` sont exclus du contexte de l’image.
@@ -160,8 +164,9 @@ La création des groupes est réservée à l’administration ; l’étudiant di
 canaux de ses formations et des conversations privées autorisées.
 L’interface mobile est responsive ; qualification mobile réelle, charge, audit
 accessibilité complet, Docker et audiovisuel nécessitent une recette dédiée.
-Politique de conservation, purge des fichiers, sauvegardes et modération à définir
-avant usage réel. Aucun délai de conservation n’est inventé dans le code.
+Le prototype applique désormais une expiration de 24 heures aux messages et pièces
+jointes, détaillée ci-dessous. Cette politique, les sauvegardes et la modération
+doivent être validées avant usage réel.
 
 ## Recette réalisée sur cette branche
 
@@ -170,7 +175,7 @@ avant usage réel. Aucun délai de conservation n’est inventé dans le code.
 - 21 contrôles HTTP/WebSocket réussis : sessions, CSRF, IDOR, fichiers privés,
   fichiers Office, rejet des macros, politiques, authentification WS, rejeu et origine.
 - 890 contrôles PHP existants, 5 contrôles de sécurité PHP, 5 contrôles JavaScript.
-- Couverture conservée : 273 pages et 23 563 blocs ; contrôle HTTP de 294 pages,
+- Couverture conservée : 273 pages et 23 565 blocs ; contrôle HTTP de 294 pages,
   3 API publiques, liens, ressources, refus d’écriture et erreurs 404.
 - Syntaxe de 64 fichiers PHP vérifiée ; module JavaScript vérifié ; diff sans
   erreurs d’espacement. Composer valide, avec l’avertissement préexistant sur
@@ -197,3 +202,13 @@ base distincte avec des personnes et fichiers fictifs.
 Commit proposé après review du propriétaire :
 `feat(collaboration): add private discussions, chat widget, files and meeting integration`.
 Aucun commit ni push n’a été créé.
+
+### Conservation du chat
+
+Les messages expirent 24 heures après leur envoi (UTC), y compris leurs pièces jointes. Les conversations et leurs membres restent disponibles. Les lectures et téléchargements excluent immédiatement les messages expirés ; un nettoyage opportuniste est déclenché au plus une fois par minute lors des requêtes authentifiées. Pour supprimer aussi sans visite, planifier chaque minute sur le serveur :
+
+```sh
+php /home/expernet/expernet-app/bin/purge-chat.php
+```
+
+La commande supprime par lots de 200, avec verrou exclusif, les fichiers privés puis leurs références et messages, ainsi que les anciennes copies du module historique. Aucun changement de schéma n’est nécessaire. Sans tâche planifiée, la suppression physique attend la prochaine requête authentifiée.

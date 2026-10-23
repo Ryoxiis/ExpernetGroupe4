@@ -89,3 +89,9 @@ Les contrôles PHP, JavaScript, images et doublons passent. Le contrôle HTTP a 
 réalisé cette fois : 294 pages, 3 API, liens et ressources, erreurs et refus d'écriture.
 Le rendu Inter et les images ont été contrôlés dans le navigateur à 1280 et 390 px.
 Voir `docs/audit/IMAGES-ET-TYPOGRAPHIE.md` pour les périmètres et limites exacts.
+
+## Consolidation du 23 octobre 2026
+
+Voir [le rapport de consolidation](audit/CONSOLIDATION-2026-10-23.md) pour les
+corrections, résultats actuels et tests non relancés. Les sections précédentes
+sont historiques ; leurs inventaires ne remplacent pas le relevé actuel.

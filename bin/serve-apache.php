@@ -54,7 +54,7 @@ $config .= "<Directory \"$root/public\">\nRequire local\nOptions -Indexes -Inclu
 $config .= "<FilesMatch \"\\.php$\">\nSetHandler application/x-httpd-php\n</FilesMatch>\n";
 $config .= "<FilesMatch \"^\\.\">\nRequire all denied\n</FilesMatch>\n";
 $config .= "Header always set X-Content-Type-Options nosniff\n";
-$config .= "php_admin_flag display_errors Off\nphp_admin_flag log_errors On\nphp_admin_value upload_max_filesize 10M\nphp_admin_value post_max_size 12M\n";
+$config .= "php_admin_flag display_errors Off\nphp_admin_flag log_errors On\nphp_admin_flag session.upload_progress.enabled Off\nphp_admin_value upload_max_filesize 10M\nphp_admin_value post_max_size 12M\n";
 $path = $runtime . '/apache.conf';
 file_put_contents($path, $config);
 chmod($path, 0600);

@@ -19,10 +19,21 @@ jobs:
       - run: php tests/content_coverage.php
       - run: php tests/view_components.php
       - run: php tests/refactoring.php
-      - run: php tests/planning_calendar.php
+      - run: php tests/portal_views.php
       - run: php tests/planning_day.php
+      - run: php tests/planning_calendar.php
+      - run: php tests/planning_csp.php
+      - run: php tests/php_readability.php
+      - run: php tests/portal_security.php
+      - run: python3 tests/antivirus_stream.py
+      - run: python3 tests/antivirus_queue.py
+      - run: php tests/chat_retention.php
+      - run: node tests/chat_retention.test.js
       - run: node tests/chat_drafts.test.js
       - run: node tests/frontend.test.js
+      - run: node tests/appearance.test.js
+      - run: node tests/carousel.test.js
+      - run: node tests/assets.test.js
       - run: |
           php -S 127.0.0.1:8080 -t public public/router.php > /tmp/expernet-php.log 2>&1 &
           for attempt in 1 2 3 4 5; do curl -fsS http://127.0.0.1:8080/ > /dev/null && break; sleep 1; done

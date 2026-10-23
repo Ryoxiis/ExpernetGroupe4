@@ -137,7 +137,7 @@ final class PedagogyService
         return compact('cohorts', 'sessions', 'assignments', 'windows', 'attendance', 'grades', 'submissions', 'people', 'exams', 'criteria') + [
             'resources' => $this->repo->all("SELECT id,cohort_id,session_id,author_id,title,original_name,created_at FROM portal_resources WHERE cohort_id IN ($in) ORDER BY created_at DESC", $ids),
             'memberships' => $this->repo->all("SELECT * FROM portal_memberships WHERE cohort_id IN ($in)" . ($isStudent ? ' AND user_id=?' : ''), [...$ids, ...$ownParams]),
-            'messages' => $this->repo->all("SELECT m.*,u.name AS author_name FROM portal_messages m JOIN portal_users u ON u.id=m.author_id WHERE m.cohort_id IN ($in) ORDER BY m.created_at DESC LIMIT 100", $ids),
+            'messages' => $this->repo->all("SELECT m.*,u.name AS author_name FROM portal_messages m JOIN portal_users u ON u.id=m.author_id WHERE m.cohort_id IN ($in) AND m.created_at>DATE_SUB(UTC_TIMESTAMP(),INTERVAL 24 HOUR) ORDER BY m.created_at DESC LIMIT 100", $ids),
             'unavailability' => $user['role'] === 'student' ? [] : $this->repo->all('SELECT * FROM portal_unavailability' . ($user['role'] === 'trainer' ? ' WHERE trainer_id=?' : '') . ' ORDER BY starts_at DESC', $user['role'] === 'trainer' ? [$user['id']] : []),
             'journal' => $this->repo->all("SELECT * FROM portal_journal WHERE cohort_id IN ($in)" . $own . ' ORDER BY created_at DESC LIMIT 100', [...$ids, ...$ownParams]),
             'feedback' => $user['role'] === 'admin' ? $this->repo->all('SELECT cohort_id,AVG(rating) AS average,COUNT(*) AS total FROM portal_feedback GROUP BY cohort_id') : ($isStudent ? $this->repo->all('SELECT * FROM portal_feedback WHERE student_id=?', [$user['id']]) : []),
