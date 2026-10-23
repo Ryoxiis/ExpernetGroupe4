@@ -154,7 +154,8 @@ final class PortalAuth
         $user = $this->pending('mfa');
         $this->attempts('mfa:' . $user['id']);
         $secret = $user['mfa_secret'] ? PortalSecurity::decrypt($user['mfa_secret'], $this->config['key']) : ($_SESSION['pending']['secret'] ?? '');
-        if (!preg_match('/^\d{6}$/D', $code) || !$secret) {
+        $validCode = strlen($code) === 6 && ctype_digit($code);
+        if (!$validCode || !$secret) {
             throw new PortalException('Saisissez le code à six chiffres de votre application.');
         }
         $matched = null;

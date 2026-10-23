@@ -46,9 +46,6 @@
 <p>Utilisateur : Internaute se connectant, utilisant le site susnommé.</p>
 <p>Informations personnelles : « les informations qui permettent, sous quelque forme que ce soit, directement ou non, l’identification des personnes physiques auxquelles elles s’appliquent » (article 4 de la loi n° 78-17 du 6 janvier 1978).</p>
 </article>
-<div class="source-note">
-<span>Contenu relevé le 22 octobre 2026. Tarifs, dates et modalités à confirmer auprès d’Expernet.</span>
-<a href="https://expernet.re/mentions-legales/" target="_blank" rel="noopener">Consulter la source officielle ↗</a>
-</div>
+<?= $view->render('partials/source-note', ['source' => 'https://expernet.re/mentions-legales/']) ?>
 </div>
 </section>

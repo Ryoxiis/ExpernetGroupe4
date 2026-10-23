@@ -1,26 +1,52 @@
-<div class="portal-toolbar">
-    <label for="planning-search">Rechercher dans mes séances
-    </label>
-    <input id="planning-search" type="search" data-filter="session-card" placeholder="Matière, formateur, salle…"><a class="button button-dark" href="<?= e(url('/espace-pedagogique/calendrier/')) ?>">Télécharger mon calendrier (.ics)</a>
-</div>
-<p class="portal-help">Les horaires sont affichés à l’heure de La Réunion. L’export est un téléchargement ponctuel, sans abonnement automatique.
-</p>
-<div class="session-list"><?php foreach ($state['sessions'] as $s): ?>
-    <article class="portal-card session-card">
-        <p class="portal-eyebrow"><?= e($fmt($s['starts_at'], 'd/m/Y')) ?> · <?= e($fmt($s['starts_at'], 'H:i')) ?>–<?= e($fmt($s['ends_at'], 'H:i')) ?>
-        </p>
-        <h2><?= e($s['title']) ?>
-        </h2>
-        <p><?= e($s['cohort_name']) ?> · <?= e($s['trainer_name']) ?>
-        </p>
-        <p><?= e($s['location']) ?> · <?= $s['mode'] === 'remote' ? 'À distance' : ($s['mode'] === 'company' ? 'En entreprise' : 'En présentiel') ?>
-        </p><a class="portal-link" href="<?= e(url('/espace-pedagogique/seance/?id=' . $s['id'])) ?>">Ouvrir la séance →</a>
-    </article><?php endforeach; ?>
-</div>
-<p class="portal-empty" data-filter-empty hidden>Aucune séance ne correspond à votre recherche.
-</p><?php if (!$state['sessions']): ?>
-<p class="portal-empty">Aucune séance programmée pour le moment.
-</p><?php endif; ?>
+<?php
+$calendar = \App\Services\PlanningCalendar::build($state['sessions'], $_GET['date'] ?? null, $_GET['view'] ?? null, $_GET['q'] ?? '');
+$calendarUrl = static fn (array $changes = []) => url('/espace-pedagogique/planning/?'.http_build_query(array_merge(['date' => $calendar['date'], 'view' => $calendar['view'], 'q' => $calendar['search']], $changes)));
+?>
+<section class="portal-card calendar-panel" aria-label="Emploi du temps">
+    <div class="calendar-toolbar">
+        <nav class="calendar-switch" aria-label="Affichage du calendrier">
+            <a href="<?= e($calendarUrl(['view' => 'day'])) ?>" <?= $calendar['view'] === 'day' ? 'aria-current="true"' : '' ?>>Journée</a>
+            <a href="<?= e($calendarUrl(['view' => 'week'])) ?>" <?= $calendar['view'] === 'week' ? 'aria-current="true"' : '' ?>>Semaine</a>
+        </nav>
+        <a class="portal-link" href="<?= e($calendarUrl(['date' => $calendar['today']])) ?>">Aujourd’hui</a>
+        <a class="portal-link" href="<?= e(url('/espace-pedagogique/calendrier/')) ?>">Exporter (.ics)</a>
+    </div>
+    <form method="get" action="<?= e(url('/espace-pedagogique/planning/')) ?>" class="calendar-filters">
+        <input type="hidden" name="view" value="<?= e($calendar['view']) ?>">
+        <label>Date <input type="date" name="date" value="<?= e($calendar['date']) ?>" min="1900-01-01" max="2100-12-31"></label>
+        <label>Rechercher un cours <input type="search" name="q" value="<?= e($calendar['search']) ?>" maxlength="100" placeholder="Matière, formateur, salle…"></label>
+        <button class="button button-dark" type="submit">Afficher</button>
+    </form>
+    <div class="calendar-navigation">
+        <a href="<?= e($calendarUrl(['date' => $calendar['previous']])) ?>" aria-label="<?= $calendar['view'] === 'week' ? 'Semaine précédente' : 'Jour précédent' ?>">←</a>
+        <h2><?= e($calendar['label']) ?></h2>
+        <a href="<?= e($calendarUrl(['date' => $calendar['next']])) ?>" aria-label="<?= $calendar['view'] === 'week' ? 'Semaine suivante' : 'Jour suivant' ?>">→</a>
+    </div>
+    <p class="portal-help">Heure de La Réunion · Sélectionnez un cours pour ouvrir sa fiche. Sur mobile, les cours sont présentés par jour.</p>
+    <div class="planning-calendar" style="--days:<?= count($calendar['days']) ?>;--hours:<?= $calendar['endHour'] - $calendar['startHour'] ?>">
+        <div class="calendar-hours" aria-hidden="true"><div class="calendar-day-heading">Horaires</div><div class="calendar-hour-grid">
+            <?php for ($hour = $calendar['startHour']; $hour < $calendar['endHour']; $hour++): ?><span><?= sprintf('%02d:00', $hour) ?></span><?php endfor; ?>
+        </div></div>
+        <?php foreach ($calendar['days'] as $day): ?>
+        <section class="calendar-day <?= $day['today'] ? 'is-today' : '' ?>" aria-label="<?= e($day['label'].' '.$day['short']) ?>">
+            <h3 class="calendar-day-heading"><a href="<?= e($calendarUrl(['date' => $day['date'], 'view' => 'day'])) ?>"><?= e($day['label']) ?><span><?= e($day['short']) ?><?= $day['today'] ? ' · Aujourd’hui' : '' ?></span></a></h3>
+            <div class="calendar-day-grid">
+                <?php if (!$day['events']): ?><p class="calendar-no-course"><?= $calendar['search'] !== '' ? 'Aucun cours trouvé' : 'Aucun cours' ?></p><?php endif; ?>
+                <?php foreach ($day['events'] as $event): $s = $event['session']; ?>
+                <a class="calendar-event" style="--offset:<?= $event['from'] - $calendar['startHour'] * 60 ?>;--duration:<?= $event['to'] - $event['from'] ?>;--lane:<?= $event['lane'] ?>;--lanes:<?= $event['lanes'] ?>" href="<?= e(url('/espace-pedagogique/seance/?id='.$s['id'])) ?>">
+                    <span class="calendar-time"><?= e($event['time']) ?></span>
+                    <strong><?= e($s['title']) ?></strong>
+                    <span><?= e($s['trainer_name']) ?></span>
+                    <span><?= e($s['location']) ?></span>
+                    <span class="calendar-mode"><?= $s['mode'] === 'remote' ? 'À distance' : ($s['mode'] === 'company' ? 'En entreprise' : 'En présentiel') ?></span>
+                    <span><?= e($s['cohort_name']) ?></span>
+                </a>
+                <?php endforeach; ?>
+            </div>
+        </section>
+        <?php endforeach; ?>
+    </div>
+</section>
 <?php if ($trainer): ?>
 <details class="portal-card">
     <summary>Déclarer une indisponibilité

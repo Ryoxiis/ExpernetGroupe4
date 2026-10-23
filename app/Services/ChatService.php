@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Repositories\PedagogyRepository;
+use App\Support\Text;
+use App\Support\Dates;
 use App\Support\PortalException;
 
 final class ChatService
@@ -235,7 +237,7 @@ final class ChatService
         $c = $this->conversation($user, $id);
         $body = self::text($input['content'] ?? '', 5000, true);
         $key = self::text($input['client_key'] ?? '', 64);
-        if (!preg_match('/^[a-zA-Z0-9-]{16,64}$/D', $key)) {
+        if (strlen($key) < 16 || !Text::containsOnly($key, Text::LETTERS . Text::DIGITS . '-')) {
             throw new PortalException('Clé d’envoi invalide.', 422);
         }
         $old = $this->repo->one('SELECT id,conversation_id FROM portal_chat_messages WHERE sender_id=? AND client_key=?', [$user['id'],$key]);
@@ -423,15 +425,8 @@ final class ChatService
         }
         $title = self::text($input['title'] ?? 'Appel', 120);
         $date = self::text($input['starts_at'] ?? gmdate('Y-m-d\TH:i:s\Z'), 30);
-        if (!preg_match('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?(?:Z|[+-]\d{2}:\d{2})$/D', $date)) {
-            throw new PortalException('Date invalide.', 422);
-        }
-        try {
-            $when = new \DateTimeImmutable($date);
-        } catch (\Exception) {
-            throw new PortalException('Date invalide.', 422);
-        }
-        if (\DateTimeImmutable::getLastErrors() !== false) {
+        $when = Dates::isoTimestamp($date);
+        if ($when === null) {
             throw new PortalException('Date invalide.', 422);
         }
         return $this->repo->transaction(function () use ($id, $user, $title, $when): int {

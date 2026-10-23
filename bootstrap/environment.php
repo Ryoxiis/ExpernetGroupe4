@@ -8,14 +8,19 @@ if (!is_file($file)) {
     return;
 }
 foreach (file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
-    if (!preg_match('/^\s*([A-Z][A-Z0-9_]*)=(.*)$/D', $line, $match)) {
+    $parts = explode('=', ltrim($line), 2);
+    if (count($parts) !== 2) {
         continue;
     }
-    $name = $match[1];
+    [$name, $value] = $parts;
+    $allowed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
+    if ($name === '' || !ctype_upper($name[0]) || strspn($name, $allowed) !== strlen($name)) {
+        continue;
+    }
     if (getenv($name) !== false) {
         continue; // Une variable fournie par le terminal reste prioritaire.
     }
-    $value = trim($match[2]);
+    $value = trim($value);
     $quote = $value[0] ?? '';
     if (strlen($value) >= 2 && in_array($quote, ['"', "'"], true) && str_ends_with($value, $quote)) {
         $value = substr($value, 1, -1);

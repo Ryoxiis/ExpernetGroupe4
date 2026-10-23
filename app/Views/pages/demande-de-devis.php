@@ -1,15 +1,8 @@
-<section class="page-hero">
-<div class="wrap">
-<div class="breadcrumbs">
-<a href="<?= e(url('/')) ?>">Accueil</a>
-<span>/</span>
-<span>Donnons forme à votre projet</span>
-</div>
-<div class="eyebrow">UNE DEMANDE SIMPLE, UN ÉCHANGE HUMAIN</div>
-<h1>Donnons forme à votre projet</h1>
-<p>Individuel, intra-entreprise ou sur mesure : précisez votre besoin pour préparer votre échange avec l’équipe Expernet.</p>
-</div>
-</section>
+<?= $view->render('partials/hero', [
+    'title' => 'Donnons forme à votre projet',
+    'kicker' => 'UNE DEMANDE SIMPLE, UN ÉCHANGE HUMAIN',
+    'description' => 'Individuel, intra-entreprise ou sur mesure : précisez votre besoin pour préparer votre échange avec l’équipe Expernet.',
+]) ?>
 <section class="section">
 <div class="wrap quote-layout">
 <noscript><p class="notice">JavaScript est nécessaire pour préparer le récapitulatif local. Vous pouvez aussi contacter directement Expernet.</p></noscript>

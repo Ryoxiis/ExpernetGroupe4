@@ -1,15 +1,8 @@
-<section class="page-hero">
-<div class="wrap">
-<div class="breadcrumbs">
-<a href="<?= e(url('/')) ?>">Accueil</a>
-<span>/</span>
-<span>Une identité. Quatre nuances.</span>
-</div>
-<div class="eyebrow">ATELIER COULEURS · EXPERNET</div>
-<h1>Une identité. Quatre nuances.</h1>
-<p>Comparez quatre palettes issues du bleu et de l’orange d’Expernet. Choisissez une piste pour l’appliquer à toutes les pages du prototype.</p>
-</div>
-</section>
+<?= $view->render('partials/hero', [
+    'title' => 'Une identité. Quatre nuances.',
+    'kicker' => 'ATELIER COULEURS · EXPERNET',
+    'description' => 'Comparez quatre palettes issues du bleu et de l’orange d’Expernet. Choisissez une piste pour l’appliquer à toutes les pages du prototype.',
+]) ?>
 <section class="section">
 <div class="wrap">
 <div class="brand-analysis">

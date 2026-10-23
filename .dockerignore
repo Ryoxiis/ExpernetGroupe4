@@ -7,3 +7,16 @@ storage
 vendor
 node_modules
 output
+# Local backups and instruction files must not enter the image.
+*.backup-*
+*.log
+rules.md
+SKILL.md
+AGENTS.md
+GEMINI.md
+docs/context
+*-backup.sql
+*-storage-backup.tar.gz
+config/local.php
+.idea
+.vscode

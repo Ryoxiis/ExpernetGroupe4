@@ -1,15 +1,8 @@
-<section class="page-hero">
-<div class="wrap">
-<div class="breadcrumbs">
-<a href="<?= e(url('/')) ?>">Accueil</a>
-<span>/</span>
-<span>Les visages de votre réussite</span>
-</div>
-<div class="eyebrow">UNE ÉQUIPE, À VOTRE ÉCOUTE</div>
-<h1>Les visages de votre réussite</h1>
-<p>Rencontrez les personnes qui vous accompagnent dans vos projets de formation.</p>
-</div>
-</section>
+<?= $view->render('partials/hero', [
+    'title' => 'Les visages de votre réussite',
+    'kicker' => 'UNE ÉQUIPE, À VOTRE ÉCOUTE',
+    'description' => 'Rencontrez les personnes qui vous accompagnent dans vos projets de formation.',
+]) ?>
 <section class="section">
 <div class="wrap">
 <figure class="official-team-photo">
@@ -79,9 +72,6 @@
 </div>
 </article>
 </div>
-<div class="source-note">
-<span>Contenu relevé le 22 octobre 2026. Tarifs, dates et modalités à confirmer auprès d’Expernet.</span>
-<a href="https://expernet.re/notre-equipe/" target="_blank" rel="noopener">Consulter la source officielle ↗</a>
-</div>
+<?= $view->render('partials/source-note', ['source' => 'https://expernet.re/notre-equipe/']) ?>
 </div>
 </section>

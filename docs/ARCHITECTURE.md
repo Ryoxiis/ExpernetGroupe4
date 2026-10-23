@@ -1,61 +1,118 @@
-# Architecture du socle
+# Architecture du projet Expernet
+
+Cette description correspond aux sources présentes dans le dossier de travail.
+Le catalogue public et le portail pédagogique sont deux domaines distincts qui
+partagent les vues, certains composants et le même document root.
+
+## Organisation
+
+| Dossier | Responsabilité |
+| --- | --- |
+| `public/` | Seul répertoire exposé par le serveur web, assets et front controller |
+| `bootstrap/` | Chargement de l’environnement, autoload et initialisation |
+| `config/` | Configuration serveur, routes publiques et paramètres métier |
+| `app/Controllers/` | Coordination des requêtes HTTP et des réponses |
+| `app/Services/` | Authentification, règles pédagogiques, discussions et notifications |
+| `app/Repositories/` | Lecture du catalogue JSON et accès MySQL par PDO |
+| `app/Support/` | Vues, sécurité, validation JSON, connexions et rendu du contenu importé |
+| `app/Views/` | Gabarits PHP et composants de présentation partagés |
+| `data/` | Instantanés des contenus publics et correspondances des URL officielles |
+| `database/migrations/` | Évolutions versionnées de la base pédagogique |
+| `bin/` | Commandes CLI de lancement et d’administration locale |
+| `tests/` | Contrôles PHP/JS, couverture des contenus et scénarios HTTP/MySQL |
+| `docs/` | Architecture, analyses, procédures et contrats OpenAPI |
+
+Les dépendances tierces restent dans `vendor/` et `public/assets/vendor/`.
+Elles ne sont pas modifiées pour supprimer des doublons applicatifs.
 
 ## Chemin d’une requête
 
-`public/router.php` sert de routeur au serveur de développement. Il ne laisse passer directement que les assets publics autorisés. Les autres requêtes vont vers `public/index.php`.
+`public/index.php` charge le bootstrap, normalise le chemin, contrôle la méthode,
+puis dirige la requête vers le catalogue, le portail ou les discussions.
+`public/router.php` adapte ce fonctionnement au serveur PHP de développement.
+Sur Apache, la réécriture doit pointer vers le front controller et servir
+uniquement le répertoire `public/`.
 
-Le front controller charge `bootstrap/app.php`, normalise la route, vérifie la méthode et consulte la table `config/routes.json`. Une route de page est rendue par `PageController` avec le `ContentRepository` et `View`. Le layout assemble en-tête, contenu et pied de page. Un nom de vue ne vient jamais directement d’un paramètre utilisateur.
+### Site public
 
-Les contrôleurs coordonnent ; les vues présentent ; le repository lit les données. Les règles du futur portail pédagogique doivent aller dans des services métier, avec des contrôles d’affectation et d’autorisation serveur, pas dans les vues.
+`PageController` associe la route de `config/routes.json` à un gabarit et aux
+données de `ContentRepository`. Le repository lit les fichiers JSON, et non
+MySQL. Le même gabarit rend toutes les formations d’un même type.
 
-## Données et API
+`HtmlContent` reconstruit le contenu importé en échappant les valeurs et en
+contrôlant les liens. `source-pages.json` et `source-map.json` conservent le relevé
+et la correspondance entre les sites officiels et les routes locales.
+Les compositions spécifiques peuvent afficher un complément des blocs importés.
 
-`data/content.json` est un instantané éditorial, hors du document root. Les API GET `/api/formations/`, `/api/sessions/` et `/api/palettes/` exposent uniquement les données publiques nécessaires au navigateur. Les programmes complets sont rendus côté serveur. Voir `docs/openapi.yaml`.
+Les API publiques GET `/api/formations/`, `/api/sessions/` et `/api/palettes/`
+exposent les données publiques. Le formulaire de devis prépare un récapitulatif
+local ; il ne doit pas être présenté comme un envoi commercial effectif.
 
-Il n’y a pas de duplication par formation : une route contient un slug, le repository retrouve la fiche et le même gabarit la rend. Les archives et les thématiques utilisent aussi des gabarits communs.
+### Portail pédagogique
 
-## Frontend
+`PedagogyController` utilise `PortalAuth`, `PedagogyService` et
+`PedagogyRepository`. Les comptes, promotions, séances, devoirs, notes,
+présences déclarées et autres données du portail sont dans MySQL.
+Les vues `pedagogy/pages/` affichent l’état déjà filtré par les droits.
 
-Le CSS conserve le rendu V2. `base.css` précède `pages.css`, dont les variables et sélecteurs de palette sont prioritaires. Bootstrap reste isolé dans `vendor/` et n’est pas modifié.
+Le rôle ne suffit pas : les services vérifient aussi les affectations,
+les participants, le propriétaire de la ressource et l’état du compte.
+Les mutations passent par des requêtes préparées et des transactions adaptées.
+Le prototype d’émargement n’est pas une signature électronique certifiée.
 
-Les modules ES natifs sont chargés depuis `main.js`. Seul `theme.js` est chargé avant les styles pour éviter un flash de mauvaise palette. Il expose une fonction limitée de changement de thème. Les données du catalogue ne sont plus stockées dans des variables globales JavaScript générées.
+### Échanges
 
-Chaque module vérifie que sa zone existe avant de s’initialiser. Les chargements réseau ont un état d’erreur et un bouton de reprise. Toute chaîne interpolée dans les cartes est échappée. Les fonctionnalités de recherche et de devis ne doivent pas supprimer les libellés, les compteurs accessibles ou le focus clavier.
+`ChatController` expose `/api/discussions/`. `ChatService` vérifie les droits
+sur les promotions, conversations et participants avant de lire ou d’écrire.
+Les messages sont persistés dans les tables `portal_chat_*`.
+L’administrateur ne dispose pas d’un accès implicite aux discussions privées.
+`ChatSocket` fournit les notifications WebSocket facultatives ; le contenu
+reste obtenu par l’API HTTP authentifiée. Le repli HTTP actualise la messagerie.
 
-## Configuration et sécurité
+## Présentation et composants communs
 
-La configuration vient de variables d’environnement, avec des valeurs locales raisonnables pour les paramètres non secrets. Ne jamais versionner `.env`, des mots de passe, dumps réels ou jetons. `.env.example` ne contient que des exemples.
+`View` rend les gabarits et permet aux sous-vues d’appeler d’autres composants.
+Les noms de vues restent contrôlés et ne viennent pas directement d’un paramètre
+utilisateur. Les données ne peuvent pas écraser les variables internes du rendu.
 
-`public/` est le seul répertoire exposé. Les requêtes POST sont refusées par le prototype. Les vues échappent les textes à l’affichage ; `HtmlContent` reconstruit une petite liste de balises sémantiques et refuse les protocoles actifs. Une erreur serveur est journalisée sans afficher sa trace au visiteur.
+- `partials/hero.php` : en-tête, fil d’Ariane et présentation des pages publiques.
+- `partials/legal-intro.php` : réutilise le hero et ajoute l’avertissement juridique.
+- `partials/source-note.php` : provenance d’un contenu, avec URL échappée.
+- `partials/header.php` / `footer.php` : navigation et pied de page.
+- `partials/home-carousel.php` : photos de l’accueil, données dans `home-stories.php`.
 
-Ces précautions ne constituent pas une authentification. Si une fonction d’écriture est développée : validation PHP, requêtes PDO préparées, transactions appropriées, permissions par ressource, protection CSRF selon le mécanisme d’authentification et tests des accès directs. Les règles détaillées sont dans `.ai/rules.md` (contexte local ignoré par Git, à transmettre séparément).
+Le CSS conserve le design V2 Océan. `base.css` précède `pages.css`, puis les
+styles du module concerné. Des règles responsive différentes ne sont pas des
+doublons à supprimer automatiquement : l’ordre de cascade fait partie du résultat.
 
-## MySQL
+`main.js` initialise les modules ES du site public. Le portail possède ses
+modules pédagogiques et de discussions. Les fonctions communes de navigation,
+échappement et chargement restent regroupées dans les utilitaires existants.
+Aucun framework frontend supplémentaire n’est nécessaire.
 
-La factory PDO est un point d’extension, pas une base active. Le catalogue utilise le repository JSON sans connexion MySQL. Ne créer que les migrations nécessaires au lot en cours, avec clés étrangères, contraintes, index et données fictives pour les jeux pédagogiques.
+## Données et configuration
 
-## Ajouter une page
+Les fichiers JSON publics et MySQL ne sont pas deux sources interchangeables :
+le premier alimente l’éditorial, le second les opérations privées.
+Le dump `database.sql` est un jeu de création initiale contenant des suppressions
+de tables. Les migrations servent aux évolutions d’une base existante.
+Ne pas réimporter le dump pour corriger une migration ou ajouter des comptes.
 
-1. Ajouter un gabarit dans `app/Views/pages/` ou réutiliser un gabarit existant.
-2. Ajouter son chemin canonique, son titre et son type dans `config/routes.json`.
-3. Ajouter ses liens dans les composants concernés ; utiliser `url()` et `e()`.
-4. Vérifier PHP, interactions et HTTP. Adapter le nombre attendu de routes dans les tests si l’ajout est intentionnel.
+Les secrets et fichiers privés restent hors de `public/` et de Git. Le bootstrap
+charge la configuration locale ; les variables exportées restent prioritaires.
+Les scripts CLI utilisent les mêmes paramètres de connexion que le site.
+Les sessions, CSRF, mots de passe hachés et contrôles d’affectation doivent être
+conservés lors d’un nettoyage de code.
 
-Les 211 routes initiales doivent rester accessibles lors d’un refactoring. Un changement de contenu ne doit pas réintroduire les fichiers générés V1/V2 ou les agencements V3 rejetés.
+## Déploiement et vérification
 
-## Déploiement
+LAMP et Docker constituent des modes de déploiement, pas des sources de données
+à fusionner automatiquement. Leurs bases et stockages peuvent être indépendants.
+Le code d’une image Docker ou d’une copie Apache doit être mis à jour pour refléter
+les changements du dossier de développement. Les versions disponibles sur des
+branches séparées doivent être intégrées et testées avant une livraison commune.
 
-Le serveur PHP intégré et la configuration Docker servent au développement. Pour la production, prévoir Apache avec `mod_rewrite`, ou Nginx/PHP-FPM configuré avec document root `public/` et redirection vers `index.php`. `.htaccess` est fourni pour Apache ; aucune configuration de production n’a été validée ici.
-
-Le démarrage documenté sert l’application à la racine `/`. `APP_BASE_PATH` existe pour les URL lors d’un déploiement en sous-dossier, dont la réécriture des assets devra aussi être configurée et testée sur le serveur cible.
-
-## Contenus des deux sites publics
-
-`data/source-pages.json` conserve le relevé public complémentaire des deux
-domaines. `data/source-map.json` traduit les URL sources et leurs alias vers les
-routes locales. `HtmlContent` échappe les textes, rend les tableaux et ancres et
-réécrit les liens internes connus. Le contrôleur complète les compositions V2
-lorsqu’un bloc source n’y est pas présent. Les nouvelles pages réutilisent
-`pages/source.php`, `partials/campus-nav.php` et `partials/source-cards.php`.
-Le repository charge une seule fois ces données par requête. Les formations
-Campus ne sont pas mélangées avec les formations continues de l’API catalogue.
+Le catalogue compte actuellement 294 routes rendues par les tests. Le contrôle de
+couverture vérifie les 273 pages sources et leurs 23 565 blocs.
+Voir `docs/AUDIT-ARCHITECTURE-DOUBLONS.md` pour le nettoyage mesuré, les tests et
+les limites. Les contrats API sont dans les fichiers OpenAPI de `docs/`.

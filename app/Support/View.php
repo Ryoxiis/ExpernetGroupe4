@@ -19,7 +19,7 @@ final class View
     /** @param array<string, mixed> $data */
     public function render(string $name, array $data = []): string
     {
-        if (!preg_match('/^[a-z0-9_\/-]+$/D', $name) || str_contains($name, '..')) {
+        if (!Text::containsOnly($name, 'abcdefghijklmnopqrstuvwxyz0123456789_/-') || str_contains($name, '..')) {
             throw new RuntimeException('Nom de vue invalide.');
         }
 
@@ -31,6 +31,7 @@ final class View
         ob_start();
         try {
             // EXTR_SKIP prevents template data from replacing internal variables.
+            $view = $this; // Les sous-vues peuvent réutiliser les mêmes composants.
             extract($data, EXTR_SKIP);
             require $file;
             return (string) ob_get_clean();

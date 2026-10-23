@@ -5,6 +5,9 @@ declare(strict_types=1);
 use App\Repositories\ContentRepository;
 use App\Support\View;
 
+// Apache and CLI must resolve the same configuration, without executing .env.
+require_once __DIR__ . '/environment.php';
+
 const PROJECT_ROOT = __DIR__ . '/..';
 
 spl_autoload_register(static function (string $class): void {

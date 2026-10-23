@@ -1,15 +1,8 @@
-<section class="page-hero">
-<div class="wrap">
-<div class="breadcrumbs">
-<a href="<?= e(url('/')) ?>">Accueil</a>
-<span>/</span>
-<span>Toutes les portes d’entrée</span>
-</div>
-<div class="eyebrow">PLAN DU SITE</div>
-<h1>Toutes les portes d’entrée</h1>
-<p>Retrouvez chaque page de cette proposition de refonte.</p>
-</div>
-</section>
+<?= $view->render('partials/hero', [
+    'title' => 'Toutes les portes d’entrée',
+    'kicker' => 'PLAN DU SITE',
+    'description' => 'Retrouvez chaque page de cette proposition de refonte.',
+]) ?>
 <section class="section">
 <div class="wrap sitemap-groups">
 <section>

@@ -1,15 +1,8 @@
-<section class="page-hero">
-<div class="wrap">
-<div class="breadcrumbs">
-<a href="<?= e(url('/')) ?>">Accueil</a>
-<span>/</span>
-<span>Proches de vous, ici et là-bas</span>
-</div>
-<div class="eyebrow">LA RÉUNION &amp; MAYOTTE</div>
-<h1>Proches de vous, ici et là-bas</h1>
-<p>Trois implantations pour vous accompagner. Contactez notre équipe avant votre visite.</p>
-</div>
-</section>
+<?= $view->render('partials/hero', [
+    'title' => 'Proches de vous, ici et là-bas',
+    'kicker' => 'LA RÉUNION & MAYOTTE',
+    'description' => 'Trois implantations pour vous accompagner. Contactez notre équipe avant votre visite.',
+]) ?>
 <section class="section">
 <div class="wrap">
 <div class="contact-grid">

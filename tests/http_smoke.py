@@ -41,7 +41,10 @@ for route, code in [('/page-inconnue/', 404), ('/data/content.json', 404), ('/.e
         urllib.request.urlopen(BASE + route)
         failures.append(f'Une ressource interne est exposée : {route}')
     except urllib.error.HTTPError as error:
-        assert error.code == code, (route, error.code)
+        # Apache rejects dotfiles before the front controller; the PHP dev server
+        # returns 404 instead. Both must prevent access to .env.
+        allowed = (403, 404) if route == '/.env' else (code,)
+        assert error.code in allowed, (route, error.code)
 
 request = urllib.request.Request(BASE + '/demande-de-devis/', data=b'nom=test', method='POST')
 try:

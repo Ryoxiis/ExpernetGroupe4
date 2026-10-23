@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Controllers\PageController;
+use App\Support\Text;
 use App\Controllers\PedagogyController;
 
 header('X-Content-Type-Options: nosniff');
@@ -18,7 +19,7 @@ try {
     if ($base !== '' && ($path === $base || str_starts_with($path, $base . '/'))) {
         $path = substr($path, strlen($base)) ?: '/';
     }
-    if (preg_match('/[\x00-\x1F\\\\]/', $path) || preg_match('~(?:^|/)\.\.(?:/|$)~', $path)) {
+    if (Text::hasControlCharacters($path) || str_contains($path, '\\') || in_array('..', explode('/', $path), true)) {
         http_response_code(400);
         echo 'Chemin invalide.';
         exit;

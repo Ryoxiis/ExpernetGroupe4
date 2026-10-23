@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Repositories\PedagogyRepository;
+use App\Support\Text;
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 
@@ -40,7 +41,11 @@ final class ChatSocket implements MessageComponentInterface
         }
         try {
             $data = json_decode($msg, true, 8, JSON_THROW_ON_ERROR);
-            if (($data['type'] ?? '') !== 'auth' || !preg_match('/^[a-f0-9]{64}$/D', $data['token'] ?? '')) {
+            $token = $data['token'] ?? null;
+            $validToken = is_string($token)
+                && strlen($token) === 64
+                && Text::containsOnly($token, 'abcdef0123456789');
+            if (($data['type'] ?? '') !== 'auth' || !$validToken) {
                 $from->close();
                 return;
             }

@@ -26,6 +26,12 @@ foreach (['student', 'trainer', 'admin'] as $role) {
             throw new RuntimeException("Structure manquante pour $role / $page.");
         }
         foreach ($xpath->query('//form') as $form) {
+            if (strtolower($form->getAttribute('method')) === 'get' && $page === 'planning' && $form->getAttribute('class') === 'calendar-filters') {
+                if ($xpath->query('.//input[@name="date"]', $form)->length !== 1 || $xpath->query('.//input[@name="view"]', $form)->length !== 1) {
+                    throw new RuntimeException('Filtres du calendrier incomplets.');
+                }
+                continue; // Read-only calendar navigation does not need a CSRF token.
+            }
             $tokens = $xpath->query('.//input[@name="csrf"]', $form);
             if (strtolower($form->getAttribute('method')) !== 'post' || $tokens->length !== 1 || $tokens->item(0)->getAttribute('value') !== $csrf) {
                 throw new RuntimeException("Formulaire non protégé pour $role / $page.");
