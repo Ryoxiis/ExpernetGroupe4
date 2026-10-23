@@ -65,7 +65,10 @@ button {
 
 button:focus-visible,
 a:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
     outline: 3px solid #0088b4;
     outline-offset: 5px;
 }
@@ -225,8 +228,19 @@ nav a {
         transform 0.2s;
 }
 
-.button:hover {
-    transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+    .button:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
 }
 
 .button-dark {

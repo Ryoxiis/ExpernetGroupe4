@@ -2,7 +2,7 @@
 
 Refonte d’**Expernet** et d’**Expernet Campus**, avec un catalogue public et un espace pédagogique privé. Le projet utilise PHP 8.2+, HTML, CSS et JavaScript natif, sans compilation frontend.
 
-Le site conserve le logo officiel et la palette **Océan — Calme & ancrée**. La navigation a été simplifiée, les images ont été rapprochées des contenus officiels et la police **Inter** est hébergée localement.
+Le site conserve le logo officiel et la palette **Océan - Calme & ancrée**. La navigation a été simplifiée, les images ont été rapprochées des contenus officiels et la police **Inter** est hébergée localement.
 
 ## Démarrer tout le site sur Windows
 

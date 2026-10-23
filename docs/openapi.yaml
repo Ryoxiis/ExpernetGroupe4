@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Expernet — API du prototype
+  title: Expernet - API du prototype
   version: 0.1.0
   description: Catalogue public en lecture seule et API privée de collaboration authentifiée.
 servers:

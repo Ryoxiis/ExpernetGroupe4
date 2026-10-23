@@ -1,3 +1,4 @@
+import { initCarousel } from './modules/carousel.js?v=3';
 import { initCatalogue } from './modules/catalogue.js';
 import { initNavigation } from './modules/navigation.js';
 import { initPalettes } from './modules/palettes.js';
@@ -9,3 +10,5 @@ initCatalogue();
 initPalettes();
 initPlanning();
 initQuote();
+
+initCarousel();

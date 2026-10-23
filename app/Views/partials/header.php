@@ -8,7 +8,7 @@
 <header>
     <div class="wrap header-inner">
         <a href="<?= e(url('/')) ?>" class="brand official-brand">
-            <img src="<?= asset('assets/images/logo-officiel-bleu.png') ?>" alt="Expernet — retour à l’accueil" class="official-logo">
+            <img src="<?= asset('assets/images/logo-officiel-bleu.png') ?>" alt="Expernet - retour à l’accueil" class="official-logo">
         </a>
         <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation">☰</button>
         <nav id="navigation" aria-label="Navigation principale">

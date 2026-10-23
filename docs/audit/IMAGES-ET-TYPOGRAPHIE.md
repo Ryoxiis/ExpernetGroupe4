@@ -1,4 +1,4 @@
-# Images officielles et typographie — contrôle du 22 octobre 2026
+# Images officielles et typographie - contrôle du 22 octobre 2026
 
 Sources publiques consultées : https://expernet.re/ et https://expernet-campus.re/,
 avec leurs API WordPress pages, articles, formations et médiathèques.

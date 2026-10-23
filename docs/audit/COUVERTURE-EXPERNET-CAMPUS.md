@@ -1,4 +1,4 @@
-# Refonte Expernet et Campus — contrôle du 22 octobre 2026
+# Refonte Expernet et Campus - contrôle du 22 octobre 2026
 
 Le relevé couvre les deux sites publics : https://expernet.re/ et
 https://expernet-campus.re/. Il croise les sitemaps WordPress, les API publiques

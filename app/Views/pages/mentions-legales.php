@@ -1,8 +1,8 @@
 <?= $view->render('partials/legal-intro', ['heading' => 'Mentions légales']) ?>
 <h3>Présentation du site</h3>
 <p>En vertu de l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé aux utilisateurs du site http://www.expernet.re l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
-<p>Propriétaire : Expernet – 44276468400027– 38, Rue Claude Chappe ZAC 2000 97420 LE PORT Responsable publication : formation@expernet.re</p>
-<p>Hébergeur : Hodi – 14 rue Pasteur – 97400 SAINT-DENIS – La Réunion</p>
+<p>Propriétaire : Expernet - 44276468400027- 38, Rue Claude Chappe ZAC 2000 97420 LE PORT Responsable publication : formation@expernet.re</p>
+<p>Hébergeur : Hodi - 14 rue Pasteur - 97400 SAINT-DENIS - La Réunion</p>
 <p>Conditions générales d’utilisation du site et des services proposés.</p>
 <p>L’utilisation du site http://www.expernet.re implique l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites. Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du site http://www.expernet.re sont donc invités à les consulter de manière régulière.</p>
 <p>Ce site est normalement accessible à tout moment aux utilisateurs. Une interruption pour raison de maintenance technique peut être toutefois décidée par Expernet, qui s’efforcera alors de communiquer préalablement aux utilisateurs les dates et heures de l’intervention.</p>

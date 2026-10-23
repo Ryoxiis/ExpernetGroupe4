@@ -29,6 +29,7 @@ if (host) {
     let reconnectTimer;
     let contactsRequest = 0;
     let admin = null;
+    let renderedMessages = '';
     const draftKey = (id) => `${storageKey}:draft:${id}`;
     const node = (tag, text, cls) => {
         const el = document.createElement(tag);
@@ -51,7 +52,7 @@ if (host) {
         panel.hidden = !open;
         launcher.setAttribute('aria-expanded', String(open));
         persist();
-        if (open) refresh();
+        if (open) safe(refresh)();
     };
     if (full) {
         host.classList.add('chat-full');
@@ -59,10 +60,20 @@ if (host) {
     }
     panel.hidden = !(full || saved.open);
     launcher.setAttribute('aria-expanded', String(!panel.hidden));
-    launcher.addEventListener('click', () => show(panel.hidden));
-    q('[data-list]').addEventListener('click', () =>
-        host.classList.toggle('chat-show-list'),
-    );
+    launcher.addEventListener('click', () => {
+        const open = panel.hidden;
+        show(open);
+        if (open) {
+            const target = active && !host.classList.contains('chat-show-list')
+                ? q('[data-title]')
+                : q('[data-cohort]');
+            target.focus();
+        }
+    });
+    q('[data-list]').addEventListener('click', () => {
+        host.classList.add('chat-show-list');
+        q('[data-cohort]').focus();
+    });
     q('[data-minimize]').addEventListener('click', () => {
         if (full) return;
         show(false);
@@ -73,6 +84,10 @@ if (host) {
             show(false);
             launcher.focus();
         }
+    });
+    // The floating panel is non-modal: let Tab leave it without obscuring focus.
+    document.addEventListener('focusin', (event) => {
+        if (!full && !panel.hidden && !host.contains(event.target)) show(false);
     });
     async function api(action, data, method = 'POST') {
         const options = {
@@ -141,6 +156,9 @@ if (host) {
                     (inbox.cohorts.length === 1 ? inbox.cohorts[0].id : ''),
             );
         const list = q('[data-conversations]');
+        const focusedConversation = list.contains(document.activeElement)
+            ? document.activeElement.dataset.conversation
+            : null;
         list.replaceChildren();
         let unread = 0;
         inbox.conversations.forEach((c) => {
@@ -153,6 +171,7 @@ if (host) {
                     : 'chat-conversation',
             );
             button.type = 'button';
+            button.dataset.conversation = String(c.id);
             button.setAttribute(
                 'aria-current',
                 Number(c.id) === active ? 'true' : 'false',
@@ -161,8 +180,11 @@ if (host) {
                 node('strong', c.title),
                 node('small', c.last_message || 'Commencer la discussion'),
             );
-            if (Number(c.unread_count))
-                button.append(node('span', c.unread_count, 'chat-count'));
+            if (Number(c.unread_count)) {
+                const badge = node('span', c.unread_count, 'chat-count');
+                badge.setAttribute('aria-label', `${c.unread_count} messages non lus`);
+                button.append(badge);
+            }
             button.addEventListener(
                 'click',
                 safe(() => select(Number(c.id))),
@@ -178,12 +200,21 @@ if (host) {
             );
         q('[data-chat-badge]').hidden = unread === 0;
         q('[data-chat-badge]').textContent = String(unread);
+        q('[data-chat-badge]').setAttribute('aria-label', `${unread} messages non lus`);
+        if (focusedConversation) {
+            const restored = [...list.querySelectorAll('button')].find(
+                (button) => button.dataset.conversation === focusedConversation,
+            );
+            (restored || q('[data-cohort]')).focus({ preventScroll: true });
+        }
     }
     function controls(enabled) {
         host.classList.toggle('chat-has-conversation', Boolean(active));
         form.elements.content.disabled = !enabled;
         form.elements.file.disabled = !enabled || !Number(policy.files_enabled);
         form.querySelector('button').disabled = !enabled || busy;
+        form.querySelector('button').textContent = busy ? 'Envoi en cours…' : 'Envoyer';
+        form.setAttribute('aria-busy', String(busy));
         form.elements.content.required = !form.elements.file.files.length;
         q('[data-call]').disabled =
             !enabled ||
@@ -207,6 +238,7 @@ if (host) {
         generation++;
         active = id;
         history = [];
+        renderedMessages = '';
         pendingKey = null;
         form.reset();
         host.classList.remove('chat-show-list');
@@ -218,10 +250,16 @@ if (host) {
         persist();
         show(true);
         controls(false);
+        q('[data-title]').textContent = 'Chargement de la conversation…';
+        q('[data-title]').focus({ preventScroll: true });
         await loadHistory();
         renderInbox();
     }
     function renderMessages() {
+        // Polling must not re-announce the same log or destroy text selection.
+        const signature = JSON.stringify([active, policy.files_enabled, history]);
+        if (signature === renderedMessages) return;
+        renderedMessages = signature;
         const atBottom =
             thread.scrollHeight - thread.scrollTop - thread.clientHeight < 90;
         const oldHeight = thread.scrollHeight;
@@ -285,8 +323,10 @@ if (host) {
             );
         } catch (e) {
             if (version === generation) {
-                history = [];
-                thread.replaceChildren(node('p', e.message));
+                if (!history.length) {
+                    renderedMessages = '';
+                    thread.replaceChildren(node('p', e.message));
+                }
                 controls(false);
             }
             throw e;

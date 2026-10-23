@@ -11,7 +11,7 @@ if ($basePath !== '' && !Text::containsOnly($basePath, $allowedCharacters)) {
 }
 
 return [
-    'name' => 'Expernet — Projet de refonte',
+    'name' => 'Expernet - Projet de refonte',
     'environment' => getenv('APP_ENV') ?: 'local',
     'base_path' => $basePath === '' ? '' : '/' . $basePath,
     'timezone' => 'Indian/Reunion',

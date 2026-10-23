@@ -34,7 +34,7 @@
             </aside>
             <section class="chat-thread" aria-label="Discussion active">
                 <header class="chat-thread-top">
-                    <h2 data-title>Vos échanges, au même endroit
+                    <h2 data-title tabindex="-1">Vos échanges, au même endroit
                     </h2>
                     <div>
                         <button type="button" data-call disabled>Appeler
@@ -49,12 +49,12 @@
                 </div>
                 <button type="button" data-older hidden>Messages précédents
                 </button>
-                <div class="chat-messages" data-messages role="log" aria-label="Messages">
+                <div class="chat-messages" data-messages role="log" aria-label="Messages" aria-relevant="additions" tabindex="0">
                     <p>Sélectionnez une formation ou une conversation pour commencer.
                     </p>
                 </div>
                 <form data-compose>
-                    <label class="sr-only" for="chat-content">Votre message
+                    <label class="chat-compose-label" for="chat-content">Votre message
                     </label>
                     <textarea id="chat-content" name="content" maxlength="5000" rows="2" placeholder="Écrivez votre message…" required disabled></textarea>
                     <div class="chat-compose-actions">
@@ -125,9 +125,9 @@
             </form>
         </details>
 <?php endif; ?>
-<dialog data-meeting-dialog>
+<dialog data-meeting-dialog aria-labelledby="chat-meeting-title">
         <form data-meeting-form>
-            <h2>Planifier une réunion
+            <h2 id="chat-meeting-title">Planifier une réunion
             </h2>
             <label>Titre
                 <input name="title" maxlength="120" required>

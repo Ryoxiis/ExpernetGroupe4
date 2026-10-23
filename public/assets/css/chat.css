@@ -21,8 +21,16 @@
 }
 .collab button {
     cursor: pointer;
+    min-height: 44px;
+    min-width: 44px;
+    transition: background-color 140ms ease, border-color 140ms ease;
 }
-.collab button:hover {
+@media (hover: hover) and (pointer: fine) {
+    .collab button:hover {
+        background: var(--surface, #dfeef4);
+    }
+}
+.collab button:active:not(:disabled) {
     background: var(--surface, #dfeef4);
 }
 .collab button:disabled {
@@ -36,6 +44,10 @@
 .collab select:focus-visible {
     outline: 3px solid var(--orange, #f0a029);
     outline-offset: 2px;
+}
+.collab [tabindex]:focus-visible {
+    outline: 3px solid var(--blue, #007aa8);
+    outline-offset: -3px;
 }
 .collab [hidden] {
     display: none !important;
@@ -148,6 +160,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.chat-conversation:has(.chat-count) strong {
+    padding-right: 42px;
+}
 .chat-conversation small {
     max-width: 175px;
     opacity: 0.75;
@@ -226,6 +241,11 @@
     resize: vertical;
     max-height: 160px;
 }
+.chat-compose-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
 .chat-compose-actions {
     display: flex;
     align-items: center;
@@ -248,7 +268,7 @@
     padding: 3px;
 }
 .chat-compose-actions small {
-    font-size: 10px;
+    font-size: 12px;
 }
 .chat-meetings {
     max-height: 90px;
@@ -485,4 +505,47 @@
 }
 .collab:not(.chat-full) .chat-compose-actions small {
     display: none;
+}
+
+@media (max-width: 540px) {
+    .collab input,
+    .collab select,
+    .collab textarea {
+        font-size: 16px;
+    }
+
+    .chat-launcher {
+        bottom: max(15px, env(safe-area-inset-bottom));
+        right: max(15px, env(safe-area-inset-right));
+    }
+
+    .chat-panel {
+        bottom: calc(80px + env(safe-area-inset-bottom));
+        max-height: calc(100dvh - 100px - env(safe-area-inset-bottom));
+    }
+
+    .chat-full .chat-panel {
+        min-height: 0;
+        height: 85dvh;
+        max-height: none;
+    }
+
+    .chat-top,
+    .chat-thread-top > div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .chat-top > div:last-child {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .collab button {
+        transition: none;
+    }
 }

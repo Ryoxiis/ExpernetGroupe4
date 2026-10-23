@@ -9,6 +9,33 @@ pas une perte des données MySQL.
 
 PHP 8.2+ avec PDO MySQL, mbstring, fileinfo et sodium est requis pour le portail.
 
+### Installer la base de test fournie (MySQL natif sous Linux)
+
+Le fichier `database.sql` est un script SQL qui crée la base **expernet**, avec
+ses tables et comptes fictifs. Ce n'est pas le nom d'une base MySQL. Pour l'installer
+sur le serveur local au port 3306 :
+
+```bash
+php bin/setup-local-db.php
+php bin/serve-portal.php 8080
+```
+
+La première commande demande le mot de passe Ubuntu via `sudo`. Elle refuse
+l'import si `expernet` existe déjà, préserve les autres bases (dont `expernetbdd`),
+crée un utilisateur MySQL dédié, sauvegarde le `.env` existant dans un fichier
+privé `.env.backup-*`, configure `.env`, puis applique les migrations manquantes
+du chat. Ne pas lancer cette commande avec `sudo php` : seul le client MySQL
+doit avoir les droits administrateur. Un import interrompu peut laisser une base
+partiellement créée ; le script refuse de l'écraser lors d'une nouvelle tentative.
+
+Les accès de démonstration sont décrits dans `database.sql`, section « Comptes
+de démonstration ». Ne pas exécuter `seed-demo` après cet import : les comptes
+sont déjà présents. Le MFA reste activé selon la configuration existante et
+demande un enrôlement à la première connexion. Le catalogue public continue de
+lire les fichiers JSON ; les exemples de tables `catalog_*` ne le remplacent pas.
+
+### Configurer une base existante ou une autre installation
+
 1. Préparer `.env` depuis `.env.example`, renseigner les paramètres de votre MySQL
    et générer une clé privée avec `php -r 'echo bin2hex(random_bytes(32)), PHP_EOL;'`.
    La placer dans `APP_KEY`, sans l'ajouter à Git. Conserver cette clé pour pouvoir
