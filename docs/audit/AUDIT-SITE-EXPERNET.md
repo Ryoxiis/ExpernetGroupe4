@@ -24,7 +24,7 @@ L’histoire reprend les quatre étapes 2002, 2015, 2017 et 2022. L’équipe re
 
 ## Points à corriger dans les données sources
 
-1. **Dates incohérentes** : la fiche Word – Initiation annonce une session du 17 décembre 2026 au 18 novembre 2026. Le relevé brut reste visible sur la fiche avec un avertissement ; cette ligne est exclue du planning principal.
+1. **Dates incohérentes** : la fiche Word - Initiation annonce une session du 17 décembre 2026 au 18 novembre 2026. Le relevé brut reste visible sur la fiche avec un avertissement ; cette ligne est exclue du planning principal.
 2. **PDF à confirmer** : le lien de la fiche Google Sheets Perfectionnement pointe vers un fichier nommé PROGRAMME-GOOGLE-SHEETS-INITIATION.pdf. Le nom suggère un décalage, à confirmer par Expernet avant de remplacer le document.
 3. **Titres de formation dupliqués** : HTML 5 et CSS3 et Méthodes AGILES SCRUM apparaissent chacun sur deux fiches. Les URL et les fiches sont conservées ; une fusion éditoriale exige une vérification des programmes.
 4. **Liens historiques** : certains articles renvoient vers /inscription/, /ecole/ et une ancienne URL Copilot absents de l’inventaire courant. Ces liens restent dirigés vers le site officiel au lieu de créer de fausses pages.

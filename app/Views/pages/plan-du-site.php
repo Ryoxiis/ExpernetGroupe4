@@ -112,28 +112,28 @@
 </h2>
 <ul>
 <li>
-<a href="<?= e(url('/formation/adobe-illustrator-initiation/')) ?>">ADOBE ILLUSTRATOR – Initiation</a>
+<a href="<?= e(url('/formation/adobe-illustrator-initiation/')) ?>">ADOBE ILLUSTRATOR - Initiation</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/adobe-illustrator-perfectionnement/')) ?>">ADOBE ILLUSTRATOR – Perfectionnement</a>
+<a href="<?= e(url('/formation/adobe-illustrator-perfectionnement/')) ?>">ADOBE ILLUSTRATOR - Perfectionnement</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/ajax-developpement-pour-le-web-2-0/')) ?>">AJAX – Développer pour le web 2.0</a>
+<a href="<?= e(url('/formation/ajax-developpement-pour-le-web-2-0/')) ?>">AJAX - Développer pour le web 2.0</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/autocad-2d/')) ?>">AUTOCAD 2D</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/autocad-2d-perfectionnement/')) ?>">AUTOCAD 2D – Perfectionnement</a>
+<a href="<?= e(url('/formation/autocad-2d-perfectionnement/')) ?>">AUTOCAD 2D - Perfectionnement</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/access-initiation/')) ?>">Access – Initiation</a>
+<a href="<?= e(url('/formation/access-initiation/')) ?>">Access - Initiation</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/access-perfectionnement/')) ?>">Access – Perfectionnement</a>
+<a href="<?= e(url('/formation/access-perfectionnement/')) ?>">Access - Perfectionnement</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/access-langage-vba/')) ?>">Access – langage VBA</a>
+<a href="<?= e(url('/formation/access-langage-vba/')) ?>">Access - langage VBA</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/administration-sql-server-2025/')) ?>">Administration SQL server 2025</a>
@@ -148,25 +148,25 @@
 <a href="<?= e(url('/formation/adobe-after-effects/')) ?>">Adobe After Effects</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/adobe-express-fonctions-essentielles-et-usages-principaux/')) ?>">Adobe Express – Fonctions essentielles et usages principaux</a>
+<a href="<?= e(url('/formation/adobe-express-fonctions-essentielles-et-usages-principaux/')) ?>">Adobe Express - Fonctions essentielles et usages principaux</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/adobe-indesign-initiation/')) ?>">Adobe Indesign Initiation</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/adobe-photoshop-initiation/')) ?>">Adobe Photoshop – Initiation</a>
+<a href="<?= e(url('/formation/adobe-photoshop-initiation/')) ?>">Adobe Photoshop - Initiation</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/adobe-premiere/')) ?>">Adobe Premiere</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/android/')) ?>">Android – développer des applications mobiles</a>
+<a href="<?= e(url('/formation/android/')) ?>">Android - développer des applications mobiles</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/angular-2/')) ?>">Angular 2</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/blender-initiation-a-la-3d/')) ?>">Blender – Initiation à la 3D</a>
+<a href="<?= e(url('/formation/blender-initiation-a-la-3d/')) ?>">Blender - Initiation à la 3D</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/bootstrap/')) ?>">BootStrap</a>
@@ -175,7 +175,7 @@
 <a href="<?= e(url('/formation/batir-votre-strategie-avec-ia/')) ?>">Bâtir votre stratégie avec l’IA</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/canva-ia-creez-vos-visuels-facilement/')) ?>">CANVA IA – Créez vos visuels facilement</a>
+<a href="<?= e(url('/formation/canva-ia-creez-vos-visuels-facilement/')) ?>">CANVA IA - Créez vos visuels facilement</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/cisco-ccna/')) ?>">CISCO CCNA</a>
@@ -220,7 +220,7 @@
 <a href="<?= e(url('/formation/creer-un-site-web-avec-webflow/')) ?>">Créer un site web avec Webflow</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/dpo/')) ?>">DPO – Délégué à la Protection des Données</a>
+<a href="<?= e(url('/formation/dpo/')) ?>">DPO - Délégué à la Protection des Données</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/decouvrir-lia-et-utiliser-chat-gpt/')) ?>">Découvrir l’IA et utiliser Chat GPT</a>
@@ -238,13 +238,13 @@
 <a href="<?= e(url('/formation/excel-perfectionnement/')) ?>">Excel Perfectionnement</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/excel-base-de-donnees-tableaux-croises-dynamiques/')) ?>">Excel – Base de données &amp; Tableaux Croisés Dynamiques</a>
+<a href="<?= e(url('/formation/excel-base-de-donnees-tableaux-croises-dynamiques/')) ?>">Excel - Base de données &amp; Tableaux Croisés Dynamiques</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/excel-fonctions-essentielles-perf-tcd/')) ?>">Excel – Fonctions Essentielles Perf &amp; TCD</a>
+<a href="<?= e(url('/formation/excel-fonctions-essentielles-perf-tcd/')) ?>">Excel - Fonctions Essentielles Perf &amp; TCD</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/excel-initiation/')) ?>">Excel – Initiation</a>
+<a href="<?= e(url('/formation/excel-initiation/')) ?>">Excel - Initiation</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/fortinet-fortigate-niveau-1/')) ?>">FORTINET FORTIGATE Niveau 1</a>
@@ -253,16 +253,16 @@
 <a href="<?= e(url('/formation/fortinet-fortigate-niveau-2/')) ?>">FORTINET FORTIGATE Niveau 2</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/glpi/')) ?>">GLPI – OCS INVENTORY NG</a>
+<a href="<?= e(url('/formation/glpi/')) ?>">GLPI - OCS INVENTORY NG</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/gns3-simulation-de-reseautage/')) ?>">GNS3 – Simulation de réseautage</a>
+<a href="<?= e(url('/formation/gns3-simulation-de-reseautage/')) ?>">GNS3 - Simulation de réseautage</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/gestion-des-reseaux-sociaux/')) ?>">Gestion des Réseaux Sociaux</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/gimp-initiation/')) ?>">Gimp – Initiation</a>
+<a href="<?= e(url('/formation/gimp-initiation/')) ?>">Gimp - Initiation</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/formation-gmail-initiation/')) ?>">Gmail Initiation</a>
@@ -319,7 +319,7 @@
 <a href="<?= e(url('/formation/iso-27005-ebios/')) ?>">ISO 27005 &amp; EBIOS</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/itil-4-les-fondamentaux/')) ?>">ITIL 4 – LES FONDAMENTAUX</a>
+<a href="<?= e(url('/formation/itil-4-les-fondamentaux/')) ?>">ITIL 4 - LES FONDAMENTAUX</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/ilustrator/')) ?>">Ilustrator</a>
@@ -349,7 +349,7 @@
 <a href="<?= e(url('/formation/langage-sql/')) ?>">Langage SQL</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/lecture-de-plan-beton/')) ?>">Lecture de plan – Béton</a>
+<a href="<?= e(url('/formation/lecture-de-plan-beton/')) ?>">Lecture de plan - Béton</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/les-essentiels-du-community-manager/')) ?>">Les essentiels du Community Manager</a>
@@ -361,25 +361,25 @@
 <a href="<?= e(url('/formation/libreoffice-openoffice-impress/')) ?>">LibreOffice-OpenOffice IMPRESS</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/libreoffice-openoffice-calc-initiation/')) ?>">LibreOffice/OpenOffice CALC – Initiation</a>
+<a href="<?= e(url('/formation/libreoffice-openoffice-calc-initiation/')) ?>">LibreOffice/OpenOffice CALC - Initiation</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/libreoffice-openoffice-calc-perfectionnement/')) ?>">LibreOffice/OpenOffice CALC – Perfectionnement</a>
+<a href="<?= e(url('/formation/libreoffice-openoffice-calc-perfectionnement/')) ?>">LibreOffice/OpenOffice CALC - Perfectionnement</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/bootstrap-2/')) ?>">LibreOffice/OpenOffice Writer – Initiation</a>
+<a href="<?= e(url('/formation/bootstrap-2/')) ?>">LibreOffice/OpenOffice Writer - Initiation</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/libreoffice-openoffice-writer-perfectionnement/')) ?>">LibreOffice/OpenOffice Writer – Perfectionnement</a>
+<a href="<?= e(url('/formation/libreoffice-openoffice-writer-perfectionnement/')) ?>">LibreOffice/OpenOffice Writer - Perfectionnement</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/linkedin/')) ?>">Linkedin</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/linux-administration-niveau-1/')) ?>">Linux Administration – Niveau 1</a>
+<a href="<?= e(url('/formation/linux-administration-niveau-1/')) ?>">Linux Administration - Niveau 1</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/linux-administration-niveau-2/')) ?>">Linux Administration – Niveau 2</a>
+<a href="<?= e(url('/formation/linux-administration-niveau-2/')) ?>">Linux Administration - Niveau 2</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/linux-utilisateur/')) ?>">Linux Utilisateur</a>
@@ -424,10 +424,10 @@
 <a href="<?= e(url('/formation/pca-pra-avec-iso-22301/')) ?>">PCA / PRA AVEC ISO 22301</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/php-mysql-initiation/')) ?>">PHP/MySQL – Initiation</a>
+<a href="<?= e(url('/formation/php-mysql-initiation/')) ?>">PHP/MySQL - Initiation</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/php-mysql-perfectionnement/')) ?>">PHP/MySQL – Perfectionnement</a>
+<a href="<?= e(url('/formation/php-mysql-perfectionnement/')) ?>">PHP/MySQL - Perfectionnement</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/power-bi-avance/')) ?>">POWER BI Avancé</a>
@@ -448,7 +448,7 @@
 <a href="<?= e(url('/formation/palo-alto-networks-niveau-2/')) ?>">Palo Alto Networks Niveau 2</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/photoshop-perfectionnement/')) ?>">Photoshop – Perfectionnement</a>
+<a href="<?= e(url('/formation/photoshop-perfectionnement/')) ?>">Photoshop - Perfectionnement</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/power-pivot/')) ?>">Power Pivot</a>
@@ -463,10 +463,10 @@
 <a href="<?= e(url('/formation/powershell-v7-et-active-directory/')) ?>">PowerShell v7 et active directory</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/powerpoint-initiation/')) ?>">Powerpoint – Initiation</a>
+<a href="<?= e(url('/formation/powerpoint-initiation/')) ?>">Powerpoint - Initiation</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/powerpoint-perfectionnement/')) ?>">Powerpoint – Perfectionnement</a>
+<a href="<?= e(url('/formation/powerpoint-perfectionnement/')) ?>">Powerpoint - Perfectionnement</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/prototyper-une-api-ou-un-service/')) ?>">Prototyper une API ou un service</a>
@@ -478,10 +478,10 @@
 <a href="<?= e(url('/formation/reseaux-et-tcp-ip/')) ?>">RESEAUX ET TCP-IP</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/revit-initiation/')) ?>">REVIT – Initiation</a>
+<a href="<?= e(url('/formation/revit-initiation/')) ?>">REVIT - Initiation</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/revit-perfectionnement/')) ?>">REVIT – Perfectionnement</a>
+<a href="<?= e(url('/formation/revit-perfectionnement/')) ?>">REVIT - Perfectionnement</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/rgpd/')) ?>">RGPD</a>
@@ -493,7 +493,7 @@
 <a href="<?= e(url('/formation/red-team/')) ?>">Red Team</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/referencement-naturel-seo/')) ?>">Référencement naturel – SEO</a>
+<a href="<?= e(url('/formation/referencement-naturel-seo/')) ?>">Référencement naturel - SEO</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/sketchup/')) ?>">SKETCHUP</a>
@@ -532,7 +532,7 @@
 <a href="<?= e(url('/formation/visual-code-studio/')) ?>">Visual Code Studio</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/windows-11-utilisateurs/')) ?>">WINDOWS 11 – Utilisateurs</a>
+<a href="<?= e(url('/formation/windows-11-utilisateurs/')) ?>">WINDOWS 11 - Utilisateurs</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/watchguard-fireware-essentials/')) ?>">Watchguard Fireware Essentials</a>
@@ -550,10 +550,10 @@
 <a href="<?= e(url('/formation/windows-server-2022-2025/')) ?>">Windows server 2022/2025</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/word-initiation/')) ?>">Word – Initiation</a>
+<a href="<?= e(url('/formation/word-initiation/')) ?>">Word - Initiation</a>
 </li>
 <li>
-<a href="<?= e(url('/formation/word-perfectionnement/')) ?>">Word – Perfectionnement</a>
+<a href="<?= e(url('/formation/word-perfectionnement/')) ?>">Word - Perfectionnement</a>
 </li>
 <li>
 <a href="<?= e(url('/formation/elaborer-un-plan-de-reprise-apres-sinistre-informatique/')) ?>">Élaborer un Plan de Reprise après Sinistre Informatique</a>
@@ -643,7 +643,7 @@
 <a href="<?= e(url('/retour-experience-fotakabine-et-le-recrutement-dun-alternant-de-lecole-expernet/')) ?>">Retour d’expérience : Fotakabine et le recrutement d’un alternant de l’Ecole Expernet</a>
 </li>
 <li>
-<a href="<?= e(url('/reforme-de-la-formation-professionnelle-et-de-lapprentissage-ce-qui-nous-attend/')) ?>">Réforme de la Formation Professionnelle et de l’Apprentissage – Ce qui nous attend !</a>
+<a href="<?= e(url('/reforme-de-la-formation-professionnelle-et-de-lapprentissage-ce-qui-nous-attend/')) ?>">Réforme de la Formation Professionnelle et de l’Apprentissage - Ce qui nous attend !</a>
 </li>
 <li>
 <a href="<?= e(url('/sensibilisation-des-salaries-securite-informatique/')) ?>">Sensibilisation des salariés à la sécurité informatique : pourquoi former vos équipes en 2026 ?</a>

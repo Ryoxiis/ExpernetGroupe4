@@ -13,7 +13,7 @@ Non effectués : construction Docker, démarrage MySQL, pipeline GitHub distant,
 
 Les tests HTTP supposent le serveur lancé sur `127.0.0.1:8080`. `TEST_BASE_URL` permet de changer sa destination pour ces contrôles.
 
-## Lot Campus — 22/10/2026
+## Lot Campus - 22/10/2026
 
 294 routes rendues, 890 contrôles PHP et 5 contrôles JavaScript réussis.
 Le contrôle de contenu vérifie 273 fiches du relevé et 23 563 blocs conservés.
@@ -61,7 +61,7 @@ cette refactorisation. Le lanceur `demarrer-local.cmd` et `docs/LOCAL.md` prépa
 la validation sur le poste Windows. Il crée .env, les tables et les comptes au
 premier démarrage réussi ; leur initialisation complète reste donc à confirmer.
 
-## Ergonomie du site public — 22 octobre 2026
+## Ergonomie du site public - 22 octobre 2026
 
 L'accueil propose deux orientations (formation professionnelle / diplôme), puis
 la recherche avant le bloc Campus. Les pages institutionnelles sont regroupées
@@ -78,7 +78,7 @@ Le navigateur de l'assistant ne joint pas le serveur local ; le rendu visuel
 ordinateur/mobile et le comportement dans un navigateur réel restent à confirmer.
 La palette et les fichiers du logo n'ont pas été modifiés.
 
-## Médias officiels et Inter — 22 octobre 2026
+## Médias officiels et Inter - 22 octobre 2026
 
 L'inventaire final contient 820 médias retournés par les médiathèques publiques,
 dont 606 images. 101 fichiers officiels supplémentaires sont stockés localement ;

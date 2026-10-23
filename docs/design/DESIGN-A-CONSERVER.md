@@ -1,4 +1,4 @@
-# Design retenu — V2 restaurée, palette Océan
+# Design retenu - V2 restaurée, palette Océan
 
 Le propriétaire a préféré la V2 à la proposition V3 et demandé sa restauration.
 Conserver cette composition lors du refactoring et des ajouts fonctionnels.

@@ -2,7 +2,7 @@
 <div class="wrap footer-grid">
 <div>
 <a href="<?= e(url('/')) ?>" class="brand official-brand">
-<img src="<?= asset('assets/images/logo-officiel-bleu.png') ?>" alt="Expernet — Informatique &amp; Marketing Digital" loading="lazy" class="official-logo">
+<img src="<?= asset('assets/images/logo-officiel-bleu.png') ?>" alt="Expernet - Informatique &amp; Marketing Digital" loading="lazy" class="official-logo">
 </a>
 <p>Inspirez le Digital de demain.<br>À La Réunion et à Mayotte, depuis 2002.</p>
 </div>
