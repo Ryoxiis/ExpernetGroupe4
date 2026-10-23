@@ -19,6 +19,8 @@ jobs:
       - run: php tests/content_coverage.php
       - run: php tests/view_components.php
       - run: php tests/refactoring.php
+      - run: php tests/planning_calendar.php
+      - run: php tests/planning_day.php
       - run: node tests/chat_drafts.test.js
       - run: node tests/frontend.test.js
       - run: |

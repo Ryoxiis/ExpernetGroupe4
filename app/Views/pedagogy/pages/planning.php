@@ -1,51 +1,74 @@
 <?php
-$calendar = \App\Services\PlanningCalendar::build($state['sessions'], $_GET['date'] ?? null, $_GET['view'] ?? null, $_GET['q'] ?? '');
-$calendarUrl = static fn (array $changes = []) => url('/espace-pedagogique/planning/?'.http_build_query(array_merge(['date' => $calendar['date'], 'view' => $calendar['view'], 'q' => $calendar['search']], $changes)));
+// Only one day is rendered, including when following an old week-view link.
+$calendar = \App\Services\PlanningCalendar::build($state['sessions'], $_GET['date'] ?? null, 'day', $_GET['q'] ?? '');
+$calendarUrl = static fn (array $changes = []) => url('/espace-pedagogique/planning/?'.http_build_query(array_merge(['date' => $calendar['date'], 'view' => 'day', 'q' => $calendar['search']], $changes)));
+$day = $calendar['days'][0];
+$courseCount = count($day['events']);
 ?>
-<section class="portal-card calendar-panel" aria-label="Emploi du temps">
-    <div class="calendar-toolbar">
-        <nav class="calendar-switch" aria-label="Affichage du calendrier">
-            <a href="<?= e($calendarUrl(['view' => 'day'])) ?>" <?= $calendar['view'] === 'day' ? 'aria-current="page"' : '' ?>>Journée</a>
-            <a href="<?= e($calendarUrl(['view' => 'week'])) ?>" <?= $calendar['view'] === 'week' ? 'aria-current="page"' : '' ?>>Semaine</a>
-        </nav>
-        <a class="portal-link" href="<?= e($calendarUrl(['date' => $calendar['today']])) ?>">Aujourd’hui</a>
-        <a class="portal-link" href="<?= e(url('/espace-pedagogique/calendrier/')) ?>">Exporter (.ics)</a>
-    </div>
-    <form method="get" action="<?= e(url('/espace-pedagogique/planning/')) ?>" class="calendar-filters">
-        <input type="hidden" name="view" value="<?= e($calendar['view']) ?>">
-        <label>Date <input type="date" name="date" value="<?= e($calendar['date']) ?>" min="1900-01-01" max="2100-12-31"></label>
-        <label>Rechercher un cours <input type="search" name="q" value="<?= e($calendar['search']) ?>" maxlength="100" placeholder="Matière, formateur, salle…"></label>
-        <button class="button button-dark" type="submit">Afficher</button>
-    </form>
-    <div class="calendar-navigation">
-        <a href="<?= e($calendarUrl(['date' => $calendar['previous']])) ?>" aria-label="<?= $calendar['view'] === 'week' ? 'Semaine précédente' : 'Jour précédent' ?>">←</a>
-        <h2><?= e($calendar['label']) ?></h2>
-        <a href="<?= e($calendarUrl(['date' => $calendar['next']])) ?>" aria-label="<?= $calendar['view'] === 'week' ? 'Semaine suivante' : 'Jour suivant' ?>">→</a>
-    </div>
-    <p class="portal-help">Heure de La Réunion. Sélectionnez un cours pour retrouver sa salle, ses documents et ses informations.</p>
-    <div class="planning-calendar" style="--days:<?= count($calendar['days']) ?>;--hours:<?= $calendar['endHour'] - $calendar['startHour'] ?>">
-        <div class="calendar-hours" aria-hidden="true"><div class="calendar-day-heading">Jour / heure</div><div class="calendar-hour-grid">
-            <?php for ($hour = $calendar['startHour']; $hour < $calendar['endHour']; $hour++): ?><span><?= sprintf('%02d:00', $hour) ?></span><?php endfor; ?>
-        </div></div>
-        <?php foreach ($calendar['days'] as $day): ?>
-        <section class="calendar-day <?= $day['today'] ? 'is-today' : '' ?> <?= !$day['events'] ? 'is-empty' : '' ?>" style="--day-lanes:<?= max([1, ...array_column($day['events'], 'lanes')]) ?>" aria-label="<?= e($day['label'].' '.$day['short']) ?>">
-            <h3 class="calendar-day-heading"><a href="<?= e($calendarUrl(['date' => $day['date'], 'view' => 'day'])) ?>"><?= e($day['label']) ?><span><?= e($day['short']) ?><?= $day['today'] ? ' · Aujourd’hui' : '' ?></span></a></h3>
-            <div class="calendar-day-grid">
-                <?php if (!$day['events']): ?><p class="calendar-no-course"><?= $calendar['search'] !== '' ? 'Aucun cours trouvé' : 'Aucun cours' ?></p><?php endif; ?>
-                <?php foreach ($day['events'] as $event): $s = $event['session']; ?>
-                <a class="calendar-event calendar-event-<?= e($s['mode']) ?>" style="--offset:<?= $event['from'] - $calendar['startHour'] * 60 ?>;--duration:<?= $event['to'] - $event['from'] ?>;--lane:<?= $event['lane'] ?>;--lanes:<?= $event['lanes'] ?>" href="<?= e(url('/espace-pedagogique/seance/?id='.$s['id'])) ?>">
-                    <span class="calendar-time"><?= e($event['time']) ?></span>
-                    <strong><?= e($s['title']) ?></strong>
-                    <span><?= e($s['trainer_name']) ?></span>
-                    <span><?= e($s['location']) ?></span>
-                    <span class="calendar-mode"><?= $s['mode'] === 'remote' ? 'À distance' : ($s['mode'] === 'company' ? 'En entreprise' : 'En présentiel') ?></span>
-                    <span><?= e($s['cohort_name']) ?></span>
-                </a>
-                <?php endforeach; ?>
-            </div>
-        </section>
+<link rel="stylesheet" href="<?= asset('assets/css/planning.css') ?>">
+<section class="portal-card daily-agenda" aria-labelledby="agenda-date">
+    <header class="agenda-heading">
+        <div>
+            <p class="agenda-caption">Votre journée<?= $day['today'] ? ' d’aujourd’hui' : '' ?></p>
+            <h2 id="agenda-date"><time datetime="<?= e($calendar['date']) ?>"><?= e($calendar['longLabel']) ?></time></h2>
+            <p class="agenda-summary"><?= $courseCount ?> cours<?= $calendar['search'] !== '' ? ' trouvé'.($courseCount > 1 ? 's' : '') : ' programmé'.($courseCount > 1 ? 's' : '') ?> <span>Heure de La Réunion (UTC+4)</span></p>
+        </div>
+        <div class="agenda-controls">
+            <a class="agenda-today" href="<?= e($calendarUrl(['date' => $calendar['today']])) ?>">Aujourd’hui</a>
+            <nav class="agenda-arrows" aria-label="Changer de journée">
+                <a href="<?= e($calendarUrl(['date' => $calendar['previous']])) ?>" aria-label="Jour précédent"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a>
+                <a href="<?= e($calendarUrl(['date' => $calendar['next']])) ?>" aria-label="Jour suivant"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></a>
+            </nav>
+        </div>
+    </header>
+    <nav class="agenda-dates" aria-label="Choisir un jour">
+        <?php foreach ($calendar['navigation'] as $date): ?>
+        <a href="<?= e($calendarUrl(['date' => $date['date']])) ?>" <?= $date['selected'] ? 'aria-current="date"' : '' ?> aria-label="<?= e($date['label'].($date['today'] ? ', aujourd’hui' : '')) ?>">
+            <span><?= e($date['weekday']) ?></span><strong><?= e($date['number']) ?></strong>
+            <?php if ($date['today']): ?><span class="agenda-today-marker" aria-hidden="true"></span><?php endif; ?>
+        </a>
         <?php endforeach; ?>
+    </nav>
+    <details class="agenda-tools" <?= $calendar['search'] !== '' ? 'open' : '' ?>>
+        <summary>Choisir une date ou rechercher un cours</summary>
+    <form method="get" action="<?= e(url('/espace-pedagogique/planning/')) ?>" class="calendar-filters">
+        <input type="hidden" name="view" value="day">
+        <label>Aller au <input type="date" name="date" value="<?= e($calendar['date']) ?>" min="1900-01-01" max="2100-12-31" required></label>
+        <label>Rechercher dans la journée <input type="search" name="q" value="<?= e($calendar['search']) ?>" maxlength="100" placeholder="Cours, professeur, salle…"></label>
+        <button class="agenda-filter-button" type="submit">Afficher</button>
+        <?php if ($calendar['search'] !== ''): ?><a class="agenda-reset" href="<?= e($calendarUrl(['q' => ''])) ?>">Effacer la recherche</a><?php endif; ?>
+    </form>
+    </details>
+    <?php if ($courseCount): ?>
+    <ol class="agenda-lessons" aria-label="Cours de la journée">
+        <?php foreach ($day['events'] as $event): $s = $event['session']; $minutes = $event['to'] - $event['from']; ?>
+        <li class="agenda-lesson">
+            <div class="agenda-hours" id="agenda-time-<?= (int) $s['id'] ?>">
+                <strong><?= e(sprintf('%02d:%02d', intdiv($event['from'], 60), $event['from'] % 60)) ?></strong>
+                <span>à <?= e(sprintf('%02d:%02d', intdiv($event['to'], 60), $event['to'] % 60)) ?></span>
+                <small><?= $minutes < 60 ? $minutes.' min' : intdiv($minutes, 60).' h'.($minutes % 60 ? ' '.sprintf('%02d', $minutes % 60) : '') ?></small>
+            </div>
+            <a class="agenda-course agenda-course-<?= e($s['mode']) ?>" href="<?= e(url('/espace-pedagogique/seance/?id='.(int)$s['id'])) ?>" aria-describedby="agenda-time-<?= (int) $s['id'] ?>">
+                <div class="agenda-course-top"><span class="agenda-mode"><?= $s['mode'] === 'remote' ? 'À distance' : ($s['mode'] === 'company' ? 'En entreprise' : 'En présentiel') ?></span><span class="agenda-cohort"><?= e($s['cohort_name']) ?></span></div>
+                <h3><?= e($s['title']) ?></h3>
+                <dl class="agenda-course-details">
+                    <div><dt>Professeur</dt><dd><?= e($s['trainer_name']) ?></dd></div>
+                    <div><dt><?= $s['mode'] === 'remote' ? 'Lieu de connexion' : 'Salle / lieu' ?></dt><dd><?= e($s['location'] ?: 'Non renseigné') ?></dd></div>
+                </dl>
+                <span class="agenda-open">Voir le cours <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span>
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ol>
+    <?php else: ?>
+    <div class="agenda-empty">
+        <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="11" width="32" height="30" rx="5"/><path d="M16 7v8m16-8v8M8 21h32m-23 9 5 5 9-9"/></svg>
+        <h3><?= $calendar['search'] !== '' ? 'Aucun cours ne correspond à votre recherche' : 'Aucun cours programmé ce jour' ?></h3>
+        <p><?= $calendar['search'] !== '' ? 'Essayez un autre nom de cours ou de professeur.' : 'Choisissez une autre date pour consulter vos prochains cours.' ?></p>
+        <a href="<?= e($calendarUrl($calendar['search'] !== '' ? ['q' => ''] : ['date' => $calendar['next']])) ?>"><?= $calendar['search'] !== '' ? 'Voir toute la journée' : 'Voir le jour suivant' ?></a>
     </div>
+    <?php endif; ?>
+    <footer class="agenda-footer"><span>Les horaires sont affichés à l’heure de La Réunion.</span><a href="<?= e(url('/espace-pedagogique/calendrier/')) ?>">Exporter le calendrier (.ics)</a></footer>
 </section>
 <?php if ($trainer): ?>
 <details class="portal-card">
