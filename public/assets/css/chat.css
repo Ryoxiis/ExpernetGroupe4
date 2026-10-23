@@ -466,10 +466,7 @@
     flex: 1;
     border-right: 0;
 }
-.collab:not(.chat-full) .chat-sidebar label:first-child {
-    display: block;
-    width: 100%;
-}
+.collab:not(.chat-full) .chat-sidebar label:first-child,
 .collab:not(.chat-full) .chat-sidebar > button {
     display: block;
     width: 100%;

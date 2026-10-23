@@ -1,0 +1,183 @@
+{
+  "tool": "jscpd 5.4.2",
+  "minLines": 3,
+  "minTokens": 25,
+  "before": {
+    "detectionDate": "2026-10-23T09:44:13.171Z",
+    "formats": {
+      "bash": {
+        "clones": 0,
+        "duplicatedLines": 0,
+        "duplicatedTokens": 0,
+        "lines": 110,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.0,
+        "percentageTokens": 0.0,
+        "sources": 2,
+        "tokens": 792
+      },
+      "css": {
+        "clones": 9,
+        "duplicatedLines": 37,
+        "duplicatedTokens": 242,
+        "lines": 5559,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.6655873358517719,
+        "percentageTokens": 0.8329891229519483,
+        "sources": 5,
+        "tokens": 29052
+      },
+      "javascript": {
+        "clones": 2,
+        "duplicatedLines": 11,
+        "duplicatedTokens": 52,
+        "lines": 1351,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.8142116950407106,
+        "percentageTokens": 0.5577603775608709,
+        "sources": 11,
+        "tokens": 9323
+      },
+      "json": {
+        "clones": 0,
+        "duplicatedLines": 0,
+        "duplicatedTokens": 0,
+        "lines": 1472,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.0,
+        "percentageTokens": 0.0,
+        "sources": 1,
+        "tokens": 4705
+      },
+      "php": {
+        "clones": 57,
+        "duplicatedLines": 289,
+        "duplicatedTokens": 1812,
+        "lines": 6081,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 4.752507811215261,
+        "percentageTokens": 2.6747756258856876,
+        "sources": 82,
+        "tokens": 67744
+      },
+      "powershell": {
+        "clones": 0,
+        "duplicatedLines": 0,
+        "duplicatedTokens": 0,
+        "lines": 72,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.0,
+        "percentageTokens": 0.0,
+        "sources": 1,
+        "tokens": 623
+      }
+    },
+    "total": {
+      "clones": 68,
+      "duplicatedLines": 337,
+      "duplicatedTokens": 2106,
+      "lines": 14645,
+      "newClones": 0,
+      "newDuplicatedLines": 0,
+      "percentage": 2.3011266643905772,
+      "percentageTokens": 1.8763531392831367,
+      "sources": 102,
+      "tokens": 112239
+    }
+  },
+  "after": {
+    "detectionDate": "2026-10-23T09:52:55.494Z",
+    "formats": {
+      "bash": {
+        "clones": 0,
+        "duplicatedLines": 0,
+        "duplicatedTokens": 0,
+        "lines": 110,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.0,
+        "percentageTokens": 0.0,
+        "sources": 2,
+        "tokens": 792
+      },
+      "css": {
+        "clones": 8,
+        "duplicatedLines": 32,
+        "duplicatedTokens": 217,
+        "lines": 5556,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.5759539236861051,
+        "percentageTokens": 0.7471937194408098,
+        "sources": 5,
+        "tokens": 29042
+      },
+      "javascript": {
+        "clones": 1,
+        "duplicatedLines": 4,
+        "duplicatedTokens": 26,
+        "lines": 1346,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.2971768202080238,
+        "percentageTokens": 0.27932960893854747,
+        "sources": 11,
+        "tokens": 9308
+      },
+      "json": {
+        "clones": 0,
+        "duplicatedLines": 0,
+        "duplicatedTokens": 0,
+        "lines": 1472,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.0,
+        "percentageTokens": 0.0,
+        "sources": 1,
+        "tokens": 4705
+      },
+      "php": {
+        "clones": 55,
+        "duplicatedLines": 279,
+        "duplicatedTokens": 1692,
+        "lines": 6080,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 4.588815789473684,
+        "percentageTokens": 2.498855429693846,
+        "sources": 81,
+        "tokens": 67711
+      },
+      "powershell": {
+        "clones": 0,
+        "duplicatedLines": 0,
+        "duplicatedTokens": 0,
+        "lines": 72,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.0,
+        "percentageTokens": 0.0,
+        "sources": 1,
+        "tokens": 623
+      }
+    },
+    "total": {
+      "clones": 64,
+      "duplicatedLines": 315,
+      "duplicatedTokens": 1935,
+      "lines": 14636,
+      "newClones": 0,
+      "newDuplicatedLines": 0,
+      "percentage": 2.1522273845312925,
+      "percentageTokens": 1.7248910243267574,
+      "sources": 101,
+      "tokens": 112181
+    }
+  }
+}

@@ -9,6 +9,13 @@ use PDO;
 /** PDO connection for the private portal; the public catalogue remains independent. */
 final class Database
 {
+    /** Check the portal tables required by both local launchers. */
+    public static function checkPortalSchema(PDO $db): void
+    {
+        $db->query('SELECT id FROM portal_users LIMIT 1');
+        $db->query('SELECT name FROM portal_locks LIMIT 1');
+    }
+
     public static function connect(array $config): PDO
     {
         return new PDO(

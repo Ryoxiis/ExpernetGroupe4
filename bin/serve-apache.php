@@ -14,11 +14,11 @@ if (!$port) {
     exit(1);
 }
 
-$app = require $root . '/bootstrap/app.php';
+require $root . '/bootstrap/app.php';
 try {
-    $db = App\Support\Database::connect(require $root . '/config/database.php');
-    $db->query('SELECT id FROM portal_users LIMIT 1');
-    $db->query('SELECT name FROM portal_locks LIMIT 1');
+    App\Support\Database::checkPortalSchema(
+        App\Support\Database::connect(require $root . '/config/database.php'),
+    );
 } catch (Throwable) {
     fwrite(STDERR, "MySQL est indisponible ou les migrations manquent. Vérifiez .env, puis php bin/serve-portal.php migrate.\n");
     exit(1);

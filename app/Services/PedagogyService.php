@@ -415,9 +415,7 @@ final class PedagogyService
 
     private function createAssignment(array $user, array $input): array
     {
-        $this->requireRole($user, ['trainer', 'admin']);
-        $cohort = $this->id($input, 'cohort_id');
-        $this->cohort($user, $cohort);
+        $cohort = $this->authorizedCohort($user, $input, ['trainer', 'admin']);
         $trainer = (int) $user['id'];
         if ($user['role'] === 'admin') {
             throw new PortalException('La création de devoirs est réservée aux formateurs affectés.');
@@ -463,9 +461,7 @@ final class PedagogyService
 
     private function upload(array $user, array $input, array $files): array
     {
-        $this->requireRole($user, ['trainer', 'admin']);
-        $cohort = $this->id($input, 'cohort_id');
-        $this->cohort($user, $cohort);
+        $cohort = $this->authorizedCohort($user, $input, ['trainer', 'admin']);
         $session = !empty($input['session_id']) ? $this->session($user, $this->id($input, 'session_id')) : null;
         if ($session && (int) $session['cohort_id'] !== $cohort) {
             throw new PortalException('Séance et promotion incompatibles.');

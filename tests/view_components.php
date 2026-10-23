@@ -26,6 +26,13 @@ try {
     if (ob_get_level() !== $initialLevel) {
         throw new RuntimeException('Tampon de rendu non refermé.');
     }
+    $projectViews = new App\Support\View(__DIR__.'/../app/Views');
+    $source = 'https://example.test/?q="<script>&';
+    $canonical = $projectViews->render('partials/source-note', ['source' => $source]);
+    if ($canonical !== $projectViews->render('partials/source', ['source' => $source])
+        || !str_contains($canonical, e($source)) || str_contains($canonical, '<script>')) {
+        throw new RuntimeException('Provenance : délégation ou échappement incorrect.');
+    }
     echo "Vues : sous-composants, échappement, variables internes et nettoyage sur erreur vérifiés.\n";
 } finally {
     foreach (['outer', 'inner', 'broken'] as $name) {
