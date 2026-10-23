@@ -13,7 +13,7 @@ $authTitles = [
         </h1>
         <p>Retrouvez vos cours, vos ressources et votre suivi pédagogique dans un seul espace.
         </p>
-        <div class="auth-benefits"><span>01 <strong>Votre planning, en un regard</strong></span><span>02 <strong>Vos documents à portée de main</strong></span><span>03 <strong>Un suivi tout au long du parcours</strong></span>
+        <div class="auth-benefits"><span><strong>Votre planning, en un regard</strong></span><span><strong>Vos documents à portée de main</strong></span><span><strong>Un suivi tout au long du parcours</strong></span>
         </div>
         <p class="auth-caption">Expernet · La Réunion & Mayotte
         </p>

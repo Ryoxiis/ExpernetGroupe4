@@ -1,0 +1,81 @@
+/* Semantic surfaces shared by the public site and the pedagogical portal. */
+:root {
+    color-scheme: light;
+    --paper: #fff;
+    --strong: var(--ink);
+    --event-bg: #eaf4f8;
+}
+html[data-appearance="dark"] {
+    color-scheme: dark;
+    --ink: #e4f0f5;
+    --blue: #72c9ec;
+    --orange: #f0a029;
+    --cream: #102530;
+    --paper: #173340;
+    --surface: #234553;
+    --muted: #b2c8d2;
+    --line: #486471;
+    --strong: #07354a;
+    --event-bg: #234553;
+}
+.appearance-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--ink);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.appearance-toggle[hidden] { display: none; }
+.appearance-toggle:hover, .appearance-toggle[aria-pressed="true"] { background: var(--surface); color: var(--ink); }
+.appearance-toggle:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+/* Retain the existing Ocean identity; remove ornamental chrome from functional screens. */
+.pedagogy .portal-eyebrow { text-transform: none; letter-spacing: normal; font-size: 13px; font-weight: 600; }
+.pedagogy .auth-story::after { display: none; }
+.pedagogy .portal-card { box-shadow: none; }
+html[data-appearance="dark"] body { background: var(--cream); }
+html[data-appearance="dark"] :is(input, select, textarea) { color: var(--ink); background-color: var(--paper); border-color: var(--line); }
+html[data-appearance="dark"] :is(.official-brand, .portal-header .official-brand) { background: #fff; border-radius: 5px; padding-inline: 5px; }
+html[data-appearance="dark"] :is(.button-orange, .button-blue, .button-dark:hover, .filters button.active, .chat-launcher) { color: #07354a; }
+html[data-appearance="dark"] .button-blue { background: var(--blue); }
+html[data-appearance="dark"] :is(.category-dot, .visual-tag, .course-icon, .course-tag, .area-icon, .pill, .tag, .hero-proof, .visual-stamp) { color: var(--ink); background-color: var(--surface); }
+html[data-appearance="dark"] :is(.portal-alert, .portal-note) { background: var(--surface); color: var(--ink); }
+html[data-appearance="dark"] .portal-alert-error { border-color: #ffad9d; color: #ffcabf; background: #482f30; }
+html[data-appearance="dark"] :is(.auth-story h1 em, .hero-description, .card-description) { color: var(--muted); }
+html[data-appearance="dark"] :is(.chat-launcher, .chat-presence) { color: #07354a; }
+@media (max-width: 1100px) {
+    .header-inner { gap: 12px; flex-wrap: wrap; }
+    .header-inner .appearance-toggle { margin-left: auto; }
+}
+@media (max-width: 540px) {
+    .portal-header { flex-wrap: wrap; padding: 12px 16px; gap: 12px; }
+    .portal-header-actions { width: 100%; gap: 12px; flex-wrap: wrap; }
+    .portal-header-actions .appearance-toggle { margin-right: auto; }
+    .appearance-toggle { padding-inline: 9px; }
+}
+@media print {
+    :root, html[data-appearance="dark"] { color-scheme: light; --ink: #07354a; --blue: #007aa8; --cream: #fff; --paper: #fff; --surface: #dfeef4; --line: #aaa; --muted: #526970; --event-bg: #eaf4f8; }
+    .appearance-toggle { display: none; }
+}
+
+html[data-appearance="dark"] input::placeholder, html[data-appearance="dark"] textarea::placeholder { color: var(--muted); opacity: 1; }
+@media (max-width: 800px) { .calendar-day.is-empty .calendar-day-grid { height: auto; } }
+html[data-appearance="dark"] :is(.path-grid article, .card-art, .course-image, .label-icon, .proof-icon) { background: var(--surface); color: var(--ink); }
+html[data-appearance="dark"] :is(.vertical-caption, .course-meta, .hero-proof, .results-heading) { color: var(--muted); }
+/* Functional labels need neither forced capitals nor decorative tracking. */
+.eyebrow, .story-category { text-transform: none; letter-spacing: normal; font-weight: 600; }
+@media (min-width: 801px) {
+    .calendar-event:focus-visible { z-index: 2; }
+}
+html[data-appearance="dark"] :is(footer, .approach, .contact-banner) { background: var(--paper); }
+html[data-appearance="dark"] .collab { --chat-border: var(--line); }
+html[data-appearance="dark"] :is(.chat-count, .chat-launcher span, .chat-compose-actions > button) { color: #07354a; }

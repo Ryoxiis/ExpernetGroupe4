@@ -1,0 +1,110 @@
+/* Shared responsive corrections, loaded after component styles. */
+:where(.hero-copy, .hero-visual, .course-body, .prose, .portal-card, .portal-form, .form-grid > *, .catalog-controls > *, .chat-thread, .chat-sidebar) { min-width: 0; }
+:where(h1, h2, h3, .prose, .portal-card, .course-body, .footer-grid) { overflow-wrap: anywhere; }
+:where(img, video, canvas) { max-width: 100%; }
+:where(input, select, textarea) { max-width: 100%; }
+:where(.portal-table-wrap, .prose table) { max-width: 100%; }
+@media (max-width: 1100px) {
+    .header-inner #navigation { max-height: 65dvh; overscroll-behavior: contain; }
+    .header-inner #navigation a, .navigation-group summary { font-size: 15px; min-height: 44px; }
+    .portal-header-actions { flex-wrap: wrap; justify-content: flex-end; }
+    .portal-header-actions > span { max-width: 200px; overflow-wrap: anywhere; }
+    .portal-toolbar { flex-wrap: wrap; }
+    .portal-table-wrap { overflow-x: auto; overscroll-behavior-inline: contain; }
+}
+@media (max-width: 800px) {
+    .portal-content { padding-bottom: 100px; }
+    :where(input, select, textarea), .pedagogy :is(input, select, textarea) { font-size: 16px; }
+    .catalog-controls :is(input, select) { font-size: 16px; }
+    .portal-card :is(input, select, textarea) { min-width: 0; }
+    .portal-breadcrumb { flex-wrap: wrap; }
+    .portal-stats { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+    .portal-heading h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.15; }
+    .portal-heading p { font-size: 15px; }
+    .agenda-row { flex-wrap: wrap; gap: 12px; }
+    .portal-note, .portal-alert { overflow-wrap: anywhere; }
+    .portal-form :is(button, input, select), .catalog-controls :is(button, input, select), .filter { min-height: 44px; }
+    .footer-grid { gap: 28px; }
+    .footer-grid a { overflow-wrap: anywhere; }
+    .palette-shortcut { position: static; display: flex; width: fit-content; margin: 16px auto; min-height: 44px; }
+    .story-copy { opacity: 1; pointer-events: auto; }
+    .story-copy { padding: 76px 56px 84px; }
+    .stories-dots { left: 50%; transform: translateX(-50%); }
+    .story-copy h3 { font-size: clamp(25px, 5.5vw, 34px); }
+    .story-copy > p:not(.story-category) { line-height: 1.5; }
+    .calendar-toolbar > .portal-link { min-height: 44px; display: inline-flex; align-items: center; }
+    .auth-footnote { font-size: 12px !important; }
+}
+@media (max-width: 540px) {
+    .header-inner {
+        display: grid;
+        grid-template-columns: 76px minmax(0, 1fr) 44px;
+        gap: 8px;
+        height: auto;
+        min-height: 0;
+        padding-block: 8px;
+    }
+    .header-inner > .official-brand { grid-column: 1; grid-row: 1; }
+    .header-inner .official-logo { height: 56px; }
+    .header-inner > .appearance-toggle { grid-column: 2; grid-row: 1; justify-self: end; margin: 0; font-size: 12px; padding-inline: 8px; }
+    .header-inner > .menu-toggle { grid-column: 3; grid-row: 1; padding: 4px; margin: 0; }
+    .header-inner > .pedagogy-access { grid-column: 1 / -1; grid-row: 2; margin: 0; min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+    .header-inner #navigation { grid-column: 1 / -1; grid-row: 3; width: 100%; }
+    .topbar > .wrap { width: calc(100% - 24px); font-size: 10px; }
+    .hero h1 { font-size: clamp(34px, 10vw, 50px); letter-spacing: -.04em; line-height: 1.12; }
+    .hero h1 br { display: none; }
+    .hero-copy { padding-block: 32px 24px; }
+    .hero-description, .hero-lead { font-size: 15px; }
+    .hero-actions { flex-wrap: wrap; align-items: stretch; }
+    .hero-actions :is(.button, .text-link) { font-size: 14px; min-height: 44px; }
+    .hero-actions .button { justify-content: space-between; }
+    .hero-proof { font-size: 12px; }
+    .hero-visual { height: 300px; }
+    .visual-disc { height: 270px; }
+    .orbit { width: min(300px, 90%); }
+    .story-slide { height: 560px; min-height: 560px; }
+    .story-copy { padding-inline: 52px; }
+    .story-copy .text-link { font-size: 14px; }
+    .stories-dots { gap: 0; }
+    .stories-dots button { width: 44px; }
+    .page-hero h1 { font-size: clamp(28px, 8.5vw, 38px); }
+    .page-hero > .wrap > p, .prose, .course-body p { font-size: 15px; }
+    .course-grid { grid-template-columns: minmax(0, 1fr); }
+    .course-body h3 { margin-bottom: 20px; }
+    .course-body h3 a { font-size: 22px; }
+    .course-body small { font-size: 12px; }
+    .catalog-controls { align-items: stretch; }
+    .catalog-controls label { width: 100%; min-width: 0; font-size: 13px; }
+    .catalog-controls :is(input, select, button) { width: 100%; }
+    .catalog-controls button { font-size: 14px; }
+    .path-grid p { min-height: 0; }
+    .portal-header .portal-wordmark { max-width: none; flex: 1; }
+    .auth-panel { padding: 28px 20px; }
+    .auth-story { padding: 26px 20px; }
+    .auth-story h1 { font-size: 32px; }
+    .auth-card h2 { font-size: 26px; }
+    .auth-card .portal-form label { font-size: 14px; }
+    .portal-content { padding-inline: 12px; }
+    .portal-card { padding: 16px; }
+    .calendar-filters label:nth-of-type(2) { min-width: 0; }
+    .calendar-switch { width: 100%; }
+    .calendar-switch a { flex: 1; text-align: center; }
+    .calendar-toolbar { gap: 8px; }
+    .calendar-navigation h2 { font-size: 16px; }
+    .portal-form .button { width: 100%; justify-content: center; }
+    .chat-panel { right: 8px; width: calc(100vw - 16px); bottom: 76px; height: min(680px, calc(100dvh - 88px)); max-height: calc(100dvh - 88px); border-radius: 12px; }
+    .chat-full .chat-panel { height: 80dvh; min-height: 0; }
+    .chat-file-label input { max-width: 100%; }
+    .chat-compose-actions > button { min-height: 44px; }
+}
+@media (max-height: 500px) and (max-width: 1100px) {
+    body > header { position: relative; }
+    .topbar { display: none; }
+    .chat-panel { bottom: 8px; height: calc(100dvh - 16px); max-height: calc(100dvh - 16px); }
+    .chat-full .chat-panel { height: 90dvh; min-height: 0; }
+    .chat-sidebar { max-height: 100px; }
+}
+.auth-story h1, .auth-card h2 { letter-spacing: -.025em; }
+@media (max-width: 540px) {
+    .portal-heading h1, .portal-card h2 { letter-spacing: -.025em; }
+}

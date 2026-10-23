@@ -125,7 +125,7 @@ h5 {
 }
 
 .planning-section {
-    background: var(--ink);
+    background: var(--strong);
 }
 
 .course-card h3 a {
@@ -147,7 +147,7 @@ h5 {
     bottom: 18px;
     left: 18px;
     z-index: 20;
-    background: #fff;
+    background: var(--paper);
     box-shadow: 0 5px 25px #092b3b25;
     border: 1px solid var(--line);
     border-radius: 30px;
@@ -177,7 +177,7 @@ h5 {
 }
 
 .palette-dots i:last-child {
-    background: var(--ink);
+    background: var(--strong);
 }
 
 .page-hero {
@@ -274,7 +274,7 @@ h5 {
     padding: 13px;
     border-radius: 6px;
     color: var(--ink);
-    background: #fff;
+    background: var(--paper);
     margin-top: 8px;
     font-weight: 400;
     font-size: 13px;
@@ -735,7 +735,7 @@ th {
     padding: 14px;
     font-size: 14px;
     font-weight: 400;
-    background: white;
+    background: var(--paper);
     color: var(--ink);
 }
 
@@ -1555,7 +1555,7 @@ th {
 
 /* Campus uses the shared V2 palette, typography and controls. */
 .campus-nav {
-    background: var(--ink);
+    background: var(--strong);
     color: white;
 }
 .campus-nav .wrap {
@@ -1604,7 +1604,7 @@ th {
     position: relative;
     border-radius: 28px;
     overflow: hidden;
-    background: white;
+    background: var(--paper);
     padding: 20px;
 }
 .campus-entry-image img {
@@ -1615,7 +1615,7 @@ th {
 .campus-entry-image span {
     display: block;
     padding: 14px;
-    background: var(--ink);
+    background: var(--strong);
     color: white;
     border-radius: 14px;
     text-align: center;
@@ -1651,7 +1651,7 @@ th {
     border: 1px solid var(--line);
     border-radius: 24px;
     overflow: hidden;
-    background: white;
+    background: var(--paper);
     display: flex;
     flex-direction: column;
 }
@@ -1749,7 +1749,7 @@ th {
     margin-top: 28px;
 }
 .campus-image-grid figure {
-    background: white;
+    background: var(--paper);
     border-radius: 16px;
     padding: 18px;
     margin: 0;
@@ -1837,7 +1837,7 @@ th {
     text-decoration: none;
 }
 .campus-shortcuts a:hover {
-    background: var(--ink);
+    background: var(--strong);
     color: white;
 }
 
@@ -1893,7 +1893,7 @@ th {
     right: 0;
     min-width: 180px;
     padding: 12px;
-    background: white;
+    background: var(--paper);
     border: 1px solid var(--surface);
     border-radius: 6px;
     box-shadow: 0 10px 20px #12333d0c;

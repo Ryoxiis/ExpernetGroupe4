@@ -4,8 +4,8 @@
 <div class="hero-copy">
 <div class="eyebrow">
 <span class="little-line">
-</span> VOTRE AVENIR SE FORME ICI</div>
-<h1>Votre prochain<br>déclic est <span class="word-digital">digital.<svg viewBox="0 0 330 20" aria-hidden="true">
+</span> Votre avenir se forme ici</div>
+<h1>Votre prochain<br> déclic est <span class="word-digital">digital.<svg viewBox="0 0 330 20" aria-hidden="true">
 <path d="M4 13 Q170 -3 325 9"/>
 </svg>
 </span>
@@ -76,7 +76,7 @@
 <div class="wrap">
 <div class="section-heading">
 <div>
-<div class="eyebrow">À CHAQUE AMBITION, SA FORMATION</div>
+<div class="eyebrow">À chaque ambition, sa formation</div>
 <h2>Et vous, quelle sera<br>votre prochaine <span class="serif">compétence ?</span>
 </h2>
 </div>
@@ -130,7 +130,7 @@
 </div>
 </div>
 </div>
-<section class="section campus-entry"><div class="wrap campus-split"><div><div class="eyebrow">VOUS CONSTRUISEZ VOTRE AVENIR ?</div><h2>Un diplôme.<br><em>Un métier qui vous ressemble.</em></h2><p>Avec Expernet Campus, formez-vous en alternance aux métiers de l’informatique et du marketing digital, du BAC+2 au BAC+5, à La Réunion et à Mayotte.</p><a class="button button-orange" href="<?= e(url('/campus/')) ?>">Découvrir Expernet Campus ↗</a><a class="text-link campus-secondary" href="<?= e(url('/campus/inscription/')) ?>">Préparer ma candidature →</a></div><a class="campus-entry-image" href="<?= e(url('/campus/')) ?>"><img src="<?= asset('assets/images/official/3c2f9d599a1a6fc25c.png') ?>" alt="Des étudiants d’Expernet Campus" loading="lazy"><span>BAC+2 → BAC+5 · Alternance</span></a></div></section>
+<section class="section campus-entry"><div class="wrap campus-split"><div><div class="eyebrow">Vous construisez votre avenir ?</div><h2>Un diplôme.<br><em>Un métier qui vous ressemble.</em></h2><p>Avec Expernet Campus, formez-vous en alternance aux métiers de l’informatique et du marketing digital, du BAC+2 au BAC+5, à La Réunion et à Mayotte.</p><a class="button button-orange" href="<?= e(url('/campus/')) ?>">Découvrir Expernet Campus ↗</a><a class="text-link campus-secondary" href="<?= e(url('/campus/inscription/')) ?>">Préparer ma candidature →</a></div><a class="campus-entry-image" href="<?= e(url('/campus/')) ?>"><img src="<?= asset('assets/images/official/3c2f9d599a1a6fc25c.png') ?>" alt="Des étudiants d’Expernet Campus" loading="lazy"><span>BAC+2 → BAC+5 · Alternance</span></a></div></section>
 
 <section class="approach section" id="approche">
 <div class="wrap approach-grid">
@@ -142,26 +142,23 @@
 </div>
 </div>
 <div class="approach-copy">
-<div class="eyebrow">DES COMPÉTENCES, MAIS PAS SEULEMENT</div>
+<div class="eyebrow">Des compétences, mais pas seulement</div>
 <h2>Un vrai partenaire.<br>Pour votre <span class="serif">prochain pas.</span>
 </h2>
 <p>En reconversion, débutant ou professionnel : nous vous accompagnons avec un programme adapté à votre niveau et un encadrement pédagogique de proximité.</p>
 <div class="benefit">
-<span>01</span>
 <div>
 <h3>Des experts qui partagent leur terrain</h3>
 <p>Des formateurs professionnels et des compétences en phase avec les besoins du marché.</p>
 </div>
 </div>
 <div class="benefit">
-<span>02</span>
 <div>
 <h3>Un parcours qui vous ressemble</h3>
 <p>En inter-entreprise, en intra-entreprise ou sur mesure : choisissez le format adapté à votre besoin.</p>
 </div>
 </div>
 <div class="benefit">
-<span>03</span>
 <div>
 <h3>Une équipe proche de vous</h3>
 <p>Des interlocuteurs à votre écoute, à La Réunion et à Mayotte, pour construire votre projet.</p>
@@ -174,27 +171,24 @@
 </section>
 <section class="section paths-section">
 <div class="wrap">
-<div class="eyebrow">PLUSIEURS FAÇONS D’AVANCER</div>
+<div class="eyebrow">Plusieurs façons d’avancer</div>
 <h2>Votre objectif.<br>
 <span class="serif">Le bon format.</span>
 </h2>
 <div class="path-grid">
 <article>
-<span class="path-number">01 /</span>
 <h3>Pour vous</h3>
 <p>Rejoignez une session inter-entreprise et apprenez aux côtés de professionnels d’horizons variés.</p>
 <a href="#formations" class="text-link">Choisir ma formation <span>↗</span>
 </a>
 </article>
 <article>
-<span class="path-number">02 /</span>
 <h3>Pour votre équipe</h3>
 <p>Réunissez vos collaborateurs autour d’une formation intra-entreprise dédiée à leurs besoins.</p>
 <button class="text-link" data-devis>Former mon équipe <span>↗</span>
 </button>
 </article>
 <article>
-<span class="path-number">03 /</span>
 <h3>Sur mesure</h3>
 <p>Construisons un programme ciblé sur vos objectifs, votre contexte et votre niveau.</p>
 <button class="text-link" data-devis>Construire mon parcours <span>↗</span>
@@ -206,7 +200,7 @@
 <section class="section planning-section" id="planning">
 <div class="wrap planning-layout">
 <div>
-<div class="eyebrow">ON SE RETROUVE BIENTÔT ?</div>
+<div class="eyebrow">On se retrouve bientôt ?</div>
 <h2>Vos prochains<br>
 <span class="serif">rendez-vous.</span>
 </h2>
@@ -252,7 +246,7 @@
 <div class="wrap">
 <div class="section-heading">
 <div>
-<div class="eyebrow">LE NUMÉRIQUE N’ATTEND PAS</div>
+<div class="eyebrow">Le numérique n’attend pas</div>
 <h2>Gardez une longueur <span class="serif">d’avance.</span>
 </h2>
 </div>
@@ -287,7 +281,7 @@
 <section class="contact-banner">
 <div class="wrap">
 <div>
-<div class="eyebrow">TOUT COMMENCE PAR UN ÉCHANGE</div>
+<div class="eyebrow">Tout commence par un échange</div>
 <h2>Votre projet mérite<br>un <span class="serif">vrai déclic.</span>
 </h2>
 </div>

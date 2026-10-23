@@ -32,7 +32,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     font-size: 16px;
-    background: #fff;
+    background: var(--paper);
 }
 
 a {
@@ -107,7 +107,7 @@ h3 {
 }
 
 .topbar {
-    background: var(--ink);
+    background: var(--strong);
     color: #fff;
     font-size: 12px;
     letter-spacing: 0.01em;
@@ -149,7 +149,7 @@ h3 {
 }
 
 header {
-    background: #fff;
+    background: var(--paper);
     position: sticky;
     top: 0;
     z-index: 15;
@@ -244,7 +244,7 @@ nav a {
 }
 
 .button-dark {
-    background: var(--ink);
+    background: var(--strong);
     color: #fff;
 }
 
@@ -467,7 +467,7 @@ h1 {
 
 .floating-label {
     position: absolute;
-    background: #fff;
+    background: var(--paper);
     box-shadow: 0 12px 40px #12333d12;
     border: 1px solid #f1f4f1;
     border-radius: 9px;
@@ -578,7 +578,7 @@ h1 {
     display: flex;
     align-items: center;
     gap: 15px;
-    background: #fff;
+    background: var(--paper);
     box-shadow: 0 5px 20px #12333d05;
 }
 
@@ -619,7 +619,7 @@ h1 {
     border: 1px solid var(--line);
     border-radius: 30px;
     padding: 9px 16px;
-    background: white;
+    background: var(--paper);
     font-size: 11px;
     font-weight: 700;
     color: var(--muted);
@@ -632,7 +632,7 @@ h1 {
 }
 
 .filter.active {
-    background: var(--ink);
+    background: var(--strong);
     border-color: var(--ink);
     color: #fff;
 }
@@ -655,7 +655,7 @@ h1 {
     border: 1px solid var(--line);
     border-radius: 11px;
     overflow: hidden;
-    background: #fff;
+    background: var(--paper);
     display: flex;
     flex-direction: column;
     transition:
@@ -693,7 +693,7 @@ h1 {
     font-size: 9px;
     font-weight: 900;
     letter-spacing: 0.6px;
-    background: #fff;
+    background: var(--paper);
     border-radius: 3px;
     padding: 6px 8px;
     color: var(--ink);
@@ -802,7 +802,7 @@ h1 {
     position: absolute;
     bottom: 0;
     right: -22px;
-    background: var(--ink);
+    background: var(--strong);
     color: white;
     padding: 24px 30px;
     display: flex;
@@ -905,7 +905,7 @@ h1 {
 }
 
 .planning-section {
-    background: var(--ink);
+    background: var(--strong);
     color: white;
 }
 
@@ -1212,7 +1212,7 @@ dialog .demo-note {
     left: 12px;
     top: -100px;
     z-index: 99;
-    background: white;
+    background: var(--paper);
     padding: 15px;
 }
 
@@ -1380,7 +1380,7 @@ dialog .demo-note {
         top: 79px;
         left: 0;
         right: 0;
-        background: white;
+        background: var(--paper);
         padding: 25px;
         box-shadow: 0 10px 20px #12333d0c;
         font-size: 15px;

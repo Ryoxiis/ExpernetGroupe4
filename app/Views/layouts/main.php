@@ -13,6 +13,8 @@
     <?php if (($page['view'] ?? '') === 'pages/home'): ?>
     <link rel="stylesheet" href="<?= asset('assets/css/home-stories.css') ?>?v=3">
     <?php endif; ?>
+    <link rel="stylesheet" href="<?= asset('assets/css/appearance.css') ?>">
+    <link rel="stylesheet" href="<?= asset('assets/css/responsive.css') ?>">
 </head>
 <body>
     <?= $view->render('partials/header') ?>

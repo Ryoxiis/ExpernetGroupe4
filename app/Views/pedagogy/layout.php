@@ -3,6 +3,7 @@
     <head>
     <meta charset="utf-8">
     <link rel="preload" href="<?= asset('assets/fonts/inter-variable.woff2') ?>" as="font" type="font/woff2" crossorigin>
+    <script src="<?= asset('assets/js/theme.js') ?>"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,nofollow">
     <title><?= e($title) ?> - Expernet</title>
@@ -10,11 +11,13 @@
     <link rel="stylesheet" href="<?= asset('assets/css/pages.css') ?>">
     <link rel="stylesheet" href="<?= asset('assets/css/pedagogy.css') ?>">
     <?php if ($user): ?><link rel="stylesheet" href="<?= asset('assets/css/chat.css') ?>"><?php endif; ?>
+    <link rel="stylesheet" href="<?= asset('assets/css/appearance.css') ?>">
+    <link rel="stylesheet" href="<?= asset('assets/css/responsive.css') ?>">
     </head>
     <body class="pedagogy">
 <a class="skip" href="#contenu">Aller au contenu</a>
         <header class="portal-header"><a href="<?= e(url('/')) ?>" class="official-brand"><img class="official-logo" src="<?= asset('assets/images/logo-officiel-bleu.png') ?>" alt="Expernet - retour au site"></a><a class="portal-wordmark" href="<?= e(url('/espace-pedagogique/')) ?>">Espace pédagogique</a>
-            <div class="portal-header-actions"><?php if ($user): ?><span><?= e($user['name']) ?></span>
+            <div class="portal-header-actions"><?= $view->render('partials/appearance') ?><?php if ($user): ?><span><?= e($user['name']) ?></span>
                 <form action="<?= e(url('/connexion/deconnexion/')) ?>" method="post">
                     <input type="hidden" name="csrf" value="<?= e($csrf) ?>">
                     <button class="portal-link" type="submit">Se déconnecter
