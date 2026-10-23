@@ -19,7 +19,7 @@ final class View
     /** @param array<string, mixed> $data */
     public function render(string $name, array $data = []): string
     {
-        if (!preg_match('/^[a-z0-9_\/-]+$/D', $name) || str_contains($name, '..')) {
+        if (!Text::containsOnly($name, 'abcdefghijklmnopqrstuvwxyz0123456789_/-') || str_contains($name, '..')) {
             throw new RuntimeException('Nom de vue invalide.');
         }
 

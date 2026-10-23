@@ -24,7 +24,10 @@ final class HtmlContent
         foreach ($blocks as $block) {
             $tag = $block['tag'];
             if ($tag === 'anchor') {
-                if (preg_match('/^[A-Za-z][A-Za-z0-9_-]{0,100}$/', $block['id'] ?? '')) {
+                $id = $block['id'] ?? '';
+                if (is_string($id) && strlen($id) <= 101
+                    && Text::containsOnly($id[0] ?? '', Text::LETTERS)
+                    && Text::containsOnly($id, Text::LETTERS . Text::DIGITS . '_-')) {
                     $output .= '<span id="' . \e($block['id']) . '" class="source-anchor"></span>';
                 }
                 continue;
@@ -104,7 +107,7 @@ final class HtmlContent
 
     public function safeUrl(string $href): ?string
     {
-        if (preg_match('/[\x00-\x20]/', $href)) {
+        if (Text::hasControlCharacters($href, true)) {
             return null;
         }
         $scheme = strtolower(parse_url($href, PHP_URL_SCHEME) ?: '');

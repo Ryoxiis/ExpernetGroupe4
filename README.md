@@ -127,3 +127,12 @@ Lire [CONTRIBUTING.md](CONTRIBUTING.md), [l’architecture](docs/ARCHITECTURE.md
 Ne jamais versionner `.env`, des mots de passe, les données MySQL ou des documents privés. Le lanceur du portail charge `.env` ; les variables déjà présentes dans le processus restent prioritaires.
 
 Les textes, logos et images Expernet servent au prototype et ne sont pas placés sous une nouvelle licence libre. Les composants tiers conservent leurs licences, dont Bootstrap et [Inter](public/assets/fonts/INTER-LICENSE.txt). Les droits de publication doivent être validés avec Expernet.
+
+## Linux avec LAMP
+
+Pour servir le site avec **Apache + PHP et le MySQL persistant** :
+`php bin/serve-apache.php 8088`, puis ouvrir http://127.0.0.1:8088/.
+Pour installer le site dans le service Apache système :
+`sudo bash bin/install-lamp.sh` depuis ce dossier, puis http://expernet.local/.
+Le mot de passe administrateur Ubuntu doit être saisi dans votre terminal.
+Voir [la procédure LAMP](docs/LAMP.md) pour les prérequis, permissions, tests et limites.
