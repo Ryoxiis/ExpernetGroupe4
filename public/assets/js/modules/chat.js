@@ -226,15 +226,16 @@ if (host) {
             ? ''
             : 'La visioconférence doit être configurée par l’administrateur technique.';
     }
-    async function select(id) {
-        if (active) {
-            try {
-                sessionStorage.setItem(
-                    draftKey(active),
-                    form.elements.content.value,
-                );
-            } catch {}
+    function saveDraft() {
+        if (!active) return;
+        try {
+            sessionStorage.setItem(draftKey(active), form.elements.content.value);
+        } catch {
+            /* Storage is optional. */
         }
+    }
+    async function select(id) {
+        saveDraft();
         generation++;
         active = id;
         history = [];
@@ -465,13 +466,7 @@ if (host) {
     form.addEventListener('input', () => {
         pendingKey = null;
         controls(Boolean(active));
-        if (active)
-            try {
-                sessionStorage.setItem(
-                    draftKey(active),
-                    form.elements.content.value,
-                );
-            } catch {}
+        saveDraft();
     });
     form.addEventListener(
         'submit',

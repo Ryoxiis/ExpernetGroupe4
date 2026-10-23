@@ -8,11 +8,11 @@ if (in_array($argv[1] ?? '', ['migrate', 'seed-demo', 'bootstrap-admin'], true))
     require $root . '/bin/portal.php';
     exit;
 }
-$app = require $root.'/bootstrap/app.php';
+require $root.'/bootstrap/app.php';
 try {
-    $db = App\Support\Database::connect(require $root.'/config/database.php');
-    $db->query('SELECT id FROM portal_users LIMIT 1');
-    $db->query('SELECT name FROM portal_locks LIMIT 1');
+    App\Support\Database::checkPortalSchema(
+        App\Support\Database::connect(require $root . '/config/database.php'),
+    );
 } catch (Throwable) {
     fwrite(STDERR, "Base pédagogique indisponible ou migrations manquantes. Vérifiez MySQL et DB_HOST/DB_PORT/DB_DATABASE/DB_USERNAME/DB_PASSWORD dans .env.\nPuis exécutez les migrations avec la même configuration : php bin/serve-portal.php migrate\n");
     exit(1);

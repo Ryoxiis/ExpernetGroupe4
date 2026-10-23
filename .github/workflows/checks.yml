@@ -12,9 +12,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Vérification des doublons
+        run: npm run audit:duplicates
       - run: find app bootstrap config public tests -name '*.php' -print0 | xargs -0 -n1 php -l
       - run: php tests/run.php
       - run: php tests/content_coverage.php
+      - run: php tests/view_components.php
+      - run: php tests/refactoring.php
+      - run: node tests/chat_drafts.test.js
       - run: node tests/frontend.test.js
       - run: |
           php -S 127.0.0.1:8080 -t public public/router.php > /tmp/expernet-php.log 2>&1 &
