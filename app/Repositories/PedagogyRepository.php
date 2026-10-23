@@ -25,9 +25,7 @@ final class PedagogyRepository
 
     public function all(string $sql, array $params = []): array
     {
-        $statement = $this->db->prepare($sql);
-        $statement->execute($params);
-        return $statement->fetchAll();
+        return $this->query($sql, $params)->fetchAll();
     }
 
     public function one(string $sql, array $params = []): ?array
@@ -38,9 +36,7 @@ final class PedagogyRepository
 
     public function execute(string $sql, array $params = []): int
     {
-        $statement = $this->db->prepare($sql);
-        $statement->execute($params);
-        return $statement->rowCount();
+        return $this->query($sql, $params)->rowCount();
     }
 
     public function insert(string $sql, array $params = []): int

@@ -310,11 +310,15 @@ h1 {
     margin-bottom: 25px;
 }
 
-.word-digital {
+.word-digital,
+.serif {
     font-family: var(--font-body);
     font-style: italic;
     font-weight: 400;
     color: var(--blue);
+}
+
+.word-digital {
     display: inline-block;
     position: relative;
 }
@@ -551,13 +555,6 @@ h1 {
     max-width: 325px;
     font-size: 14px;
     color: var(--muted);
-}
-
-.serif {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-weight: 400;
-    color: var(--blue);
 }
 
 .search-form {

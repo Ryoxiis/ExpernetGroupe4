@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "php tests/run.php && php tests/content_coverage.php && php tests/portal_views.php && node tests/frontend.test.js && node tests/assets.test.js",
+    "test": "php tests/run.php && php tests/content_coverage.php && php tests/portal_views.php && php tests/view_components.php && node tests/frontend.test.js && node tests/assets.test.js",
     "test:http": "python3 tests/http_smoke.py",
     "start": "php -S 127.0.0.1:8080 -t public public/router.php",
-    "audit:duplicates": "npx --yes jscpd@5.4.2 app public/assets/js public/assets/css bootstrap config bin --min-lines 5 --min-tokens 50 --threshold 0 --reporters console"
+    "audit:duplicates": "npx --yes jscpd@5.4.2 app public/assets/js public/assets/css bootstrap config bin --min-lines 5 --min-tokens 50 --threshold 0 --reporters console",
+    "audit:duplicates:detailed": "npx --yes jscpd@5.4.2 app public/assets/js public/assets/css bootstrap config bin --min-lines 3 --min-tokens 25 --reporters console,json --output storage/audit-duplicates"
   }
 }

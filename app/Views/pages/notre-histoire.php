@@ -1,15 +1,8 @@
-<section class="page-hero">
-<div class="wrap">
-<div class="breadcrumbs">
-<a href="<?= e(url('/')) ?>">Accueil</a>
-<span>/</span>
-<span>Une histoire de transmission</span>
-</div>
-<div class="eyebrow">DEPUIS 2002, À VOS CÔTÉS</div>
-<h1>Une histoire de transmission</h1>
-<p>Une aventure humaine et des compétences qui se développent à La Réunion et à Mayotte.</p>
-</div>
-</section>
+<?= $view->render('partials/hero', [
+    'title' => 'Une histoire de transmission',
+    'kicker' => 'DEPUIS 2002, À VOS CÔTÉS',
+    'description' => 'Une aventure humaine et des compétences qui se développent à La Réunion et à Mayotte.',
+]) ?>
 <section class="section">
 <div class="wrap timeline">
 <article class="timeline-item">
@@ -40,9 +33,6 @@
 <p>Le Campus EXPERNET s’ouvre à l’Océan Indien comme le Groupe MDSI. C’est une réelle volonté d’offrir les mêmes perspectives de réussite à Mayotte que sur le territoire de la Réunion, et cela en faisant un dupliquer de notre savoir-faire. Le fonctionnement du campus de Mayotte reste identique à la Réunion, en proposant les diplômes des écoles de métropole spécialisés en informatique, pour permettre de développer les compétences localement. L’enjeu est de taille car EXPERNET devient le premier centre de formation à Mayotte qui propose un cursus BAC+4 en informatique, une réelle fierté pour nos équipes et leur engagement !</p>
 </div>
 </article>
-<div class="source-note">
-<span>Contenu relevé le 22 octobre 2026. Tarifs, dates et modalités à confirmer auprès d’Expernet.</span>
-<a href="https://expernet.re/notre-histoire/" target="_blank" rel="noopener">Consulter la source officielle ↗</a>
-</div>
+<?= $view->render('partials/source-note', ['source' => 'https://expernet.re/notre-histoire/']) ?>
 </div>
 </section>

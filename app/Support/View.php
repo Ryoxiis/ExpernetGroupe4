@@ -31,6 +31,7 @@ final class View
         ob_start();
         try {
             // EXTR_SKIP prevents template data from replacing internal variables.
+            $view = $this; // Les sous-vues peuvent réutiliser les mêmes composants.
             extract($data, EXTR_SKIP);
             require $file;
             return (string) ob_get_clean();
