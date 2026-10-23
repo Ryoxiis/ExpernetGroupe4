@@ -8,7 +8,7 @@ if ($basePath !== '' && !preg_match('/^[a-zA-Z0-9_\/-]+$/D', $basePath)) {
 }
 
 return [
-    'name' => 'Expernet — Projet de refonte',
+    'name' => 'Expernet - Projet de refonte',
     'environment' => getenv('APP_ENV') ?: 'local',
     'base_path' => $basePath === '' ? '' : '/' . $basePath,
     'timezone' => 'Indian/Reunion',

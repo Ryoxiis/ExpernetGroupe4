@@ -160,7 +160,7 @@
     "slug": "vmware-vsphere-niveau-1"
   },
   "/formation/lecture-de-plan-beton/": {
-    "title": "Lecture de plan – Béton",
+    "title": "Lecture de plan - Béton",
     "type": "course",
     "slug": "lecture-de-plan-beton"
   },
@@ -255,12 +255,12 @@
     "slug": "conduite-de-projet-marketing"
   },
   "/formation/android/": {
-    "title": "Android – développer des applications mobiles",
+    "title": "Android - développer des applications mobiles",
     "type": "course",
     "slug": "android"
   },
   "/formation/ajax-developpement-pour-le-web-2-0/": {
-    "title": "AJAX – Développer pour le web 2.0",
+    "title": "AJAX - Développer pour le web 2.0",
     "type": "course",
     "slug": "ajax-developpement-pour-le-web-2-0"
   },
@@ -295,7 +295,7 @@
     "slug": "microsoft-365-outils-collaboratifs"
   },
   "/formation/blender-initiation-a-la-3d/": {
-    "title": "Blender – Initiation à la 3D",
+    "title": "Blender - Initiation à la 3D",
     "type": "course",
     "slug": "blender-initiation-a-la-3d"
   },
@@ -305,17 +305,17 @@
     "slug": "les-fondamentaux-du-bim"
   },
   "/formation/access-perfectionnement/": {
-    "title": "Access – Perfectionnement",
+    "title": "Access - Perfectionnement",
     "type": "course",
     "slug": "access-perfectionnement"
   },
   "/formation/access-initiation/": {
-    "title": "Access – Initiation",
+    "title": "Access - Initiation",
     "type": "course",
     "slug": "access-initiation"
   },
   "/formation/access-langage-vba/": {
-    "title": "Access – langage VBA",
+    "title": "Access - langage VBA",
     "type": "course",
     "slug": "access-langage-vba"
   },
@@ -330,7 +330,7 @@
     "slug": "integration-smsi-avec-iso-27001"
   },
   "/formation/dpo/": {
-    "title": "DPO – Délégué à la Protection des Données",
+    "title": "DPO - Délégué à la Protection des Données",
     "type": "course",
     "slug": "dpo"
   },
@@ -350,12 +350,12 @@
     "slug": "ia-marketing-digital"
   },
   "/formation/canva-ia-creez-vos-visuels-facilement/": {
-    "title": "CANVA IA – Créez vos visuels facilement",
+    "title": "CANVA IA - Créez vos visuels facilement",
     "type": "course",
     "slug": "canva-ia-creez-vos-visuels-facilement"
   },
   "/formation/adobe-illustrator-perfectionnement/": {
-    "title": "ADOBE ILLUSTRATOR – Perfectionnement",
+    "title": "ADOBE ILLUSTRATOR - Perfectionnement",
     "type": "course",
     "slug": "adobe-illustrator-perfectionnement"
   },
@@ -365,7 +365,7 @@
     "slug": "cisco-ccna"
   },
   "/formation/gns3-simulation-de-reseautage/": {
-    "title": "GNS3 – Simulation de réseautage",
+    "title": "GNS3 - Simulation de réseautage",
     "type": "course",
     "slug": "gns3-simulation-de-reseautage"
   },
@@ -395,7 +395,7 @@
     "slug": "strategie-de-communication"
   },
   "/formation/referencement-naturel-seo/": {
-    "title": "Référencement naturel – SEO",
+    "title": "Référencement naturel - SEO",
     "type": "course",
     "slug": "referencement-naturel-seo"
   },
@@ -430,17 +430,17 @@
     "slug": "proxmox"
   },
   "/formation/linux-administration-niveau-2/": {
-    "title": "Linux Administration – Niveau 2",
+    "title": "Linux Administration - Niveau 2",
     "type": "course",
     "slug": "linux-administration-niveau-2"
   },
   "/formation/linux-administration-niveau-1/": {
-    "title": "Linux Administration – Niveau 1",
+    "title": "Linux Administration - Niveau 1",
     "type": "course",
     "slug": "linux-administration-niveau-1"
   },
   "/formation/glpi/": {
-    "title": "GLPI – OCS INVENTORY NG",
+    "title": "GLPI - OCS INVENTORY NG",
     "type": "course",
     "slug": "glpi"
   },
@@ -450,7 +450,7 @@
     "slug": "publisher"
   },
   "/formation/adobe-illustrator-initiation/": {
-    "title": "ADOBE ILLUSTRATOR – Initiation",
+    "title": "ADOBE ILLUSTRATOR - Initiation",
     "type": "course",
     "slug": "adobe-illustrator-initiation"
   },
@@ -460,22 +460,22 @@
     "slug": "libreoffice-openoffice-impress"
   },
   "/formation/libreoffice-openoffice-calc-perfectionnement/": {
-    "title": "LibreOffice/OpenOffice CALC – Perfectionnement",
+    "title": "LibreOffice/OpenOffice CALC - Perfectionnement",
     "type": "course",
     "slug": "libreoffice-openoffice-calc-perfectionnement"
   },
   "/formation/libreoffice-openoffice-calc-initiation/": {
-    "title": "LibreOffice/OpenOffice CALC – Initiation",
+    "title": "LibreOffice/OpenOffice CALC - Initiation",
     "type": "course",
     "slug": "libreoffice-openoffice-calc-initiation"
   },
   "/formation/libreoffice-openoffice-writer-perfectionnement/": {
-    "title": "LibreOffice/OpenOffice Writer – Perfectionnement",
+    "title": "LibreOffice/OpenOffice Writer - Perfectionnement",
     "type": "course",
     "slug": "libreoffice-openoffice-writer-perfectionnement"
   },
   "/formation/bootstrap-2/": {
-    "title": "LibreOffice/OpenOffice Writer – Initiation",
+    "title": "LibreOffice/OpenOffice Writer - Initiation",
     "type": "course",
     "slug": "bootstrap-2"
   },
@@ -505,17 +505,17 @@
     "slug": "solidworks"
   },
   "/formation/revit-perfectionnement/": {
-    "title": "REVIT – Perfectionnement",
+    "title": "REVIT - Perfectionnement",
     "type": "course",
     "slug": "revit-perfectionnement"
   },
   "/formation/revit-initiation/": {
-    "title": "REVIT – Initiation",
+    "title": "REVIT - Initiation",
     "type": "course",
     "slug": "revit-initiation"
   },
   "/formation/autocad-2d-perfectionnement/": {
-    "title": "AUTOCAD 2D – Perfectionnement",
+    "title": "AUTOCAD 2D - Perfectionnement",
     "type": "course",
     "slug": "autocad-2d-perfectionnement"
   },
@@ -635,12 +635,12 @@
     "slug": "rgpd"
   },
   "/formation/php-mysql-perfectionnement/": {
-    "title": "PHP/MySQL – Perfectionnement",
+    "title": "PHP/MySQL - Perfectionnement",
     "type": "course",
     "slug": "php-mysql-perfectionnement"
   },
   "/formation/php-mysql-initiation/": {
-    "title": "PHP/MySQL – Initiation",
+    "title": "PHP/MySQL - Initiation",
     "type": "course",
     "slug": "php-mysql-initiation"
   },
@@ -650,7 +650,7 @@
     "slug": "langage-sql"
   },
   "/formation/gimp-initiation/": {
-    "title": "Gimp – Initiation",
+    "title": "Gimp - Initiation",
     "type": "course",
     "slug": "gimp-initiation"
   },
@@ -685,7 +685,7 @@
     "slug": "ilustrator"
   },
   "/formation/photoshop-perfectionnement/": {
-    "title": "Photoshop – Perfectionnement",
+    "title": "Photoshop - Perfectionnement",
     "type": "course",
     "slug": "photoshop-perfectionnement"
   },
@@ -730,7 +730,7 @@
     "slug": "methodes-agiles-scrum"
   },
   "/formation/itil-4-les-fondamentaux/": {
-    "title": "ITIL 4 – LES FONDAMENTAUX",
+    "title": "ITIL 4 - LES FONDAMENTAUX",
     "type": "course",
     "slug": "itil-4-les-fondamentaux"
   },
@@ -760,12 +760,12 @@
     "slug": "package-initiation-bureautique"
   },
   "/formation/powerpoint-perfectionnement/": {
-    "title": "Powerpoint – Perfectionnement",
+    "title": "Powerpoint - Perfectionnement",
     "type": "course",
     "slug": "powerpoint-perfectionnement"
   },
   "/formation/powerpoint-initiation/": {
-    "title": "Powerpoint – Initiation",
+    "title": "Powerpoint - Initiation",
     "type": "course",
     "slug": "powerpoint-initiation"
   },
@@ -780,22 +780,22 @@
     "slug": "outlook"
   },
   "/formation/word-perfectionnement/": {
-    "title": "Word – Perfectionnement",
+    "title": "Word - Perfectionnement",
     "type": "course",
     "slug": "word-perfectionnement"
   },
   "/formation/word-initiation/": {
-    "title": "Word – Initiation",
+    "title": "Word - Initiation",
     "type": "course",
     "slug": "word-initiation"
   },
   "/formation/excel-fonctions-essentielles-perf-tcd/": {
-    "title": "Excel – Fonctions Essentielles Perf & TCD",
+    "title": "Excel - Fonctions Essentielles Perf & TCD",
     "type": "course",
     "slug": "excel-fonctions-essentielles-perf-tcd"
   },
   "/formation/excel-base-de-donnees-tableaux-croises-dynamiques/": {
-    "title": "Excel – Base de données & Tableaux Croisés Dynamiques",
+    "title": "Excel - Base de données & Tableaux Croisés Dynamiques",
     "type": "course",
     "slug": "excel-base-de-donnees-tableaux-croises-dynamiques"
   },
@@ -805,7 +805,7 @@
     "slug": "excel-perfectionnement"
   },
   "/formation/excel-initiation/": {
-    "title": "Excel – Initiation",
+    "title": "Excel - Initiation",
     "type": "course",
     "slug": "excel-initiation"
   },
@@ -815,7 +815,7 @@
     "slug": "initiation-a-linternet"
   },
   "/formation/windows-11-utilisateurs/": {
-    "title": "WINDOWS 11 – Utilisateurs",
+    "title": "WINDOWS 11 - Utilisateurs",
     "type": "course",
     "slug": "windows-11-utilisateurs"
   },
@@ -825,12 +825,12 @@
     "slug": "watchguard-fireware-essentials"
   },
   "/formation/adobe-express-fonctions-essentielles-et-usages-principaux/": {
-    "title": "Adobe Express – Fonctions essentielles et usages principaux",
+    "title": "Adobe Express - Fonctions essentielles et usages principaux",
     "type": "course",
     "slug": "adobe-express-fonctions-essentielles-et-usages-principaux"
   },
   "/formation/adobe-photoshop-initiation/": {
-    "title": "Adobe Photoshop – Initiation",
+    "title": "Adobe Photoshop - Initiation",
     "type": "course",
     "slug": "adobe-photoshop-initiation"
   },
@@ -965,7 +965,7 @@
     "id": 1325
   },
   "/reforme-de-la-formation-professionnelle-et-de-lapprentissage-ce-qui-nous-attend/": {
-    "title": "Réforme de la Formation Professionnelle et de l’Apprentissage – Ce qui nous attend !",
+    "title": "Réforme de la Formation Professionnelle et de l’Apprentissage - Ce qui nous attend !",
     "type": "article",
     "id": 1197
   },
@@ -1315,7 +1315,7 @@
     "source": "https://expernet-campus.re/interview-de-romain-auberger-directeur-de-ingenierie-pedagogique/"
   },
   "/campus/journee-portes-ouvertes-23-mars-2022/": {
-    "title": "Journée Portes Ouvertes – 23 mars 2022",
+    "title": "Journée Portes Ouvertes - 23 mars 2022",
     "type": "source",
     "source": "https://expernet-campus.re/journee-portes-ouvertes-23-mars-2022/"
   },
@@ -1335,7 +1335,7 @@
     "source": "https://expernet-campus.re/article-1/"
   },
   "/campus/formation/bac2-graphiste-multimedia-ia/": {
-    "title": "Graphiste, Multimédia & IA – BAC+2",
+    "title": "Graphiste, Multimédia & IA - BAC+2",
     "type": "source",
     "source": "https://expernet-campus.re/formation/bac2-graphiste-multimedia-ia/"
   },

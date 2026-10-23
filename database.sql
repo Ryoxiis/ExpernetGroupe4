@@ -1,5 +1,5 @@
 -- =============================================================================
--- Projet Expernet — Schéma Relationnel et Données de Démonstration
+-- Projet Expernet - Schéma Relationnel et Données de Démonstration
 -- Fichier : database.sql
 -- Base de données : MySQL 8.0+ / 8.4 LTS
 -- Encodage : utf8mb4 / utf8mb4_unicode_ci
@@ -507,11 +507,11 @@ INSERT INTO `portal_messages` (`id`, `cohort_id`, `author_id`, `body`, `created_
 
 -- Document modèle partagé
 INSERT INTO `portal_resources` (`id`, `cohort_id`, `session_id`, `author_id`, `title`, `stored_name`, `original_name`, `mime`, `created_at`) VALUES
-  (1, 1, 1, 2, 'Support de cours — Architecture PHP & SQL', 'guide-architecture.txt', 'guide-architecture.txt', 'text/plain', UTC_TIMESTAMP());
+  (1, 1, 1, 2, 'Support de cours - Architecture PHP & SQL', 'guide-architecture.txt', 'guide-architecture.txt', 'text/plain', UTC_TIMESTAMP());
 
 -- Examen officiel et jury
 INSERT INTO `portal_exams` (`id`, `cohort_id`, `title`, `starts_at`, `location`) VALUES
-  (1, 1, 'Épreuve Titre CDA — Session Finale 2026', DATE_ADD(UTC_TIMESTAMP(), INTERVAL 30 DAY), 'Centre d examen Expernet (Sainte-Clotilde)');
+  (1, 1, 'Épreuve Titre CDA - Session Finale 2026', DATE_ADD(UTC_TIMESTAMP(), INTERVAL 30 DAY), 'Centre d examen Expernet (Sainte-Clotilde)');
 
 INSERT INTO `portal_jury` (`exam_id`, `user_id`) VALUES
   (1, 2), -- Alex Formateur

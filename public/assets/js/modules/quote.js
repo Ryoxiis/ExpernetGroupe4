@@ -20,7 +20,7 @@ export function initQuote() {
             .join('\n')}`;
         const result = document.querySelector('#quote-result');
         const subject = encodeURIComponent(
-            `Projet de formation — ${data.formation || 'Conseil'}`,
+            `Projet de formation - ${data.formation || 'Conseil'}`,
         );
         result.hidden = false;
         result.innerHTML = `<h2>Votre demande est préparée.</h2>

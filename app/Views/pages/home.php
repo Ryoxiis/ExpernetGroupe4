@@ -49,6 +49,7 @@
 </div>
 </div>
 </section>
+<?php require PROJECT_ROOT . '/app/Views/partials/home-carousel.php'; ?>
 <section class="home-orientation" aria-labelledby="orientation-title">
     <div class="wrap">
         <h2 id="orientation-title">Quel est votre projet ?</h2>
@@ -62,6 +63,11 @@
                 <h3>Préparer un diplôme</h3>
                 <p>Un parcours en alternance avec Expernet Campus, du BAC+2 au BAC+5.</p>
                 <a class="text-link" href="<?= e(url('/campus/')) ?>">Découvrir les diplômes <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="orientation-card">
+                <h3>Retrouver mes cours</h3>
+                <p>Déjà en formation ? Votre planning, vos documents et vos échanges sont réunis dans votre espace.</p>
+                <a class="text-link" href="<?= e(url('/espace-pedagogique/')) ?>">Accéder à mon espace <span aria-hidden="true">→</span></a>
             </article>
         </div>
     </div>
@@ -214,7 +220,7 @@
 <strong>26</strong>OCT. 2026</span>
 <span>
 <small>BUREAUTIQUE</small>
-<h3>Word — Initiation</h3>
+<h3>Word - Initiation</h3>
 <p>2 jours · Tout public</p>
 </span>
 <span class="session-arrow">↗</span>
@@ -224,7 +230,7 @@
 <strong>12</strong>NOV. 2026</span>
 <span>
 <small>BUREAUTIQUE</small>
-<h3>Microsoft 365 — Outils collaboratifs</h3>
+<h3>Microsoft 365 - Outils collaboratifs</h3>
 <p>2 jours · Utilisateurs de Microsoft 365</p>
 </span>
 <span class="session-arrow">↗</span>

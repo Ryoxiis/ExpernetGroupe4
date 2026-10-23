@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Expernet — Discussions",
+    "title": "Expernet - Discussions",
     "version": "1.0.0",
     "description": "Sessions serveur du portail. Toutes les écritures exigent X-CSRF-Token. Aucun accès implicite aux conversations privées pour les administrateurs."
   },

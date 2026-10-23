@@ -7,7 +7,7 @@
 </p>
 <div class="session-list"><?php foreach ($state['sessions'] as $s): ?>
     <article class="portal-card session-card">
-        <p class="portal-eyebrow"><?= e($fmt($s['starts_at'], 'd/m/Y')) ?> · <?= e($fmt($s['starts_at'], 'H:i')) ?>–<?= e($fmt($s['ends_at'], 'H:i')) ?>
+        <p class="portal-eyebrow"><?= e($fmt($s['starts_at'], 'd/m/Y')) ?> · <?= e($fmt($s['starts_at'], 'H:i')) ?>-<?= e($fmt($s['ends_at'], 'H:i')) ?>
         </p>
         <h2><?= e($s['title']) ?>
         </h2>
